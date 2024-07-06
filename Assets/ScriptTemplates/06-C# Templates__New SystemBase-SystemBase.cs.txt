@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Entities;
+using Unity.Mathematics;
+using Unity.Transforms;
+using UnityEngine;
+using Unity.Collections;
+
+#ROOTNAMESPACEBEGIN#
+    [UpdateInGroup(typeof(TomomiCoreSystemGroup))]
+    public partial class #SCRIPTNAME# : SystemBase
+    {
+        //private YOUR_CONTROLLER controller;
+        #NOTRIM#
+        protected override void OnCreate()
+        {
+            RequireForUpdate<InGameRunningComponent>();
+            // RequireForUpdate<YOUR_DATA_COMPONENT>();
+        }
+
+        protected override void OnStartRunning()
+        {
+            //controller = GameManager.Instance.GetController<YOUR_CONTROLLER>();
+            #NOTRIM#
+        }
+
+        protected override void OnStopRunning()
+        {
+            #NOTRIM#
+        }
+
+        protected override void OnUpdate()
+        {
+            //var player = SystemAPI.GetSingletonEntity<PlayerTagComponent>();
+            #NOTRIM#
+            //Entities.ForEach((ref YOUR_DATA_COMPONENT dataA, ref YOUR_DATA_COMPONENT dataB) =>
+			//{
+				#NOTRIM#
+				#NOTRIM#
+			//}).ScheduleParallel();
+            #NOTRIM#
+            //foreach (var (stats, transform, owner) in SystemAPI.Query<
+			//RefRW<StatsComponent>, RefRO<LocalTransform>>().WithEntityAccess())
+			//{
+				#NOTRIM#
+                #NOTRIM#
+			//}
+        }
+    }
+#ROOTNAMESPACEEND#
+

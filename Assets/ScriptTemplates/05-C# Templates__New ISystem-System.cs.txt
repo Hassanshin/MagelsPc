@@ -1,0 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Burst;
+using Unity.Entities;
+using Unity.Jobs;
+using Unity.Mathematics;
+using Unity.Transforms;
+using UnityEngine;
+using Unity.Collections;
+
+#ROOTNAMESPACEBEGIN#
+    [UpdateInGroup(typeof(TomomiCoreSystemGroup))]
+    public partial struct #SCRIPTNAME# : ISystem
+    {
+        public void OnCreate(ref SystemState state)
+        {
+            state.RequireForUpdate<InGameRunningComponent>();
+            // state.RequireForUpdate<YOUR_DATA_COMPONENT>();
+        }
+
+        [BurstCompile]
+        public void OnUpdate(ref SystemState state)
+        {
+            var deltaTime = SystemAPI.Time.DeltaTime;
+            var multiplierDeltaTime = SystemAPI.GetSingleton<MultiplierDeltaTimeComponent>().Value;
+			var ecbParallel = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter();
+            #NOTRIM#
+            JobHandle #SCRIPTNAME#JobHandle = new #SCRIPTNAME#Job
+            {
+                deltaTime = deltaTime,
+                multiplierDeltaTime = multiplierDeltaTime,
+				ecb = ecbParallel,
+                #NOTRIM#
+                #NOTRIM#
+            }.ScheduleParallel(state.Dependency);
+            #NOTRIM#
+            #SCRIPTNAME#JobHandle.Complete();
+        }
+    }
+
+    [BurstCompile]
+    public partial struct #SCRIPTNAME#Job : IJobEntity
+    {
+        public float deltaTime;
+        public float multiplierDeltaTime;
+		public EntityCommandBuffer.ParallelWriter ecb;
+        #NOTRIM#
+        #NOTRIM#
+        [BurstCompile]
+        public void Execute(Entity owner, [ChunkIndexInQuery] int chunkIndex)
+        {
+            #NOTRIM#
+        }
+    }
+#ROOTNAMESPACEEND#
+
