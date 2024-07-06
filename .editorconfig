@@ -1,0 +1,120 @@
+# Unity C# .editorconfig
+
+root = true
+
+# All files
+[*]
+charset = utf-8-bom
+indent_style = space
+indent_size = 4
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = false
+
+# C# files
+[*.cs]
+# Private fields must start with an underscore and be camelCase
+dotnet_diagnostic.IDE1006.severity = warning
+dotnet_style_field_prefix = _
+dotnet_style_field_must_be_camel_case = true
+dotnet_style_field_must_be_lower_camel_case = true
+
+# Public fields must start with an uppercase letter and be camelCase
+dotnet_diagnostic.IDE1006.public_field_naming_style = PascalCase
+
+# Local variables should start with a lowercase letter and be camelCase
+dotnet_diagnostic.IDE1006.local_variable_naming_style = camelCase
+
+# Constants must be in ALL CAPS with MACRO_CASE
+dotnet_diagnostic.IDE1006.constant_field_naming_style = ALL_CAPS_MACRO_CASE
+
+# Namespace declaration must match folder structure
+dotnet_naming_rule.namespace_should_match_folder_structure.severity = warning
+
+# File name should match class name
+dotnet_naming_rule.filename_should_match_classname.severity = warning
+
+# Space preferences
+dotnet_space_after_cast = false
+dotnet_space_after_colon_in_inheritance_clause = true
+dotnet_space_after_comma = true
+dotnet_space_after_dot = false
+dotnet_space_after_keywords_in_control_flow_statements = true
+dotnet_space_after_semicolon_in_for_statement = true
+dotnet_space_around_binary_operators = before_and_after
+dotnet_space_around_declaration_statements = do_not_ignore
+dotnet_space_before_colon_in_inheritance_clause = true
+dotnet_space_before_comma = false
+dotnet_space_before_dot = false
+dotnet_space_before_open_square_brackets = false
+dotnet_space_before_semicolon_in_for_statement = false
+dotnet_space_between_empty_square_brackets = false
+dotnet_space_between_method_call_empty_parameter_list_parentheses = false
+dotnet_space_between_method_call_name_and_opening_parenthesis = false
+dotnet_space_between_method_call_parameter_list_parentheses = false
+dotnet_space_between_method_declaration_empty_parameter_list_parentheses = false
+dotnet_space_between_method_declaration_name_and_open_parenthesis = false
+dotnet_space_between_method_declaration_parameter_list_parentheses = false
+dotnet_space_between_parentheses = false
+dotnet_space_between_square_brackets = false
+
+# Parameters should be spaced after a comma
+dotnet_diagnostic.SA1001.severity = warning
+
+# Example for naming rules
+dotnet_naming_rule.private_fields_with_underscores.severity = suggestion
+dotnet_naming_rule.private_fields_with_underscores.symbols = private_fields
+dotnet_naming_rule.private_fields_with_underscores.style = private_fields_underscore_style
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field, local
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_fields.required_modifiers = ""
+
+dotnet_naming_style.private_fields_underscore_style.capitalization = camel_case
+dotnet_naming_style.private_fields_underscore_style.required_prefix = _
+# dotnet_naming_style.private_fields_underscore_style.required_suffix = ""
+
+# Constants naming rule
+dotnet_naming_rule.constants_all_caps_macro_case.severity = suggestion
+dotnet_naming_rule.constants_all_caps_macro_case.symbols = constants
+dotnet_naming_rule.constants_all_caps_macro_case.style = all_caps_macro_case_style
+
+dotnet_naming_symbols.constants.applicable_kinds = field, local
+dotnet_naming_symbols.constants.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.constants.required_modifiers = const
+
+dotnet_naming_style.all_caps_macro_case_style.capitalization = all_upper
+dotnet_naming_style.all_caps_macro_case_style.word_separator = _
+
+# Public fields naming rule
+dotnet_naming_rule.public_fields_pascale_case.severity = suggestion
+dotnet_naming_rule.public_fields_pascale_case.symbols = public_fields
+dotnet_naming_rule.public_fields_pascale_case.style = pascal_case_style
+
+dotnet_naming_symbols.public_fields.applicable_kinds = field
+dotnet_naming_symbols.public_fields.applicable_accessibilities = public
+dotnet_naming_symbols.public_fields.required_modifiers = ""
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Private methods should start with a lowercase letter and be camelCase
+dotnet_naming_rule.private_methods_camel_case.severity = suggestion
+dotnet_naming_rule.private_methods_camel_case.symbols = private_methods
+dotnet_naming_rule.private_methods_camel_case.style = camel_case_style
+
+dotnet_naming_symbols.private_methods.applicable_kinds = method
+dotnet_naming_symbols.private_methods.applicable_accessibilities = private
+dotnet_naming_symbols.private_methods.required_modifiers = ""
+
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+
+# Public methods should start with an uppercase letter and be PascalCase
+dotnet_naming_rule.public_methods_pascal_case.severity = suggestion
+dotnet_naming_rule.public_methods_pascal_case.symbols = public_methods
+dotnet_naming_rule.public_methods_pascal_case.style = pascal_case_style
+
+dotnet_naming_symbols.public_methods.applicable_kinds = method
+dotnet_naming_symbols.public_methods.applicable_accessibilities = public
+dotnet_naming_symbols.public_methods.required_modifiers = ""
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
