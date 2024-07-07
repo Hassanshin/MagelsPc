@@ -60,7 +60,7 @@ namespace Hash.HashMap
 			_check9.Dispose();
 		}
 
-		// [BurstCompile]
+		[BurstCompile]
 		public void OnUpdate(ref SystemState state)
 		{
 			// Log(currentSeed);
@@ -91,7 +91,7 @@ namespace Hash.HashMap
 				data.ValueRW.PartitionId = partitionId;
 			}
 			
-			UnityEngine.Debug.Log("" + Hash.Count());
+			// UnityEngine.Debug.Log("" + Hash.Count());
 			
 			// reading
 			foreach (var (data, LocalTransform, dead, owner) in SystemAPI.Query<
