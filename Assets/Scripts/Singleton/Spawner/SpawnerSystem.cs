@@ -57,7 +57,7 @@ public partial struct SpawnerSystem : ISystem
 			float2 pos = RandomPos(-_areaPartitionSingleton.FullAreaSize.x * 0.5f, _areaPartitionSingleton.FullAreaSize.x * 0.5f);
 			state.EntityManager.SetComponentData(spawned, LocalTransform.FromPosition(new float3(pos.x, 0, pos.y)));
 			
-			float v = 100;// Random.NextFloat(1, 5);
+			float v = Random.NextFloat(1, 5);
 			state.EntityManager.SetComponentData(spawned, new Tertle.DestroyCleanup.DestroyByDurationComponent 
 			{
 				Duration = v,

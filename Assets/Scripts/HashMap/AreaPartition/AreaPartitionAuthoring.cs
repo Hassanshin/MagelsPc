@@ -81,23 +81,23 @@ using System.Collections.Generic;
 				FullAreaSize = authoring.Size,
 			});
 			
-			bakeBuffer(entity, authoring.Partitions, authoring.Spacing * 0.5f);
+			// bakeBuffer(entity, authoring.Partitions, authoring.Spacing * 0.5f);
 		}
 		
-		private void bakeBuffer(Entity entity, List<float2> list, float size)
-		{
-			DynamicBuffer<AreaPartitionBuffer> buffer = AddBuffer<AreaPartitionBuffer>(entity);
-			buffer.Length = list.Count;
+		// private void bakeBuffer(Entity entity, List<float2> list, float size)
+		// {
+		// 	DynamicBuffer<AreaPartitionBuffer> buffer = AddBuffer<AreaPartitionBuffer>(entity);
+		// 	buffer.Length = list.Count;
 			
-			for (int i = 0; i < list.Count; i++)
-			{
-				buffer[i] = new AreaPartitionBuffer 
-				{ 
-					Min = list[i].y - size, 
-					Max = list[i].x + size,
-				};	
-			}
-		}
+		// 	for (int i = 0; i < list.Count; i++)
+		// 	{
+		// 		buffer[i] = new AreaPartitionBuffer 
+		// 		{ 
+		// 			Min = list[i].y - size, 
+		// 			Max = list[i].x + size,
+		// 		};	
+		// 	}
+		// }
 	}
 
 	public struct AreaPartitionSingleton : IComponentData
