@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 10
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -44,6 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,6 +67,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -119,6 +123,918 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &712462190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712462191}
+  - component: {fileID: 712462192}
+  - component: {fileID: 712462193}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712462191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712462190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712462192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712462190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd4fd55ee0bea646a62049450d1e790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxSpawnCount: 100
+  EnemyList:
+  - {fileID: 9165146422413619724, guid: 264c66ecb246d3444876c34cf257bd21, type: 3}
+  - {fileID: 9165146422413619724, guid: 4c5c69c0aa81fe3428388abe2c6ddbdd, type: 3}
+--- !u!114 &712462193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712462190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9684372fd208958438a5862115ae2f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 1
+--- !u!1 &1446209610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1446209611}
+  - component: {fileID: 1446209612}
+  m_Layer: 0
+  m_Name: Partition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1446209611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446209610}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1446209612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446209610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76a33b2b67e1d24fb327cda497855a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Size:
+    x: 100
+    y: 100
+  Color: {r: 1, g: 1, b: 1, a: 0.43137255}
+  Spacing: 5
+  Partitions:
+  - x: -47.5
+    y: -47.5
+  - x: -47.5
+    y: -42.5
+  - x: -47.5
+    y: -37.5
+  - x: -47.5
+    y: -32.5
+  - x: -47.5
+    y: -27.5
+  - x: -47.5
+    y: -22.5
+  - x: -47.5
+    y: -17.5
+  - x: -47.5
+    y: -12.5
+  - x: -47.5
+    y: -7.5
+  - x: -47.5
+    y: -2.5
+  - x: -47.5
+    y: 2.5
+  - x: -47.5
+    y: 7.5
+  - x: -47.5
+    y: 12.5
+  - x: -47.5
+    y: 17.5
+  - x: -47.5
+    y: 22.5
+  - x: -47.5
+    y: 27.5
+  - x: -47.5
+    y: 32.5
+  - x: -47.5
+    y: 37.5
+  - x: -47.5
+    y: 42.5
+  - x: -47.5
+    y: 47.5
+  - x: -42.5
+    y: -47.5
+  - x: -42.5
+    y: -42.5
+  - x: -42.5
+    y: -37.5
+  - x: -42.5
+    y: -32.5
+  - x: -42.5
+    y: -27.5
+  - x: -42.5
+    y: -22.5
+  - x: -42.5
+    y: -17.5
+  - x: -42.5
+    y: -12.5
+  - x: -42.5
+    y: -7.5
+  - x: -42.5
+    y: -2.5
+  - x: -42.5
+    y: 2.5
+  - x: -42.5
+    y: 7.5
+  - x: -42.5
+    y: 12.5
+  - x: -42.5
+    y: 17.5
+  - x: -42.5
+    y: 22.5
+  - x: -42.5
+    y: 27.5
+  - x: -42.5
+    y: 32.5
+  - x: -42.5
+    y: 37.5
+  - x: -42.5
+    y: 42.5
+  - x: -42.5
+    y: 47.5
+  - x: -37.5
+    y: -47.5
+  - x: -37.5
+    y: -42.5
+  - x: -37.5
+    y: -37.5
+  - x: -37.5
+    y: -32.5
+  - x: -37.5
+    y: -27.5
+  - x: -37.5
+    y: -22.5
+  - x: -37.5
+    y: -17.5
+  - x: -37.5
+    y: -12.5
+  - x: -37.5
+    y: -7.5
+  - x: -37.5
+    y: -2.5
+  - x: -37.5
+    y: 2.5
+  - x: -37.5
+    y: 7.5
+  - x: -37.5
+    y: 12.5
+  - x: -37.5
+    y: 17.5
+  - x: -37.5
+    y: 22.5
+  - x: -37.5
+    y: 27.5
+  - x: -37.5
+    y: 32.5
+  - x: -37.5
+    y: 37.5
+  - x: -37.5
+    y: 42.5
+  - x: -37.5
+    y: 47.5
+  - x: -32.5
+    y: -47.5
+  - x: -32.5
+    y: -42.5
+  - x: -32.5
+    y: -37.5
+  - x: -32.5
+    y: -32.5
+  - x: -32.5
+    y: -27.5
+  - x: -32.5
+    y: -22.5
+  - x: -32.5
+    y: -17.5
+  - x: -32.5
+    y: -12.5
+  - x: -32.5
+    y: -7.5
+  - x: -32.5
+    y: -2.5
+  - x: -32.5
+    y: 2.5
+  - x: -32.5
+    y: 7.5
+  - x: -32.5
+    y: 12.5
+  - x: -32.5
+    y: 17.5
+  - x: -32.5
+    y: 22.5
+  - x: -32.5
+    y: 27.5
+  - x: -32.5
+    y: 32.5
+  - x: -32.5
+    y: 37.5
+  - x: -32.5
+    y: 42.5
+  - x: -32.5
+    y: 47.5
+  - x: -27.5
+    y: -47.5
+  - x: -27.5
+    y: -42.5
+  - x: -27.5
+    y: -37.5
+  - x: -27.5
+    y: -32.5
+  - x: -27.5
+    y: -27.5
+  - x: -27.5
+    y: -22.5
+  - x: -27.5
+    y: -17.5
+  - x: -27.5
+    y: -12.5
+  - x: -27.5
+    y: -7.5
+  - x: -27.5
+    y: -2.5
+  - x: -27.5
+    y: 2.5
+  - x: -27.5
+    y: 7.5
+  - x: -27.5
+    y: 12.5
+  - x: -27.5
+    y: 17.5
+  - x: -27.5
+    y: 22.5
+  - x: -27.5
+    y: 27.5
+  - x: -27.5
+    y: 32.5
+  - x: -27.5
+    y: 37.5
+  - x: -27.5
+    y: 42.5
+  - x: -27.5
+    y: 47.5
+  - x: -22.5
+    y: -47.5
+  - x: -22.5
+    y: -42.5
+  - x: -22.5
+    y: -37.5
+  - x: -22.5
+    y: -32.5
+  - x: -22.5
+    y: -27.5
+  - x: -22.5
+    y: -22.5
+  - x: -22.5
+    y: -17.5
+  - x: -22.5
+    y: -12.5
+  - x: -22.5
+    y: -7.5
+  - x: -22.5
+    y: -2.5
+  - x: -22.5
+    y: 2.5
+  - x: -22.5
+    y: 7.5
+  - x: -22.5
+    y: 12.5
+  - x: -22.5
+    y: 17.5
+  - x: -22.5
+    y: 22.5
+  - x: -22.5
+    y: 27.5
+  - x: -22.5
+    y: 32.5
+  - x: -22.5
+    y: 37.5
+  - x: -22.5
+    y: 42.5
+  - x: -22.5
+    y: 47.5
+  - x: -17.5
+    y: -47.5
+  - x: -17.5
+    y: -42.5
+  - x: -17.5
+    y: -37.5
+  - x: -17.5
+    y: -32.5
+  - x: -17.5
+    y: -27.5
+  - x: -17.5
+    y: -22.5
+  - x: -17.5
+    y: -17.5
+  - x: -17.5
+    y: -12.5
+  - x: -17.5
+    y: -7.5
+  - x: -17.5
+    y: -2.5
+  - x: -17.5
+    y: 2.5
+  - x: -17.5
+    y: 7.5
+  - x: -17.5
+    y: 12.5
+  - x: -17.5
+    y: 17.5
+  - x: -17.5
+    y: 22.5
+  - x: -17.5
+    y: 27.5
+  - x: -17.5
+    y: 32.5
+  - x: -17.5
+    y: 37.5
+  - x: -17.5
+    y: 42.5
+  - x: -17.5
+    y: 47.5
+  - x: -12.5
+    y: -47.5
+  - x: -12.5
+    y: -42.5
+  - x: -12.5
+    y: -37.5
+  - x: -12.5
+    y: -32.5
+  - x: -12.5
+    y: -27.5
+  - x: -12.5
+    y: -22.5
+  - x: -12.5
+    y: -17.5
+  - x: -12.5
+    y: -12.5
+  - x: -12.5
+    y: -7.5
+  - x: -12.5
+    y: -2.5
+  - x: -12.5
+    y: 2.5
+  - x: -12.5
+    y: 7.5
+  - x: -12.5
+    y: 12.5
+  - x: -12.5
+    y: 17.5
+  - x: -12.5
+    y: 22.5
+  - x: -12.5
+    y: 27.5
+  - x: -12.5
+    y: 32.5
+  - x: -12.5
+    y: 37.5
+  - x: -12.5
+    y: 42.5
+  - x: -12.5
+    y: 47.5
+  - x: -7.5
+    y: -47.5
+  - x: -7.5
+    y: -42.5
+  - x: -7.5
+    y: -37.5
+  - x: -7.5
+    y: -32.5
+  - x: -7.5
+    y: -27.5
+  - x: -7.5
+    y: -22.5
+  - x: -7.5
+    y: -17.5
+  - x: -7.5
+    y: -12.5
+  - x: -7.5
+    y: -7.5
+  - x: -7.5
+    y: -2.5
+  - x: -7.5
+    y: 2.5
+  - x: -7.5
+    y: 7.5
+  - x: -7.5
+    y: 12.5
+  - x: -7.5
+    y: 17.5
+  - x: -7.5
+    y: 22.5
+  - x: -7.5
+    y: 27.5
+  - x: -7.5
+    y: 32.5
+  - x: -7.5
+    y: 37.5
+  - x: -7.5
+    y: 42.5
+  - x: -7.5
+    y: 47.5
+  - x: -2.5
+    y: -47.5
+  - x: -2.5
+    y: -42.5
+  - x: -2.5
+    y: -37.5
+  - x: -2.5
+    y: -32.5
+  - x: -2.5
+    y: -27.5
+  - x: -2.5
+    y: -22.5
+  - x: -2.5
+    y: -17.5
+  - x: -2.5
+    y: -12.5
+  - x: -2.5
+    y: -7.5
+  - x: -2.5
+    y: -2.5
+  - x: -2.5
+    y: 2.5
+  - x: -2.5
+    y: 7.5
+  - x: -2.5
+    y: 12.5
+  - x: -2.5
+    y: 17.5
+  - x: -2.5
+    y: 22.5
+  - x: -2.5
+    y: 27.5
+  - x: -2.5
+    y: 32.5
+  - x: -2.5
+    y: 37.5
+  - x: -2.5
+    y: 42.5
+  - x: -2.5
+    y: 47.5
+  - x: 2.5
+    y: -47.5
+  - x: 2.5
+    y: -42.5
+  - x: 2.5
+    y: -37.5
+  - x: 2.5
+    y: -32.5
+  - x: 2.5
+    y: -27.5
+  - x: 2.5
+    y: -22.5
+  - x: 2.5
+    y: -17.5
+  - x: 2.5
+    y: -12.5
+  - x: 2.5
+    y: -7.5
+  - x: 2.5
+    y: -2.5
+  - x: 2.5
+    y: 2.5
+  - x: 2.5
+    y: 7.5
+  - x: 2.5
+    y: 12.5
+  - x: 2.5
+    y: 17.5
+  - x: 2.5
+    y: 22.5
+  - x: 2.5
+    y: 27.5
+  - x: 2.5
+    y: 32.5
+  - x: 2.5
+    y: 37.5
+  - x: 2.5
+    y: 42.5
+  - x: 2.5
+    y: 47.5
+  - x: 7.5
+    y: -47.5
+  - x: 7.5
+    y: -42.5
+  - x: 7.5
+    y: -37.5
+  - x: 7.5
+    y: -32.5
+  - x: 7.5
+    y: -27.5
+  - x: 7.5
+    y: -22.5
+  - x: 7.5
+    y: -17.5
+  - x: 7.5
+    y: -12.5
+  - x: 7.5
+    y: -7.5
+  - x: 7.5
+    y: -2.5
+  - x: 7.5
+    y: 2.5
+  - x: 7.5
+    y: 7.5
+  - x: 7.5
+    y: 12.5
+  - x: 7.5
+    y: 17.5
+  - x: 7.5
+    y: 22.5
+  - x: 7.5
+    y: 27.5
+  - x: 7.5
+    y: 32.5
+  - x: 7.5
+    y: 37.5
+  - x: 7.5
+    y: 42.5
+  - x: 7.5
+    y: 47.5
+  - x: 12.5
+    y: -47.5
+  - x: 12.5
+    y: -42.5
+  - x: 12.5
+    y: -37.5
+  - x: 12.5
+    y: -32.5
+  - x: 12.5
+    y: -27.5
+  - x: 12.5
+    y: -22.5
+  - x: 12.5
+    y: -17.5
+  - x: 12.5
+    y: -12.5
+  - x: 12.5
+    y: -7.5
+  - x: 12.5
+    y: -2.5
+  - x: 12.5
+    y: 2.5
+  - x: 12.5
+    y: 7.5
+  - x: 12.5
+    y: 12.5
+  - x: 12.5
+    y: 17.5
+  - x: 12.5
+    y: 22.5
+  - x: 12.5
+    y: 27.5
+  - x: 12.5
+    y: 32.5
+  - x: 12.5
+    y: 37.5
+  - x: 12.5
+    y: 42.5
+  - x: 12.5
+    y: 47.5
+  - x: 17.5
+    y: -47.5
+  - x: 17.5
+    y: -42.5
+  - x: 17.5
+    y: -37.5
+  - x: 17.5
+    y: -32.5
+  - x: 17.5
+    y: -27.5
+  - x: 17.5
+    y: -22.5
+  - x: 17.5
+    y: -17.5
+  - x: 17.5
+    y: -12.5
+  - x: 17.5
+    y: -7.5
+  - x: 17.5
+    y: -2.5
+  - x: 17.5
+    y: 2.5
+  - x: 17.5
+    y: 7.5
+  - x: 17.5
+    y: 12.5
+  - x: 17.5
+    y: 17.5
+  - x: 17.5
+    y: 22.5
+  - x: 17.5
+    y: 27.5
+  - x: 17.5
+    y: 32.5
+  - x: 17.5
+    y: 37.5
+  - x: 17.5
+    y: 42.5
+  - x: 17.5
+    y: 47.5
+  - x: 22.5
+    y: -47.5
+  - x: 22.5
+    y: -42.5
+  - x: 22.5
+    y: -37.5
+  - x: 22.5
+    y: -32.5
+  - x: 22.5
+    y: -27.5
+  - x: 22.5
+    y: -22.5
+  - x: 22.5
+    y: -17.5
+  - x: 22.5
+    y: -12.5
+  - x: 22.5
+    y: -7.5
+  - x: 22.5
+    y: -2.5
+  - x: 22.5
+    y: 2.5
+  - x: 22.5
+    y: 7.5
+  - x: 22.5
+    y: 12.5
+  - x: 22.5
+    y: 17.5
+  - x: 22.5
+    y: 22.5
+  - x: 22.5
+    y: 27.5
+  - x: 22.5
+    y: 32.5
+  - x: 22.5
+    y: 37.5
+  - x: 22.5
+    y: 42.5
+  - x: 22.5
+    y: 47.5
+  - x: 27.5
+    y: -47.5
+  - x: 27.5
+    y: -42.5
+  - x: 27.5
+    y: -37.5
+  - x: 27.5
+    y: -32.5
+  - x: 27.5
+    y: -27.5
+  - x: 27.5
+    y: -22.5
+  - x: 27.5
+    y: -17.5
+  - x: 27.5
+    y: -12.5
+  - x: 27.5
+    y: -7.5
+  - x: 27.5
+    y: -2.5
+  - x: 27.5
+    y: 2.5
+  - x: 27.5
+    y: 7.5
+  - x: 27.5
+    y: 12.5
+  - x: 27.5
+    y: 17.5
+  - x: 27.5
+    y: 22.5
+  - x: 27.5
+    y: 27.5
+  - x: 27.5
+    y: 32.5
+  - x: 27.5
+    y: 37.5
+  - x: 27.5
+    y: 42.5
+  - x: 27.5
+    y: 47.5
+  - x: 32.5
+    y: -47.5
+  - x: 32.5
+    y: -42.5
+  - x: 32.5
+    y: -37.5
+  - x: 32.5
+    y: -32.5
+  - x: 32.5
+    y: -27.5
+  - x: 32.5
+    y: -22.5
+  - x: 32.5
+    y: -17.5
+  - x: 32.5
+    y: -12.5
+  - x: 32.5
+    y: -7.5
+  - x: 32.5
+    y: -2.5
+  - x: 32.5
+    y: 2.5
+  - x: 32.5
+    y: 7.5
+  - x: 32.5
+    y: 12.5
+  - x: 32.5
+    y: 17.5
+  - x: 32.5
+    y: 22.5
+  - x: 32.5
+    y: 27.5
+  - x: 32.5
+    y: 32.5
+  - x: 32.5
+    y: 37.5
+  - x: 32.5
+    y: 42.5
+  - x: 32.5
+    y: 47.5
+  - x: 37.5
+    y: -47.5
+  - x: 37.5
+    y: -42.5
+  - x: 37.5
+    y: -37.5
+  - x: 37.5
+    y: -32.5
+  - x: 37.5
+    y: -27.5
+  - x: 37.5
+    y: -22.5
+  - x: 37.5
+    y: -17.5
+  - x: 37.5
+    y: -12.5
+  - x: 37.5
+    y: -7.5
+  - x: 37.5
+    y: -2.5
+  - x: 37.5
+    y: 2.5
+  - x: 37.5
+    y: 7.5
+  - x: 37.5
+    y: 12.5
+  - x: 37.5
+    y: 17.5
+  - x: 37.5
+    y: 22.5
+  - x: 37.5
+    y: 27.5
+  - x: 37.5
+    y: 32.5
+  - x: 37.5
+    y: 37.5
+  - x: 37.5
+    y: 42.5
+  - x: 37.5
+    y: 47.5
+  - x: 42.5
+    y: -47.5
+  - x: 42.5
+    y: -42.5
+  - x: 42.5
+    y: -37.5
+  - x: 42.5
+    y: -32.5
+  - x: 42.5
+    y: -27.5
+  - x: 42.5
+    y: -22.5
+  - x: 42.5
+    y: -17.5
+  - x: 42.5
+    y: -12.5
+  - x: 42.5
+    y: -7.5
+  - x: 42.5
+    y: -2.5
+  - x: 42.5
+    y: 2.5
+  - x: 42.5
+    y: 7.5
+  - x: 42.5
+    y: 12.5
+  - x: 42.5
+    y: 17.5
+  - x: 42.5
+    y: 22.5
+  - x: 42.5
+    y: 27.5
+  - x: 42.5
+    y: 32.5
+  - x: 42.5
+    y: 37.5
+  - x: 42.5
+    y: 42.5
+  - x: 42.5
+    y: 47.5
+  - x: 47.5
+    y: -47.5
+  - x: 47.5
+    y: -42.5
+  - x: 47.5
+    y: -37.5
+  - x: 47.5
+    y: -32.5
+  - x: 47.5
+    y: -27.5
+  - x: 47.5
+    y: -22.5
+  - x: 47.5
+    y: -17.5
+  - x: 47.5
+    y: -12.5
+  - x: 47.5
+    y: -7.5
+  - x: 47.5
+    y: -2.5
+  - x: 47.5
+    y: 2.5
+  - x: 47.5
+    y: 7.5
+  - x: 47.5
+    y: 12.5
+  - x: 47.5
+    y: 17.5
+  - x: 47.5
+    y: 22.5
+  - x: 47.5
+    y: 27.5
+  - x: 47.5
+    y: 32.5
+  - x: 47.5
+    y: 37.5
+  - x: 47.5
+    y: 42.5
+  - x: 47.5
+    y: 47.5
 --- !u!1 &1701026307
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,8 +1093,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -312,5 +1226,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 712462191}
   - {fileID: 1908539675}
   - {fileID: 1701026311}
+  - {fileID: 1446209611}
