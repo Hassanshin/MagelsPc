@@ -42,9 +42,18 @@ using System.Collections.Generic;
 					Partitions.Add(new float2(midX, midY));
 					
 					counter++;
-					UnityEditor.Handles.Label(new Vector3(midX, 0, midY), $"{i},{j}");
+					
+					int2 id = getAreaPartition(new float2(midX, midY));
+					UnityEditor.Handles.Label(new Vector3(midX, 0, midY), $"{id.x},{id.y}");
 				}
 			}
+		}
+		
+		private int2 getAreaPartition(float2 pos)
+		{
+			float spacing = Spacing;
+			
+			return new int2((int)math.ceil(pos.x / spacing), (int)math.ceil(pos.y / spacing));
 		}
 
 		private float getMidX(int i)

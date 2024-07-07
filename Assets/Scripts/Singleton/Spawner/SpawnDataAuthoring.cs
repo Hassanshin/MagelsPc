@@ -43,4 +43,5 @@ using UnityEngine;
 	public struct SpawnDataSingleton : IComponentData
 	{
 		public int MaxSpawnCount;
+		public int CurrentCount;
 	}
