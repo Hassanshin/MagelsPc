@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd4fd55ee0bea646a62049450d1e790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpawnCount: 1000
+  MaxSpawnCount: 100
   EnemyList:
   - {fileID: 9165146422413619724, guid: 264c66ecb246d3444876c34cf257bd21, type: 3}
   - {fileID: 9165146422413619724, guid: 4c5c69c0aa81fe3428388abe2c6ddbdd, type: 3}
