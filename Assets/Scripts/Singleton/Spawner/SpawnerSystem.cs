@@ -69,7 +69,7 @@ public partial struct SpawnerSystem : ISystem
 		
 		public float2 RandomPos(float min, float max)
 		{
-			return Random.NextFloat2Direction() * Random.NextFloat(min, max);
+			return new float2(Random.NextFloat(min, max), Random.NextFloat(min, max));
 		}
 		
 		public int2 RandomPos(int min, int max)
