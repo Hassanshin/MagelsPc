@@ -77,7 +77,7 @@ namespace Hash.HashMap
 			var readerJob = new PartitionReaderJob()
 			{
 				Check9 = _check9,
-				HashMap = Hash,
+				HashMap = Hash.AsReadOnly(),
 				// TransformLookup = TransformLookup,
 				
 			}.ScheduleParallel(state.Dependency);
@@ -92,7 +92,7 @@ namespace Hash.HashMap
 		public partial struct PartitionReaderJob : IJobEntity
 		{
 			[ReadOnly]
-			public NativeParallelMultiHashMap<int2, HashPos> HashMap;
+			public NativeParallelMultiHashMap<int2, HashPos>.ReadOnly HashMap;
 			[ReadOnly]
 			public NativeList<int2> Check9;
 			
@@ -101,30 +101,32 @@ namespace Hash.HashMap
 			{
 				for (int i = 0; i < Check9.Length; i++)
 				{
-					NativeParallelMultiHashMap<int2, HashPos>.Enumerator neighborRegion = HashMap.GetValuesForKey(data.PartitionId + Check9[i]);
+					int2 key = data.PartitionId + Check9[i];
 					
-					// var neighborRegion = HashMap.GetKeyValueArrays(data.PartitionId + Check9[i]);
-					foreach (HashPos neighbor in neighborRegion)
-					{
-						// UnityEngine.Debug.Log(data.ValueRO.PartitionId + _check9[i] + "| " + owner + "| has " + key);
-						if (neighbor.Entity == owner)
-						{
-							continue;
-						}
-						
-						// UnityEngine.Debug.DrawLine(
-						// 	new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
-						// 	new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
-						// 	UnityEngine.Color.yellow);
-						
-						if (math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1)
-						{
-							continue;
-						}
-						
-						// collide
-						
-					}
+					if (HashMap.TryGetFirstValue(key, out HashPos neighbor, out var it))
+                    {
+                        do
+                        {
+                            if (neighbor.Entity == owner)
+                            {
+                                continue;
+                            }
+                            
+                            // UnityEngine.Debug.DrawLine(
+                            //     new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
+                            //     new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
+                            //     UnityEngine.Color.yellow);
+                            
+                            if (math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1)
+                            {
+                                continue;
+                            }
+                            
+                            // collide
+                            
+
+                        } while (HashMap.TryGetNextValue(out neighbor, ref it));
+                    }
 				}
 			}
 		}
