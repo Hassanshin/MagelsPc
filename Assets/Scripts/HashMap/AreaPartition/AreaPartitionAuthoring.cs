@@ -44,7 +44,7 @@ using System.Collections.Generic;
 					counter++;
 					
 					int2 id = getAreaPartition(new float2(midX, midY));
-					UnityEditor.Handles.Label(new Vector3(midX, 0, midY), $"{id.x},{id.y}");
+					UnityEditor.Handles.Label(transform.position + new Vector3(midX, 0, midY), $"{id.x},{id.y}");
 				}
 			}
 		}
