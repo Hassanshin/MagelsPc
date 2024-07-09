@@ -13,7 +13,7 @@ using System.Collections.Generic;
 		public float2 corner => new float2(transform.position.x, transform.position.z) + (Size * 0.5f);
 		public List<float2> Partitions = new List<float2>();
 		
-		public void OnDrawGizmosSelected()
+		public void OnDrawGizmos()
 		{
 			Partitions.Clear();
 			
@@ -71,7 +71,7 @@ using System.Collections.Generic;
 	{
 		public override void Bake(AreaPartitionAuthoring authoring)
 		{
-			Entity entity = GetEntity(authoring, TransformUsageFlags.None);
+			Entity entity = GetEntity(authoring, TransformUsageFlags.Dynamic);
 			
 			AddComponent(entity, new AreaPartitionSingleton
 			{

@@ -17,6 +17,7 @@ public partial struct SpawnerSystem : ISystem
 		uint _currentSeed;
 		DynamicBuffer<SpawnDataBufferSingleton> _spawnDatas;
 		AreaPartitionSingleton _areaPartitionSingleton;
+		LocalTransform _partitionLocalTransform;
 		
 		public void OnCreate(ref SystemState state)
 		{
@@ -36,8 +37,11 @@ public partial struct SpawnerSystem : ISystem
 			float deltaTime = SystemAPI.Time.DeltaTime;
 			_spawnDataSingleton = SystemAPI.GetSingletonRW<SpawnDataSingleton>();
 			_spawnDatas = SystemAPI.GetSingletonBuffer<SpawnDataBufferSingleton>();
-			_areaPartitionSingleton = SystemAPI.GetSingleton<AreaPartitionSingleton>();
 			
+			_areaPartitionSingleton = SystemAPI.GetSingleton<AreaPartitionSingleton>();
+			SystemAPI.TryGetSingletonEntity<AreaPartitionSingleton>(out Entity partition);
+            _partitionLocalTransform = SystemAPI.GetComponentRO<LocalTransform>(partition).ValueRO;
+
 			
 			int currentCount = _query.CalculateEntityCount();
 			_spawnDataSingleton.ValueRW.CurrentCount = currentCount;
@@ -57,7 +61,7 @@ public partial struct SpawnerSystem : ISystem
 			float2 pos = RandomPos(-_areaPartitionSingleton.FullAreaSize.x * 0.5f, _areaPartitionSingleton.FullAreaSize.x * 0.5f);
 			state.EntityManager.SetComponentData(spawned, LocalTransform.FromPosition(new float3(pos.x, 0, pos.y)));
 			
-			float v = Random.NextFloat(1, 5);
+			float v = Random.NextFloat(2, 5);
 			state.EntityManager.SetComponentData(spawned, new Tertle.DestroyCleanup.DestroyByDurationComponent 
 			{
 				Duration = v,
@@ -69,7 +73,7 @@ public partial struct SpawnerSystem : ISystem
 		
 		public float2 RandomPos(float min, float max)
 		{
-			return new float2(Random.NextFloat(min, max), Random.NextFloat(min, max));
+			return _partitionLocalTransform.Position.xz + new float2(Random.NextFloat(min, max), Random.NextFloat(min, max));
 		}
 		
 		public int2 RandomPos(int min, int max)

@@ -78,7 +78,6 @@ namespace Hash.HashMap
 			{
 				Check9 = _check9,
 				HashMap = Hash.AsReadOnly(),
-				// TransformLookup = TransformLookup,
 				
 			}.ScheduleParallel(state.Dependency);
 			readerJob.Complete();
@@ -104,29 +103,29 @@ namespace Hash.HashMap
 					int2 key = data.PartitionId + Check9[i];
 					
 					if (HashMap.TryGetFirstValue(key, out HashPos neighbor, out var it))
-                    {
-                        do
-                        {
-                            if (neighbor.Entity == owner)
-                            {
-                                continue;
-                            }
-                            
-                            // UnityEngine.Debug.DrawLine(
-                            //     new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
-                            //     new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
-                            //     UnityEngine.Color.yellow);
-                            
-                            if (math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1)
-                            {
-                                continue;
-                            }
-                            
-                            // collide
-                            
+					{
+						do
+						{
+							if (neighbor.Entity == owner)
+							{
+								continue;
+							}
+							
+							UnityEngine.Debug.DrawLine(
+								new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
+								new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
+								UnityEngine.Color.yellow);
+							
+							if (math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1)
+							{
+								continue;
+							}
+							
+							// collide
+							
 
-                        } while (HashMap.TryGetNextValue(out neighbor, ref it));
-                    }
+						} while (HashMap.TryGetNextValue(out neighbor, ref it));
+					}
 				}
 			}
 		}
