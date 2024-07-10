@@ -9,15 +9,14 @@ using UnityEngine;
 using Unity.Collections;
 using Random = Unity.Mathematics.Random;
 
-public partial struct SpawnerSystem : ISystem
+	public partial struct SpawnerSystem : ISystem
 	{
 		public Random Random;
 		EntityQuery _query;
 		RefRW<SpawnDataSingleton> _spawnDataSingleton;
 		uint _currentSeed;
 		DynamicBuffer<SpawnDataBufferSingleton> _spawnDatas;
-		AreaPartitionSingleton _areaPartitionSingleton;
-		LocalTransform _partitionLocalTransform;
+		GridSingleton _gridSingleton;
 		
 		public void OnCreate(ref SystemState state)
 		{
@@ -38,9 +37,8 @@ public partial struct SpawnerSystem : ISystem
 			_spawnDataSingleton = SystemAPI.GetSingletonRW<SpawnDataSingleton>();
 			_spawnDatas = SystemAPI.GetSingletonBuffer<SpawnDataBufferSingleton>();
 			
-			_areaPartitionSingleton = SystemAPI.GetSingleton<AreaPartitionSingleton>();
-			SystemAPI.TryGetSingletonEntity<AreaPartitionSingleton>(out Entity partition);
-            _partitionLocalTransform = SystemAPI.GetComponentRO<LocalTransform>(partition).ValueRO;
+			_gridSingleton = SystemAPI.GetSingleton<GridSingleton>();
+			SystemAPI.TryGetSingletonEntity<GridSingleton>(out Entity partition);
 
 			
 			int currentCount = _query.CalculateEntityCount();
@@ -58,10 +56,15 @@ public partial struct SpawnerSystem : ISystem
 		{
 			Entity spawned = state.EntityManager.Instantiate(_spawnDatas[0].Entity);
 			
-			float2 pos = RandomPos(-_areaPartitionSingleton.FullAreaSize.x * 0.5f, _areaPartitionSingleton.FullAreaSize.x * 0.5f);
-			state.EntityManager.SetComponentData(spawned, LocalTransform.FromPosition(new float3(pos.x, 0, pos.y)));
+			float2 pos = RandomPos(-_gridSingleton.HalfSize.x, _gridSingleton.HalfSize.x);
+			state.EntityManager.SetComponentData(spawned, new LocalTransform
+			{
+				Position = new float3(pos.x, 0, pos.y),
+				Rotation = quaternion.identity,
+				Scale = _spawnDataSingleton.ValueRO.Scale,
+			});
 			
-			float v = Random.NextFloat(2, 5);
+			float v = Random.NextFloat(_spawnDataSingleton.ValueRO.MinMaxRandomDeathDelay.x, _spawnDataSingleton.ValueRO.MinMaxRandomDeathDelay.y);
 			state.EntityManager.SetComponentData(spawned, new Tertle.DestroyCleanup.DestroyByDurationComponent 
 			{
 				Duration = v,
@@ -73,7 +76,7 @@ public partial struct SpawnerSystem : ISystem
 		
 		public float2 RandomPos(float min, float max)
 		{
-			return _partitionLocalTransform.Position.xz + new float2(Random.NextFloat(min, max), Random.NextFloat(min, max));
+			return _gridSingleton.Origin + new float2(Random.NextFloat(min, max), Random.NextFloat(min, max));
 		}
 		
 		public int2 RandomPos(int min, int max)

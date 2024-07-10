@@ -2,10 +2,14 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
+namespace Baker
+{
 	public class SpawnDataAuthoring : MonoBehaviour
 	{
 		public int MaxSpawnCount = 10;
 		public GameObject[] EnemyList;
+		public float2 MinMaxRandomDeathDelay = new float2(1, 10);
+		public float Scale = 1;
 	}
 
 	public class SpawnDataAuthoringBaker : Baker<SpawnDataAuthoring>
@@ -17,6 +21,8 @@ using UnityEngine;
 			AddComponent(entity, new SpawnDataSingleton
 			{
 				MaxSpawnCount = authoring.MaxSpawnCount,
+				Scale = authoring.Scale,
+				MinMaxRandomDeathDelay = authoring.MinMaxRandomDeathDelay,
 			});
 			
 			bakeBuffer(entity, authoring.EnemyList, TransformUsageFlags.Dynamic);
@@ -34,6 +40,7 @@ using UnityEngine;
 			}
 		}
 	}
+}
 	
 	public struct SpawnDataBufferSingleton : IBufferElementData
 	{
@@ -44,4 +51,6 @@ using UnityEngine;
 	{
 		public int MaxSpawnCount;
 		public int CurrentCount;
+		public float Scale;
+		public float2 MinMaxRandomDeathDelay;
 	}

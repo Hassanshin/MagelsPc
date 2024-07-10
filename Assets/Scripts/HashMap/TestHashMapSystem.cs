@@ -25,31 +25,20 @@ namespace Hash.HashMap
 	public partial struct TestHashMapSystem : ISystem
 	{
 		public Random Random;
-		public DynamicBuffer<AreaPartitionBuffer> AreaPartitionBuffers;
-		public AreaPartitionSingleton AreaPartitionSingleton;
+		private GridSingleton _gridSingleton;
 		public Entity InGame;
-		NativeArray<int2> _check9;
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<SpawnDataBufferSingleton>();
-			state.RequireForUpdate<AreaPartitionSingleton>();
+			state.RequireForUpdate<GridSingleton>();
+			state.RequireForUpdate<EnemyIdComponent>();
 			
-			_check9 = new NativeArray<int2>(9, Allocator.Persistent);
-			_check9[0]= new int2(0, 0);
-			_check9[1]= new int2(0, 1);
-			_check9[2]= new int2(1, 0);
-			_check9[3]= new int2(0, -1);
-			_check9[4]= new int2(-1, 0);
-			_check9[5]= new int2(1, 1);
-			_check9[6]= new int2(1, -1);
-			_check9[7]= new int2(-1, 1);
-			_check9[8]= new int2(-1, -1);
 		}
 		
 		public void OnDestroy()
 		{
 			// Hash.Dispose();
-			_check9.Dispose();
+			
 		}
 
 		[BurstCompile]
@@ -58,27 +47,26 @@ namespace Hash.HashMap
 			// Log(currentSeed);
 			
 			SystemAPI.TryGetSingletonEntity<InGameSingleton>(out InGame);
-			SystemAPI.TryGetSingleton(out AreaPartitionSingleton);
-			SystemAPI.TryGetSingletonEntity<AreaPartitionSingleton>(out Entity partition);
+			SystemAPI.TryGetSingleton(out _gridSingleton);
+			SystemAPI.TryGetSingletonEntity<GridSingleton>(out Entity partition);
 			// Log(SpawnDatas.IsCreated);
 			
-			var Hash = new NativeParallelMultiHashMap<int2, HashPos>(1024, Allocator.TempJob);
+			var Hash = new NativeParallelMultiHashMap<int, HashPos>(1024, Allocator.TempJob);
 			// Log(Partitions.Length);
 			
 			// writing
 			var writerJob = new PartitionWriterJob()
 			{
 				HashMap = Hash.AsParallelWriter(),
-				Spacing = AreaPartitionSingleton.Spacing,
+				GridSingleton = _gridSingleton,
 			}.ScheduleParallel(state.Dependency);
 			writerJob.Complete();
 			
 			// reading
 			var readerJob = new PartitionReaderJob()
 			{
-				Check9 = _check9,
 				HashMap = Hash.AsReadOnly(),
-				
+				GridSingleton = _gridSingleton,
 			}.ScheduleParallel(state.Dependency);
 			readerJob.Complete();
 			
@@ -91,17 +79,22 @@ namespace Hash.HashMap
 		public partial struct PartitionReaderJob : IJobEntity
 		{
 			[ReadOnly]
-			public NativeParallelMultiHashMap<int2, HashPos>.ReadOnly HashMap;
+			public NativeParallelMultiHashMap<int, HashPos>.ReadOnly HashMap;
+			
 			[ReadOnly]
-			public NativeArray<int2> Check9;
+			public GridSingleton GridSingleton;
 			
 			[BurstCompile]
 			public void Execute(ref EnemyIdComponent data, in LocalTransform ownerPos, [ChunkIndexInQuery] int chunkIndex, Entity owner)
 			{
-				for (int i = 0; i < Check9.Length; i++)
+				int checkRadius = 2;
+				NativeList<int> neighbors = new(GridSingleton.CalculateNeighborCount(checkRadius), Allocator.Temp);
+				neighbors.AddNoResize(data.PartitionId);
+				GridSingleton.GetNeighborId(ref neighbors, data.PartitionId, checkRadius);
+				
+				for (int i = 0; i < neighbors.Length; i++)
 				{
-					int2 key = data.PartitionId + Check9[i];
-					
+					int key = neighbors[i];// + Check9[i];
 					if (HashMap.TryGetFirstValue(key, out HashPos neighbor, out var it))
 					{
 						do
@@ -111,10 +104,10 @@ namespace Hash.HashMap
 								continue;
 							}
 							
-							UnityEngine.Debug.DrawLine(
-								new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
-								new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
-								UnityEngine.Color.yellow);
+							// UnityEngine.Debug.DrawLine(
+							// 	new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
+							// 	new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
+							// 	UnityEngine.Color.yellow);
 							
 							if (math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1)
 							{
@@ -127,21 +120,24 @@ namespace Hash.HashMap
 						} while (HashMap.TryGetNextValue(out neighbor, ref it));
 					}
 				}
+				
+				neighbors.Dispose();
 			}
 		}
 		
 		[BurstCompile]
 		public partial struct PartitionWriterJob : IJobEntity
 		{
-			public NativeParallelMultiHashMap<int2, HashPos>.ParallelWriter HashMap;
-			public float Spacing;
+			public NativeParallelMultiHashMap<int, HashPos>.ParallelWriter HashMap;
+			[ReadOnly]
+			public GridSingleton GridSingleton;
 			
 			[BurstCompile]
 			public void Execute(in LocalTransform localTransform, ref EnemyIdComponent data,
 				[ChunkIndexInQuery] int chunkIndex, Entity owner)
 			{
 				float2 pos = localTransform.Position.xz;
-				int2 partitionId = getAreaPartition(pos);
+				int partitionId = GridSingleton.GetIdFromPos(pos);
 				// UnityEngine.Debug.Log(partitionId + " " + pos);
 				HashMap.Add(partitionId, new HashPos
 				{
@@ -150,11 +146,6 @@ namespace Hash.HashMap
 				});
 				
 				data.PartitionId = partitionId;
-			}
-			
-			private int2 getAreaPartition(float2 pos)
-			{
-				return new int2((int)math.ceil(pos.x / Spacing), (int)math.ceil(pos.y / Spacing));
 			}
 		}
 

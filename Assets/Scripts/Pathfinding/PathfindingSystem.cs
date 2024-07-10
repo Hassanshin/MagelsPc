@@ -16,7 +16,7 @@ using Tertle.DestroyCleanup;
 		public int SpacingInt;
 		public int2 GridSize;
 		
-		public AreaPartitionSingleton AreaPartitionSingleton;
+		public GridSingleton AreaPartitionSingleton;
 		
 		public const int MOVE_STRAIGHT_COST = 10;
 		public const int MOVE_DIAGONAL_COST = 14;
@@ -27,6 +27,7 @@ using Tertle.DestroyCleanup;
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<EnemyIdComponent>();
+			state.RequireForUpdate<DebugDisabledTag>();
 			
 			_check9 = new NativeArray<int2>(9, Allocator.Persistent);
 			_check9[0]= new int2(0, 0);
@@ -51,7 +52,7 @@ using Tertle.DestroyCleanup;
 			SystemAPI.TryGetSingleton(out AreaPartitionSingleton);
 			Spacing = AreaPartitionSingleton.Spacing;
 			SpacingInt = (int)math.ceil(Spacing);
-			GridSize = (int2)math.ceil(AreaPartitionSingleton.FullAreaSize);
+			GridSize = (int2)math.ceil(AreaPartitionSingleton.Size);
 			_spawnDatas = SystemAPI.GetSingletonBuffer<SpawnDataBufferSingleton>();
 			
 			// TODO: create grid

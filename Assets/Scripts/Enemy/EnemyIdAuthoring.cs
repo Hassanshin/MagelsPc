@@ -26,5 +26,5 @@ namespace Baker
 	public struct EnemyIdComponent : IComponentData
 	{
 		public int Id;
-		public int2 PartitionId;
+		public int PartitionId;
 	}
