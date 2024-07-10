@@ -2,6 +2,8 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
+namespace Baker
+{
 	public class EnemyIdAuthoring : MonoBehaviour
 	{
 		public int Id = -1;
@@ -19,6 +21,7 @@ using UnityEngine;
 			});
 		}
 	}
+}
 
 	public struct EnemyIdComponent : IComponentData
 	{

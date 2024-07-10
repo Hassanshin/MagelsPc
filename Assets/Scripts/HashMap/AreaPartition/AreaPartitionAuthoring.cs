@@ -3,8 +3,11 @@ using Unity.Mathematics;
 using UnityEngine;
 using System.Collections.Generic;
 
+namespace Baker
+{
 	public class AreaPartitionAuthoring : MonoBehaviour
 	{
+		public bool ShowGizmo;
 		public float2 Size;
 		public float2 Division => Size / Spacing;
 		public Color Color = Color.white;
@@ -15,6 +18,7 @@ using System.Collections.Generic;
 		
 		public void OnDrawGizmos()
 		{
+			if (!ShowGizmo) { return; }
 			Partitions.Clear();
 			
 			// Draw a WIRE cube for all surface/border
@@ -99,6 +103,7 @@ using System.Collections.Generic;
 		// 	}
 		// }
 	}
+}
 
 	public struct AreaPartitionSingleton : IComponentData
 	{

@@ -28,22 +28,22 @@ namespace Hash.HashMap
 		public DynamicBuffer<AreaPartitionBuffer> AreaPartitionBuffers;
 		public AreaPartitionSingleton AreaPartitionSingleton;
 		public Entity InGame;
-		NativeList<int2> _check9;
+		NativeArray<int2> _check9;
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<SpawnDataBufferSingleton>();
 			state.RequireForUpdate<AreaPartitionSingleton>();
 			
-			_check9 = new NativeList<int2>(9, Allocator.Persistent);
-			_check9.AddNoResize(new int2(0, 0));
-			_check9.AddNoResize(new int2(0, 1));
-			_check9.AddNoResize(new int2(1, 0));
-			_check9.AddNoResize(new int2(0, -1));
-			_check9.AddNoResize(new int2(-1, 0));
-			_check9.AddNoResize(new int2(1, 1));
-			_check9.AddNoResize(new int2(1, -1));
-			_check9.AddNoResize(new int2(-1, 1));
-			_check9.AddNoResize(new int2(-1, -1));
+			_check9 = new NativeArray<int2>(9, Allocator.Persistent);
+			_check9[0]= new int2(0, 0);
+			_check9[1]= new int2(0, 1);
+			_check9[2]= new int2(1, 0);
+			_check9[3]= new int2(0, -1);
+			_check9[4]= new int2(-1, 0);
+			_check9[5]= new int2(1, 1);
+			_check9[6]= new int2(1, -1);
+			_check9[7]= new int2(-1, 1);
+			_check9[8]= new int2(-1, -1);
 		}
 		
 		public void OnDestroy()
@@ -93,7 +93,7 @@ namespace Hash.HashMap
 			[ReadOnly]
 			public NativeParallelMultiHashMap<int2, HashPos>.ReadOnly HashMap;
 			[ReadOnly]
-			public NativeList<int2> Check9;
+			public NativeArray<int2> Check9;
 			
 			[BurstCompile]
 			public void Execute(ref EnemyIdComponent data, in LocalTransform ownerPos, [ChunkIndexInQuery] int chunkIndex, Entity owner)
