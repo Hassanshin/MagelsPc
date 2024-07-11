@@ -17,7 +17,6 @@ namespace Baker
 		public float2 corner => new float2(transform.position.x, transform.position.z) + (Size * 0.5f);
 		public List<float2> Partitions = new List<float2>();
 		
-		#if UNITY_EDITOR
 		public void OnDrawGizmos()
 		{
 			if (!ShowGizmo) { return; }
@@ -50,11 +49,13 @@ namespace Baker
 					counter++;
 					
 					int id = GetIdFromPos(new float2(midX, midY));
-					UnityEditor.Handles.Label(transform.position + new Vector3(midX, 0, midY), $"{id}");
+					float2 pos = GetPosFromId(id);
+					#if UNITY_EDITOR
+					UnityEditor.Handles.Label(transform.position + new Vector3(midX, 0, midY), $"{id}\n{pos.x},{pos.y}");
+					#endif
 				}
 			}
 		}
-		#endif
 		
 		public int GetIdFromPos(float2 pos)
 		{
@@ -68,6 +69,21 @@ namespace Baker
 			// Calculate the unique index
 			int gridWidth = (int)(Size.x / Spacing);
 			return yIndex * gridWidth + xIndex;
+		}
+		
+		public float2 GetPosFromId(int index)
+		{
+			int gridWidth = (int)(Size.x / Spacing);
+
+			// Calculate the x and y indices from the given index
+			int yIndex = index / gridWidth;
+			int xIndex = index % gridWidth;
+
+			// Convert the grid indices back to the position
+			float xPos = xIndex * Spacing - Size.x * 0.5f;
+			float yPos = yIndex * Spacing - Size.y * 0.5f;
+
+			return new float2(xPos, yPos);
 		}
 
 		private float getMidX(int i)
@@ -114,6 +130,20 @@ namespace Baker
 		public float2 HalfSize;
 		public float2 Origin;
 		
+		public readonly bool IsOnValidGrid(float2 pos)
+		{
+			return 
+				pos.x < Origin.x + HalfSize.x &&
+				pos.x > Origin.x - HalfSize.x &&
+				pos.y < Origin.y + HalfSize.y &&
+				pos.y > Origin.y - HalfSize.y;
+		}
+		
+		public readonly bool IsOnValidGrid(int id)
+		{
+			return id < Count;
+		}
+		
 		public readonly int CalculateNeighborCount(int radius)
 		{
 			// Calculate the total number of points in the given radius
@@ -137,7 +167,10 @@ namespace Baker
 					if (neighborPos.x >= 0 && neighborPos.x < width && neighborPos.y >= 0 && neighborPos.y < width)
 					{
 						int neighborID = neighborPos.y * width + neighborPos.x;
-						list.Add(neighborID);
+						if (neighborID != id)
+						{
+							list.AddNoResize(neighborID);
+						}
 					}
 				}
 			}
@@ -157,5 +190,20 @@ namespace Baker
 			
 			// Debug.Log($"{pos} -> {yIndex * gridWidth + xIndex}");
 			return yIndex * gridWidth + xIndex;
+		}
+		
+		public readonly float2 GetPosFromId(int index)
+		{
+			int gridWidth = (int)(Size.x / Spacing);
+
+			// Calculate the x and y indices from the given index
+			int yIndex = index / gridWidth;
+			int xIndex = index % gridWidth;
+
+			// Convert the grid indices back to the position
+			float xPos = xIndex * Spacing - HalfSize.x;
+			float yPos = yIndex * Spacing - HalfSize.y;
+
+			return new float2(xPos, yPos);
 		}
 	}

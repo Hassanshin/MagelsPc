@@ -30,7 +30,7 @@ using Random = Unity.Mathematics.Random;
 			Random = Random.CreateFromIndex(_currentSeed);
 		}
 
-		// [BurstCompile]
+		[BurstCompile]
 		public void OnUpdate(ref SystemState state)
 		{
 			float deltaTime = SystemAPI.Time.DeltaTime;
@@ -57,11 +57,16 @@ using Random = Unity.Mathematics.Random;
 			Entity spawned = state.EntityManager.Instantiate(_spawnDatas[0].Entity);
 			
 			float2 pos = RandomPos(-_gridSingleton.HalfSize.x, _gridSingleton.HalfSize.x);
+			float2 destination = RandomPos(-_gridSingleton.HalfSize.x, _gridSingleton.HalfSize.x);
 			state.EntityManager.SetComponentData(spawned, new LocalTransform
 			{
 				Position = new float3(pos.x, 0, pos.y),
 				Rotation = quaternion.identity,
 				Scale = _spawnDataSingleton.ValueRO.Scale,
+			});
+			state.EntityManager.SetComponentData(spawned, new AgentComponent
+			{
+				Destination = destination,
 			});
 			
 			float v = Random.NextFloat(_spawnDataSingleton.ValueRO.MinMaxRandomDeathDelay.x, _spawnDataSingleton.ValueRO.MinMaxRandomDeathDelay.y);

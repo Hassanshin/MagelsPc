@@ -6,7 +6,6 @@ namespace Baker
 {
 	public class AgentAuthoring : MonoBehaviour
 	{
-		public float Value;
 		public float2 Destination;
 	}
 
@@ -18,7 +17,6 @@ namespace Baker
 			
 			AddComponent(entity, new AgentComponent
 			{
-				Value = authoring.Value,
 				Destination = authoring.Destination,
 			});
 			
@@ -29,7 +27,6 @@ namespace Baker
 
 	public struct AgentComponent : IComponentData
 	{
-		public float Value;
 		public float2 Destination;
 		public bool IsDoneCalculatePath;
 	}
