@@ -8,24 +8,28 @@ namespace Baker
 {
 	public class GridAuthoring : MonoBehaviour
 	{
-		public bool ShowGizmo;
 		public float2 Size;
 		public float2 Division => Size / Spacing;
-		public Color Color = Color.white;
+		public Color FineColor = Color.white;
+		public Color BadColor = Color.red;
 		
 		public float Spacing = 10;
 		public float2 corner => new float2(transform.position.x, transform.position.z) + (Size * 0.5f);
-		public List<float2> Partitions = new List<float2>();
+		public PathNode[] Partitions;
+		public LayerMask ObstacleLayerMask;
+		public bool ShowGizmo;
+		public bool ShowText;
 		
-		public void OnDrawGizmos()
+		public void Start()
 		{
-			if (!ShowGizmo) { return; }
-			Partitions.Clear();
-			
-			// Draw a WIRE cube for all surface/border
-			Gizmos.color = Color;
-			Gizmos.DrawWireCube(transform.position, new Vector3(Size.x, 0, Size.y));
-			
+			BakeWalkable();
+		}
+		
+		[ContextMenu("BAKE")]
+		public void BakeWalkable()
+		{
+			Partitions = new PathNode[Mathf.CeilToInt(Division.x * Division.y)];
+			Debug.Log(Partitions);
 			// dont let 0 spacing
 			if (Spacing <= 0.1f)
 			{
@@ -40,20 +44,41 @@ namespace Baker
 				{
 					float midX = getMidX(i);
 					float midY = getMidY(j);
-					Gizmos.DrawWireCube(transform.position + new Vector3(midX, 0, midY), new Vector3(Spacing, 0, Spacing));
 					
-					float cornerX = midX - Spacing * 0.5f;
-					float cornerY = midY + Spacing * 0.5f;
-					Partitions.Add(new float2(midX, midY));
-					
+					float2 pos = new float2(midX, midY);
+					int index = GetIdFromPos(pos);
+					Partitions[index] = new PathNode
+					{
+						Pos = pos,
+						IsWalkable = !Physics.CheckSphere(new Vector3(midX, 0, midY), Spacing * 0.5f, ObstacleLayerMask),
+						Index = index,
+						ComeFromIndex = -1,
+						
+						GCost = int.MaxValue,
+					};
+					Debug.Log(Partitions[counter]);
 					counter++;
-					
-					int id = GetIdFromPos(new float2(midX, midY));
-					float2 pos = GetPosFromId(id);
-					#if UNITY_EDITOR
-					UnityEditor.Handles.Label(transform.position + new Vector3(midX, 0, midY), $"{id}\n{pos.x},{pos.y}");
-					#endif
 				}
+			}
+		}
+		
+		public void OnDrawGizmos()
+		{
+			if (!ShowGizmo) { return; }
+			
+			for (int i = 0; i < Partitions.Length; i++)
+			{
+				Gizmos.color = Partitions[i].IsWalkable ? FineColor : BadColor;
+				
+				Gizmos.DrawWireCube(transform.position + (Vector3)Partitions[i].GetFloat3, new Vector3(Spacing-0.1f, 0, Spacing-0.1f));
+				#if UNITY_EDITOR
+				if (ShowText)
+				{
+					int id = GetIdFromPos(Partitions[i].Pos);
+					float2 pos = GetPosFromId(id);
+					UnityEditor.Handles.Label(transform.position + (Vector3)Partitions[i].GetFloat3, $"{id}\n{pos.x},{pos.y}");
+				}
+				#endif
 			}
 		}
 		
@@ -61,13 +86,15 @@ namespace Baker
 		{
 			// Translate pos to the grid origin
 			pos += Size * 0.5f;
-
+			
 			// Convert the position to grid coordinates using integer arithmetic
 			int xIndex = (int)(pos.x / Spacing);
 			int yIndex = (int)(pos.y / Spacing);
 
 			// Calculate the unique index
 			int gridWidth = (int)(Size.x / Spacing);
+			
+			// Debug.Log($"{pos} -> {yIndex * gridWidth + xIndex}");
 			return yIndex * gridWidth + xIndex;
 		}
 		
@@ -107,7 +134,7 @@ namespace Baker
 			{
 				// Value = authoring.Value
 				Spacing = authoring.Spacing,
-				Count = authoring.Partitions.Count,
+				Count = authoring.Partitions.Length,
 				Size = authoring.Size,
 				Width = (int)math.ceil(authoring.Size.x),
 				MaxIndex = (int)math.ceil(authoring.Size.x * authoring.Size.y) - 1,
@@ -115,11 +142,25 @@ namespace Baker
 				Origin = new float2(authoring.transform.position.x, authoring.transform.position.z),
 			});
 			
-			// bakeBuffer(entity, authoring.Partitions, authoring.Spacing * 0.5f);
+			AddComponent<GridBuffer>(entity);
+			var buffer = SetBuffer<GridBuffer>(entity);
+			
+			foreach (var item in authoring.Partitions)
+			{
+				buffer.Add(new GridBuffer
+				{
+					Value = item,
+				});
+			}
 		}
 	}
 }
-
+	
+	public struct GridBuffer : IBufferElementData
+	{
+		public PathNode Value;
+	}
+	
 	public struct GridSingleton : IComponentData
 	{
 		public float Spacing;

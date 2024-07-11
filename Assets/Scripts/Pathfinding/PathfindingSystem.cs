@@ -18,13 +18,12 @@ public partial struct PathfindingSystem : ISystem
 		public int2 GridSize;
 		
 		private GridSingleton _gridSingleton;
+		private DynamicBuffer<GridBuffer> _gridBuffers;
 		
 		public const int MOVE_STRAIGHT_COST = 10;
 		public const int MOVE_DIAGONAL_COST = 14;
 		public const int FAILURE_INDEX = -1;
 		
-		DynamicBuffer<SpawnDataBufferSingleton> _spawnDatas;
-		private bool _isSpawnedWall;
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<EnemyIdComponent>();
@@ -36,14 +35,14 @@ public partial struct PathfindingSystem : ISystem
 		{
 		}
 
-		// [BurstCompile]
+		[BurstCompile]
 		public void OnUpdate(ref SystemState state)
 		{
 			SystemAPI.TryGetSingleton(out _gridSingleton);
 			Spacing = _gridSingleton.Spacing;
 			SpacingInt = (int)math.ceil(Spacing);
 			GridSize = (int2)math.ceil(_gridSingleton.Size);
-			_spawnDatas = SystemAPI.GetSingletonBuffer<SpawnDataBufferSingleton>();
+			_gridBuffers = SystemAPI.GetSingletonBuffer<GridBuffer>();
 			
 			// calculate path
 			foreach (var (data, agent, buffer, localTransform, owner) in SystemAPI.Query<
@@ -54,64 +53,42 @@ public partial struct PathfindingSystem : ISystem
 				// agent.ValueRW.IsDoneCalculatePath = true;
 				
 				
-				NativeList<PathNode> pathNodeList = new (_gridSingleton.Count, Allocator.Temp);
+				NativeArray<GridBuffer> pathNodeList = _gridBuffers.ToNativeArray(Allocator.Temp);
 				float2 startPos = _gridSingleton.GetPosFromId(data.ValueRO.PartitionId);
 				float2 endPos = agent.ValueRO.Destination;
 				
-				if (!_gridSingleton.IsOnValidGrid(endPos))
+				if (!_gridSingleton.IsOnValidGrid(endPos) || !_gridSingleton.IsOnValidGrid(startPos))
 				{
 					continue;
 				}
 				
-				for (int i = 0; i < _gridSingleton.Count; i++)
+				for (int i = 0; i < pathNodeList.Length; i++)
 				{
 					float2 pos = _gridSingleton.GetPosFromId(i);
-					PathNode p = new()
-					{
-						Pos = pos,
-						Index = _gridSingleton.GetIdFromPos(pos),
-						
-						GCost = int.MaxValue,
-						HCost = calculateDistanceCost(pos, endPos),
-						
-						IsWalkable = isWalkableHardcode(i),
-						ComeFromIndex = FAILURE_INDEX,
-					};
 					
-					if (!_isSpawnedWall && !p.IsWalkable)
-					{
-						var wall = state.EntityManager.Instantiate(_spawnDatas[1].Entity);	
-						state.EntityManager.SetComponentData(wall, 
-							LocalTransform.FromPosition(p.Pos.x + (Spacing * 0.5f), 0, p.Pos.y + (Spacing * 0.5f)));
-							
-					}
-					
-					pathNodeList.AddNoResize(p);
+					GridBuffer p = pathNodeList[i]; 
+					p.Value.HCost = calculateDistanceCost(pos, endPos);
+					pathNodeList[i] = p;
 				}
-				// Debug.Log("" + pathNodeList.Length);
-				
 				
 				int endNodeIndex = _gridSingleton.GetIdFromPos(endPos);
 				
-				PathNode startNode = pathNodeList[data.ValueRO.PartitionId];
-				#if DEBUG_PATH
-				// Debug.Log($"pathfind {startNode} to {endPos}.{endNodeIndex}");
-				#endif
-				startNode.GCost = 0; 
-				pathNodeList[startNode.Index] = startNode;
+				GridBuffer startNode = pathNodeList[data.ValueRO.PartitionId];
+				startNode.Value.GCost = 0; 
+				pathNodeList[startNode.Value.Index] = startNode;
 				
 				var openList = new NativeList<int>(Allocator.Temp);
 				var closedList = new NativeList<int>(Allocator.Temp);
 				
-				openList.Add(startNode.Index);
+				openList.Add(startNode.Value.Index);
 				
 				while (openList.Length > 0)
 				{
 					int currentNodeIndex = getLowestCostFNodeIndex(openList, pathNodeList);
-					PathNode currentNode = pathNodeList[currentNodeIndex];
+					GridBuffer currentNode = pathNodeList[currentNodeIndex];
 					
 					#if DEBUG_PATH
-					// Debug.Log($"pathfind {currentNodeIndex}/{openList.Length} ");
+					// UnityEngine.Debug.Log($"pathfind {currentNodeIndex}/{openList.Length} ");
 					#endif
 				
 					if (currentNodeIndex == endNodeIndex)
@@ -130,7 +107,7 @@ public partial struct PathfindingSystem : ISystem
 					
 					closedList.Add(currentNodeIndex);
 					
-					NativeList<int> neighborList = new(9, Allocator.Temp);
+					NativeList<int> neighborList = new(8, Allocator.Temp);
 					_gridSingleton.GetNeighborId(ref neighborList, currentNodeIndex, 1);
 					
 					for (int i = 0; i < neighborList.Length; i++)
@@ -143,23 +120,23 @@ public partial struct PathfindingSystem : ISystem
 							continue;
 						}
 						
-						PathNode neighborNode = pathNodeList[neighborIndex];
-						if (!neighborNode.IsWalkable)
+						GridBuffer neighborNode = pathNodeList[neighborIndex];
+						if (!neighborNode.Value.IsWalkable)
 						{
 							continue;
 						}
 						
-						float tentativeGCost = currentNode.GCost + calculateDistanceCost(currentNode.Pos, neighborPos);
-						if (tentativeGCost < neighborNode.GCost)
+						float tentativeGCost = currentNode.Value.GCost + calculateDistanceCost(currentNode.Value.Pos, neighborPos);
+						if (tentativeGCost < neighborNode.Value.GCost)
 						{
-							neighborNode.ComeFromIndex = currentNodeIndex;
-							neighborNode.GCost = tentativeGCost;
+							neighborNode.Value.ComeFromIndex = currentNodeIndex;
+							neighborNode.Value.GCost = tentativeGCost;
 							
 							pathNodeList[neighborIndex] = neighborNode;
 							
-							if (!openList.Contains(neighborNode.Index))
+							if (!openList.Contains(neighborNode.Value.Index))
 							{
-								openList.Add(neighborNode.Index);
+								openList.Add(neighborNode.Value.Index);
 							}
 						}
 					}
@@ -167,7 +144,7 @@ public partial struct PathfindingSystem : ISystem
 					neighborList.Dispose();
 				}
 				
-				PathNode endNode = pathNodeList[endNodeIndex];
+				PathNode endNode = pathNodeList[endNodeIndex].Value;
 				if (endNode.ComeFromIndex == FAILURE_INDEX)
 				{
 					
@@ -175,11 +152,9 @@ public partial struct PathfindingSystem : ISystem
 				else
 				{
 					calculatePath(pathNodeList, endNode, buffer);
-					
 				}
 				
 				pathNodeList.Dispose();
-				_isSpawnedWall = true;
 			}
 		}
 		
@@ -195,7 +170,7 @@ public partial struct PathfindingSystem : ISystem
 			return true;
 		}
 
-		private void calculatePath(NativeList<PathNode> pathnodeArray, PathNode endNode, DynamicBuffer<AgentPathBuffer> buffer)
+		private void calculatePath(NativeArray<GridBuffer> pathNodeArray, PathNode endNode, DynamicBuffer<AgentPathBuffer> buffer)
 		{
 			if (endNode.ComeFromIndex == FAILURE_INDEX)
 			{
@@ -206,16 +181,16 @@ public partial struct PathfindingSystem : ISystem
 				buffer.Clear();
 				buffer.Add(new AgentPathBuffer
 				{
-					Value = (float2)endNode.Pos + (Spacing * 0.5f),	
+					Value = endNode.Pos,	
 				});
 				
 				PathNode currentNode = endNode;
 				while (currentNode.ComeFromIndex != FAILURE_INDEX)
 				{
-					PathNode comeNode = pathnodeArray[currentNode.ComeFromIndex];
+					PathNode comeNode = pathNodeArray[currentNode.ComeFromIndex].Value;
 					int bufferIndex = buffer.Add(new AgentPathBuffer
 					{
-						Value = (float2)comeNode.Pos + (Spacing * 0.5f),
+						Value = comeNode.Pos,
 					});
 					#if DEBUG_PATH
 					if (buffer.Length >= 2)
@@ -241,14 +216,14 @@ public partial struct PathfindingSystem : ISystem
 			return MOVE_DIAGONAL_COST * math.min(xDistance, yDistance) + MOVE_STRAIGHT_COST * remaining;
 		}
 		
-		private int getLowestCostFNodeIndex(NativeList<int> openList, NativeList<PathNode> pathNodeArray)
+		private int getLowestCostFNodeIndex(NativeList<int> openList, NativeArray<GridBuffer> pathNodeArray)
 		{
 			int lowestIndex = openList[0];
-			PathNode lowestNode = pathNodeArray[lowestIndex];
+			PathNode lowestNode = pathNodeArray[lowestIndex].Value;
 
 			for (int i = 1; i < openList.Length; i++)
 			{
-				PathNode testPathNode = pathNodeArray[openList[i]];
+				PathNode testPathNode = pathNodeArray[openList[i]].Value;
 				if (testPathNode.FCost < lowestNode.FCost)
 				{
 					lowestNode = testPathNode;
@@ -265,7 +240,7 @@ public partial struct PathfindingSystem : ISystem
 	public struct PathNode
 	{
 		public float2 Pos;
-		
+		public readonly float3 GetFloat3 => new(Pos.x, 0, Pos.y);
 		public int Index;
 		public float GCost;
 		public float HCost;
@@ -276,7 +251,7 @@ public partial struct PathfindingSystem : ISystem
 
 		public override string ToString()
 		{
-			return Pos.ToString() + "." + Index;
+			return Pos.ToString() + "." + Index + " W:" + IsWalkable;
 		}
 	
 	}

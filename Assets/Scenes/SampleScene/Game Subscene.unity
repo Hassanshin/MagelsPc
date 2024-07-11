@@ -134,17 +134,17 @@ PrefabInstance:
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: 3.69
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -3.21
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
@@ -247,213 +247,924 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f103785cd0db44b8061c30b91ee7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowGizmo: 1
   Size:
     x: 10
     y: 10
-  Color: {r: 1, g: 1, b: 1, a: 1}
+  FineColor: {r: 1, g: 1, b: 1, a: 1}
+  BadColor: {r: 1, g: 0, b: 0, a: 1}
   Spacing: 1
   Partitions:
-  - x: -4.5
-    y: -4.5
-  - x: -4.5
-    y: -3.5
-  - x: -4.5
-    y: -2.5
-  - x: -4.5
-    y: -1.5
-  - x: -4.5
-    y: -0.5
-  - x: -4.5
-    y: 0.5
-  - x: -4.5
-    y: 1.5
-  - x: -4.5
-    y: 2.5
-  - x: -4.5
-    y: 3.5
-  - x: -4.5
-    y: 4.5
-  - x: -3.5
-    y: -4.5
-  - x: -3.5
-    y: -3.5
-  - x: -3.5
-    y: -2.5
-  - x: -3.5
-    y: -1.5
-  - x: -3.5
-    y: -0.5
-  - x: -3.5
-    y: 0.5
-  - x: -3.5
-    y: 1.5
-  - x: -3.5
-    y: 2.5
-  - x: -3.5
-    y: 3.5
-  - x: -3.5
-    y: 4.5
-  - x: -2.5
-    y: -4.5
-  - x: -2.5
-    y: -3.5
-  - x: -2.5
-    y: -2.5
-  - x: -2.5
-    y: -1.5
-  - x: -2.5
-    y: -0.5
-  - x: -2.5
-    y: 0.5
-  - x: -2.5
-    y: 1.5
-  - x: -2.5
-    y: 2.5
-  - x: -2.5
-    y: 3.5
-  - x: -2.5
-    y: 4.5
-  - x: -1.5
-    y: -4.5
-  - x: -1.5
-    y: -3.5
-  - x: -1.5
-    y: -2.5
-  - x: -1.5
-    y: -1.5
-  - x: -1.5
-    y: -0.5
-  - x: -1.5
-    y: 0.5
-  - x: -1.5
-    y: 1.5
-  - x: -1.5
-    y: 2.5
-  - x: -1.5
-    y: 3.5
-  - x: -1.5
-    y: 4.5
-  - x: -0.5
-    y: -4.5
-  - x: -0.5
-    y: -3.5
-  - x: -0.5
-    y: -2.5
-  - x: -0.5
-    y: -1.5
-  - x: -0.5
-    y: -0.5
-  - x: -0.5
-    y: 0.5
-  - x: -0.5
-    y: 1.5
-  - x: -0.5
-    y: 2.5
-  - x: -0.5
-    y: 3.5
-  - x: -0.5
-    y: 4.5
-  - x: 0.5
-    y: -4.5
-  - x: 0.5
-    y: -3.5
-  - x: 0.5
-    y: -2.5
-  - x: 0.5
-    y: -1.5
-  - x: 0.5
-    y: -0.5
-  - x: 0.5
-    y: 0.5
-  - x: 0.5
-    y: 1.5
-  - x: 0.5
-    y: 2.5
-  - x: 0.5
-    y: 3.5
-  - x: 0.5
-    y: 4.5
-  - x: 1.5
-    y: -4.5
-  - x: 1.5
-    y: -3.5
-  - x: 1.5
-    y: -2.5
-  - x: 1.5
-    y: -1.5
-  - x: 1.5
-    y: -0.5
-  - x: 1.5
-    y: 0.5
-  - x: 1.5
-    y: 1.5
-  - x: 1.5
-    y: 2.5
-  - x: 1.5
-    y: 3.5
-  - x: 1.5
-    y: 4.5
-  - x: 2.5
-    y: -4.5
-  - x: 2.5
-    y: -3.5
-  - x: 2.5
-    y: -2.5
-  - x: 2.5
-    y: -1.5
-  - x: 2.5
-    y: -0.5
-  - x: 2.5
-    y: 0.5
-  - x: 2.5
-    y: 1.5
-  - x: 2.5
-    y: 2.5
-  - x: 2.5
-    y: 3.5
-  - x: 2.5
-    y: 4.5
-  - x: 3.5
-    y: -4.5
-  - x: 3.5
-    y: -3.5
-  - x: 3.5
-    y: -2.5
-  - x: 3.5
-    y: -1.5
-  - x: 3.5
-    y: -0.5
-  - x: 3.5
-    y: 0.5
-  - x: 3.5
-    y: 1.5
-  - x: 3.5
-    y: 2.5
-  - x: 3.5
-    y: 3.5
-  - x: 3.5
-    y: 4.5
-  - x: 4.5
-    y: -4.5
-  - x: 4.5
-    y: -3.5
-  - x: 4.5
-    y: -2.5
-  - x: 4.5
-    y: -1.5
-  - x: 4.5
-    y: -0.5
-  - x: 4.5
-    y: 0.5
-  - x: 4.5
-    y: 1.5
-  - x: 4.5
-    y: 2.5
-  - x: 4.5
-    y: 3.5
-  - x: 4.5
-    y: 4.5
+  - Pos:
+      x: -4.5
+      y: -4.5
+    Index: 0
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: -4.5
+    Index: 1
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: -4.5
+    Index: 2
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: -4.5
+    Index: 3
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: -4.5
+    Index: 4
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: -4.5
+    Index: 5
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: -4.5
+    Index: 6
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: -4.5
+    Index: 7
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: -4.5
+    Index: 8
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: -4.5
+    Index: 9
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: -3.5
+    Index: 10
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: -3.5
+    Index: 11
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: -3.5
+    Index: 12
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: -3.5
+    Index: 13
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: -3.5
+    Index: 14
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: -3.5
+    Index: 15
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: -3.5
+    Index: 16
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: -3.5
+    Index: 17
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: -3.5
+    Index: 18
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: -3.5
+    Index: 19
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: -2.5
+    Index: 20
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: -2.5
+    Index: 21
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: -2.5
+    Index: 22
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: -2.5
+    Index: 23
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: -2.5
+    Index: 24
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: -2.5
+    Index: 25
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: -2.5
+    Index: 26
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: -2.5
+    Index: 27
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: -2.5
+    Index: 28
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: -2.5
+    Index: 29
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: -1.5
+    Index: 30
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: -1.5
+    Index: 31
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: -1.5
+    Index: 32
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: -1.5
+    Index: 33
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: -1.5
+    Index: 34
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: -1.5
+    Index: 35
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: -1.5
+    Index: 36
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: -1.5
+    Index: 37
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: -1.5
+    Index: 38
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: -1.5
+    Index: 39
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: -0.5
+    Index: 40
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: -0.5
+    Index: 41
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: -0.5
+    Index: 42
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: -0.5
+    Index: 43
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: -0.5
+    Index: 44
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: -0.5
+    Index: 45
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: -0.5
+    Index: 46
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: -0.5
+    Index: 47
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: -0.5
+    Index: 48
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: -0.5
+    Index: 49
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: 0.5
+    Index: 50
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: 0.5
+    Index: 51
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: 0.5
+    Index: 52
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: 0.5
+    Index: 53
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: 0.5
+    Index: 54
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: 0.5
+    Index: 55
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: 0.5
+    Index: 56
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: 0.5
+    Index: 57
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: 0.5
+    Index: 58
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: 0.5
+    Index: 59
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: 1.5
+    Index: 60
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: 1.5
+    Index: 61
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: 1.5
+    Index: 62
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: 1.5
+    Index: 63
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: 1.5
+    Index: 64
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: 1.5
+    Index: 65
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: 1.5
+    Index: 66
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: 1.5
+    Index: 67
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: 1.5
+    Index: 68
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: 1.5
+    Index: 69
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: 2.5
+    Index: 70
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: 2.5
+    Index: 71
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: 2.5
+    Index: 72
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: 2.5
+    Index: 73
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: 2.5
+    Index: 74
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: 2.5
+    Index: 75
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: 2.5
+    Index: 76
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: 2.5
+    Index: 77
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: 2.5
+    Index: 78
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: 2.5
+    Index: 79
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: 3.5
+    Index: 80
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: 3.5
+    Index: 81
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: 3.5
+    Index: 82
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: 3.5
+    Index: 83
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: 3.5
+    Index: 84
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: 3.5
+    Index: 85
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: 3.5
+    Index: 86
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 0
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: 3.5
+    Index: 87
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: 3.5
+    Index: 88
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: 3.5
+    Index: 89
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -4.5
+      y: 4.5
+    Index: 90
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -3.5
+      y: 4.5
+    Index: 91
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -2.5
+      y: 4.5
+    Index: 92
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -1.5
+      y: 4.5
+    Index: 93
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: -0.5
+      y: 4.5
+    Index: 94
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 0.5
+      y: 4.5
+    Index: 95
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 1.5
+      y: 4.5
+    Index: 96
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 2.5
+      y: 4.5
+    Index: 97
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 3.5
+      y: 4.5
+    Index: 98
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  - Pos:
+      x: 4.5
+      y: 4.5
+    Index: 99
+    GCost: 2.1474836e+9
+    HCost: 0
+    IsWalkable: 1
+    ComeFromIndex: -1
+  ObstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  ShowGizmo: 1
+  ShowText: 1
+--- !u!1 &516656288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516656289}
+  - component: {fileID: 516656292}
+  - component: {fileID: 516656291}
+  - component: {fileID: 516656290}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &516656289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516656288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0884, y: 1.0884, z: 1.0884}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235061287}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &516656290
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516656288}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &516656291
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516656288}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &516656292
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516656288}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &712462190
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd4fd55ee0bea646a62049450d1e790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpawnCount: 5
+  MaxSpawnCount: 0
   EnemyList:
   - {fileID: 9165146422413619724, guid: 264c66ecb246d3444876c34cf257bd21, type: 3}
   - {fileID: 9165146422413619724, guid: 4c5c69c0aa81fe3428388abe2c6ddbdd, type: 3}
@@ -546,7 +1257,7 @@ PrefabInstance:
     - target: {fileID: 238093378062945345, guid: 264c66ecb246d3444876c34cf257bd21,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.56
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 238093378062945345, guid: 264c66ecb246d3444876c34cf257bd21,
         type: 3}
@@ -556,7 +1267,7 @@ PrefabInstance:
     - target: {fileID: 238093378062945345, guid: 264c66ecb246d3444876c34cf257bd21,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.11
+      value: -3.79
       objectReference: {fileID: 0}
     - target: {fileID: 238093378062945345, guid: 264c66ecb246d3444876c34cf257bd21,
         type: 3}
@@ -611,7 +1322,7 @@ PrefabInstance:
     - target: {fileID: 9165146422413619724, guid: 264c66ecb246d3444876c34cf257bd21,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -633,7 +1344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1235061287
 Transform:
   m_ObjectHideFlags: 0
@@ -651,6 +1362,7 @@ Transform:
   - {fileID: 1385352871}
   - {fileID: 2080306133}
   - {fileID: 14211229}
+  - {fileID: 516656289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1385352870
@@ -664,17 +1376,17 @@ PrefabInstance:
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
@@ -958,17 +1670,17 @@ PrefabInstance:
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
@@ -1031,18 +1743,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -2.39
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
@@ -1077,6 +1804,11 @@ PrefabInstance:
     - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091031070005205262, guid: be18ea2c92fa0a24b83ff376971f1b89,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356743750845635660, guid: be18ea2c92fa0a24b83ff376971f1b89,
