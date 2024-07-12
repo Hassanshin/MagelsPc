@@ -11,7 +11,10 @@ using Unity.Collections;
 using Tertle.DestroyCleanup;
 using System.Diagnostics;
 
-public partial struct PathfindingSystem : ISystem
+namespace Hash.PathFinding
+{
+	
+	public partial struct PathfindingSystem : ISystem
 	{
 		public float Spacing;
 		public int SpacingInt;
@@ -19,10 +22,7 @@ public partial struct PathfindingSystem : ISystem
 		
 		private GridSingleton _gridSingleton;
 		private DynamicBuffer<GridBuffer> _gridBuffers;
-		
-		public const int MOVE_STRAIGHT_COST = 10;
-		public const int MOVE_DIAGONAL_COST = 14;
-		public const int FAILURE_INDEX = -1;
+		public float DeltaTime;
 		
 		public void OnCreate(ref SystemState state)
 		{
@@ -43,151 +43,166 @@ public partial struct PathfindingSystem : ISystem
 			SpacingInt = (int)math.ceil(Spacing);
 			GridSize = (int2)math.ceil(_gridSingleton.Size);
 			_gridBuffers = SystemAPI.GetSingletonBuffer<GridBuffer>();
+			DeltaTime = SystemAPI.Time.DeltaTime;
 			
-			// calculate path
-			foreach (var (data, agent, buffer, localTransform, owner) in SystemAPI.Query<
-				RefRO<EnemyIdComponent>, RefRW<AgentPathComponent>, DynamicBuffer<AgentPathBuffer>, RefRO<LocalTransform>
-				>().WithEntityAccess())
+			// var pathFindingJob = 
+			new PathFindingSystemJob()
 			{
-				// if (agent.ValueRO.IsDoneCalculatePath) { continue;}
-				// agent.ValueRW.IsDoneCalculatePath = true;
+				GridSingleton = _gridSingleton,
+				GridBuffers = _gridBuffers,
+				DeltaTime = DeltaTime,
 				
-                float2 startPos = localTransform.ValueRO.Position.xz;
-				float2 endPos = agent.ValueRO.Destination;
-
-                if (!_gridSingleton.IsOnValidGrid(endPos) || !_gridSingleton.IsOnValidGrid(startPos))
-				{
-					if (buffer.Length > 0)
-					{
-						buffer.Clear();
-					}
-					continue;
-				}
-				
-				NativeArray<GridBuffer> pathNodeList = _gridBuffers.ToNativeArray(Allocator.Temp);
-				for (int i = 0; i < pathNodeList.Length; i++)
-				{
-					float2 pos = _gridSingleton.GetPosFromId(i);
-					
-					GridBuffer p = pathNodeList[i]; 
-					p.Value.HCost = calculateDistanceCost(pos, endPos);
-					pathNodeList[i] = p;
-				}
-				
-				int endNodeIndex = _gridSingleton.GetIdFromPos(endPos);
-				
-				GridBuffer startNode = pathNodeList[data.ValueRO.PartitionId];
-				startNode.Value.GCost = 0; 
-				pathNodeList[startNode.Value.Index] = startNode;
-				
-				var openList = new NativeList<int>(Allocator.Temp);
-				var closedList = new NativeList<int>(Allocator.Temp);
-				
-				openList.Add(startNode.Value.Index);
-				
-				while (openList.Length > 0)
-				{
-					int currentNodeIndex = getLowestCostFNodeIndex(openList, pathNodeList);
-					GridBuffer currentNode = pathNodeList[currentNodeIndex];
-					
-					#if DEBUG_PATH
-					// UnityEngine.Debug.Log($"pathfind {currentNodeIndex}/{openList.Length} ");
-					#endif
-				
-					if (currentNodeIndex == endNodeIndex)
-					{
-						// reach our destination
-						break;
-					}
-					
-					for (int i = 0; i < openList.Length; i++)
-					{
-						if (openList[i] == currentNodeIndex)
-						{
-							openList.RemoveAtSwapBack(i);
-						}
-					}
-					
-					closedList.Add(currentNodeIndex);
-					
-					NativeList<int> neighborList = new(8, Allocator.Temp);
-					_gridSingleton.GetNeighborId(ref neighborList, currentNodeIndex, 1);
-					
-					for (int i = 0; i < neighborList.Length; i++)
-					{
-						int neighborIndex = neighborList[i];
-						float2 neighborPos = _gridSingleton.GetPosFromId(neighborIndex);
-						
-						if (closedList.Contains(neighborIndex))
-						{
-							continue;
-						}
-						
-						GridBuffer neighborNode = pathNodeList[neighborIndex];
-						if (!neighborNode.Value.IsWalkable)
-						{
-							continue;
-						}
-						
-						float tentativeGCost = currentNode.Value.GCost + calculateDistanceCost(currentNode.Value.Pos, neighborPos);
-						if (tentativeGCost < neighborNode.Value.GCost)
-						{
-							neighborNode.Value.ComeFromIndex = currentNodeIndex;
-							neighborNode.Value.GCost = tentativeGCost;
-							
-							pathNodeList[neighborIndex] = neighborNode;
-							
-							if (!openList.Contains(neighborNode.Value.Index))
-							{
-								openList.Add(neighborNode.Value.Index);
-							}
-						}
-					}
-					
-					neighborList.Dispose();
-				}
-				
-				PathNode endNode = pathNodeList[endNodeIndex].Value;
-				if (endNode.ComeFromIndex == FAILURE_INDEX)
-				{
-					
-				}
-				else
+			}.ScheduleParallel();
+			// pathFindingJob.Complete();
+		}
+	}
+	
+	[BurstCompile]
+	public partial struct PathFindingSystemJob : IJobEntity
+	{
+		[ReadOnly]
+		public GridSingleton GridSingleton;
+		[ReadOnly]
+		public DynamicBuffer<GridBuffer> GridBuffers;
+		[ReadOnly]
+		public float DeltaTime;
+		
+		[BurstCompile]
+		public void Execute(Entity owner, [ChunkIndexInQuery] int chunkIndex,
+			in EnemyIdComponent data, ref AgentPathComponent agent, DynamicBuffer<AgentPathBuffer> buffer, in LocalTransform localTransform)
+		{
+			if (agent.CurrentUpdateFrequency < agent.MaxUpdateFrequency)
+			{
+				agent.CurrentUpdateFrequency += DeltaTime;
+				return;
+			}
+			agent.CurrentUpdateFrequency = 0;
+			
+			float2 startPos = localTransform.Position.xz;
+			float2 endPos = agent.Destination;
+			NativeArray<GridBuffer> gridArray = GridBuffers.ToNativeArray(Allocator.Temp);
+			
+			if (!GridSingleton.IsOnValidGrid(endPos) || !GridSingleton.IsOnValidGrid(startPos))
+			{
+				if (buffer.Length > 0)
 				{
 					buffer.Clear();
-					buffer.Add(new AgentPathBuffer
-					{
-						Value = endPos,	
-					});
-					calculatePath(pathNodeList, endNode, buffer);
-					buffer.ElementAt(buffer.Length -1 ).Value = startPos;
 				}
 				
-				pathNodeList.Dispose();
+				gridArray.Dispose();
+				return;
 			}
+			
+			for (int i = 0; i < gridArray.Length; i++)
+			{
+				float2 pos = GridSingleton.GetPosFromId(i);
+				
+				GridBuffer p = gridArray[i]; 
+				p.Value.HCost = calculateDistanceCost(pos, endPos);
+				gridArray[i] = p;
+			}
+			
+			int endNodeIndex = GridSingleton.GetIdFromPos(endPos);
+			
+			GridBuffer startNode = gridArray[data.PartitionId];
+			startNode.Value.GCost = 0; 
+			gridArray[startNode.Value.Index] = startNode;
+			
+			var openList = new NativeList<int>(Allocator.Temp);
+			var closedList = new NativeList<int>(Allocator.Temp);
+			
+			openList.Add(startNode.Value.Index);
+			
+			while (openList.Length > 0)
+			{
+				int currentNodeIndex = getLowestCostFNodeIndex(openList, gridArray);
+				GridBuffer currentNode = gridArray[currentNodeIndex];
+				
+				#if DEBUG_PATH
+				// UnityEngine.Debug.Log($"pathfind {currentNodeIndex}/{openList.Length} ");
+				#endif
+			
+				if (currentNodeIndex == endNodeIndex)
+				{
+					// reach our destination
+					break;
+				}
+				
+				for (int i = 0; i < openList.Length; i++)
+				{
+					if (openList[i] == currentNodeIndex)
+					{
+						openList.RemoveAtSwapBack(i);
+					}
+				}
+				
+				closedList.Add(currentNodeIndex);
+				
+				NativeList<int> neighborList = new(8, Allocator.Temp);
+				GridSingleton.GetNeighborId(ref neighborList, currentNodeIndex, 1);
+				
+				for (int i = 0; i < neighborList.Length; i++)
+				{
+					int neighborIndex = neighborList[i];
+					float2 neighborPos = GridSingleton.GetPosFromId(neighborIndex);
+					
+					if (closedList.Contains(neighborIndex))
+					{
+						continue;
+					}
+					
+					GridBuffer neighborNode = gridArray[neighborIndex];
+					if (!neighborNode.Value.IsWalkable)
+					{
+						continue;
+					}
+					
+					float tentativeGCost = currentNode.Value.GCost + calculateDistanceCost(currentNode.Value.Pos, neighborPos);
+					if (tentativeGCost < neighborNode.Value.GCost)
+					{
+						neighborNode.Value.ComeFromIndex = currentNodeIndex;
+						neighborNode.Value.GCost = tentativeGCost;
+						
+						gridArray[neighborIndex] = neighborNode;
+						
+						if (!openList.Contains(neighborNode.Value.Index))
+						{
+							openList.Add(neighborNode.Value.Index);
+						}
+					}
+				}
+				
+				neighborList.Dispose();
+			}
+			
+			PathNode endNode = gridArray[endNodeIndex].Value;
+			if (endNode.ComeFromIndex == -1)
+			{
+				
+			}
+			else
+			{
+				buffer.Clear();
+				buffer.Add(new AgentPathBuffer
+				{
+					Value = endPos,	
+				});
+				calculatePath(gridArray, endNode, buffer);
+				buffer.ElementAt(buffer.Length -1 ).Value = startPos;
+			}
+			
+			gridArray.Dispose();
 		}
 		
-		// TODO: create wall
-		private bool isWalkableHardcode(int index)
-		{
-			if (index > 31 && index < 37)
-			{
-				return false;
-			}
-			
-			
-			return true;
-		}
-
 		private void calculatePath(NativeArray<GridBuffer> pathNodeArray, PathNode endNode, DynamicBuffer<AgentPathBuffer> buffer)
 		{
-			if (endNode.ComeFromIndex == FAILURE_INDEX)
+			if (endNode.ComeFromIndex == -1)
 			{
 				return;
 			}
 			
 			PathNode currentNode = endNode;
-			while (currentNode.ComeFromIndex != FAILURE_INDEX)
+			while (currentNode.ComeFromIndex != -1)
 			{
 				PathNode comeNode = pathNodeArray[currentNode.ComeFromIndex].Value;
 				int bufferIndex = buffer.Add(new AgentPathBuffer
@@ -209,13 +224,14 @@ public partial struct PathfindingSystem : ISystem
 			}
 			
 		}
+		
 		private float calculateDistanceCost(float2 aPos, float2 bPos)
 		{
 			float xDistance = math.abs(aPos.x - bPos.x);
 			float yDistance = math.abs(aPos.y - bPos.y);
 			float remaining = math.abs(xDistance - yDistance);
 			
-			return MOVE_DIAGONAL_COST * math.min(xDistance, yDistance) + MOVE_STRAIGHT_COST * remaining;
+			return 14 * math.min(xDistance, yDistance) + 10 * remaining;
 		}
 		
 		private int getLowestCostFNodeIndex(NativeList<int> openList, NativeArray<GridBuffer> pathNodeArray)
@@ -235,39 +251,6 @@ public partial struct PathfindingSystem : ISystem
 
 			return lowestIndex;
 		}
-		
 	}
-	
-	[System.Serializable]
-	public struct PathNode
-	{
-		public float2 Pos;
-		public readonly float3 GetFloat3 => new(Pos.x, 0, Pos.y);
-		public int Index;
-		public float GCost;
-		public float HCost;
-		public float FCost => GCost + HCost;
-		
-		public bool IsWalkable;
-		public int ComeFromIndex;
-
-		public override string ToString()
-		{
-			return Pos.ToString() + "." + Index + " W:" + IsWalkable;
-		}
-	
-	}
-	
-	[BurstCompile]
-	public partial struct PathfindingSystemJob : IJobEntity
-	{
-		// public float deltaTime;
-		// public float multiplierDeltaTime;
-		
-		[BurstCompile]
-		public void Execute(Entity owner, [ChunkIndexInQuery] int chunkIndex)
-		{
-			
-		}
-	}
+}
 

@@ -4,6 +4,7 @@ using Unity.Entities;
 using Unity.Collections;
 using System.Collections.Generic;
 
+
 namespace Baker
 {
 	public class GridAuthoring : MonoBehaviour
@@ -159,6 +160,26 @@ namespace Baker
 	public struct GridBuffer : IBufferElementData
 	{
 		public PathNode Value;
+	}
+	
+	[System.Serializable]
+	public struct PathNode
+	{
+		public float2 Pos;
+		public readonly float3 GetFloat3 => new(Pos.x, 0, Pos.y);
+		public int Index;
+		public float GCost;
+		public float HCost;
+		public float FCost => GCost + HCost;
+		
+		public bool IsWalkable;
+		public int ComeFromIndex;
+
+		public override string ToString()
+		{
+			return Pos.ToString() + "." + Index + " W:" + IsWalkable;
+		}
+	
 	}
 	
 	public struct GridSingleton : IComponentData

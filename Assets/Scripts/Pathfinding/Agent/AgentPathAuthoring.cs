@@ -7,6 +7,7 @@ namespace Baker
 	public class AgentPathAuthoring : MonoBehaviour
 	{
 		public float2 Destination;
+		public float UpdateFrequency;
 	}
 
 	public class AgentPathAuthoringBaker : Baker<AgentPathAuthoring>
@@ -15,10 +16,7 @@ namespace Baker
 		{
 			Entity entity = GetEntity(authoring, TransformUsageFlags.Dynamic);
 			
-			AddComponent(entity, new AgentPathComponent
-			{
-				Destination = authoring.Destination,
-			});
+			AddComponent(entity, new AgentPathComponent(authoring.Destination, authoring.UpdateFrequency));
 			
 			AddBuffer<AgentPathBuffer>(entity);
 		}
@@ -29,6 +27,16 @@ namespace Baker
 	{
 		public float2 Destination;
 		public bool IsDoneCalculatePath;
+		public readonly float MaxUpdateFrequency;
+		public float CurrentUpdateFrequency;
+		
+		public AgentPathComponent(float2 destination, float updateFrequency)
+		{
+			Destination = destination;
+			IsDoneCalculatePath = false;
+			MaxUpdateFrequency = updateFrequency;
+			CurrentUpdateFrequency = updateFrequency;
+		}
 	}
 	
 	public struct AgentPathBuffer : IBufferElementData
