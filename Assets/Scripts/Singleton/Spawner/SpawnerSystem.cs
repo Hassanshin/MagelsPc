@@ -64,7 +64,7 @@ using Random = Unity.Mathematics.Random;
 				Rotation = quaternion.identity,
 				Scale = _spawnDataSingleton.ValueRO.Scale,
 			});
-			state.EntityManager.SetComponentData(spawned, new AgentComponent
+			state.EntityManager.SetComponentData(spawned, new AgentPathComponent
 			{
 				Destination = destination,
 			});

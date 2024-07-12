@@ -46,22 +46,25 @@ public partial struct PathfindingSystem : ISystem
 			
 			// calculate path
 			foreach (var (data, agent, buffer, localTransform, owner) in SystemAPI.Query<
-				RefRO<EnemyIdComponent>, RefRW<AgentComponent>, DynamicBuffer<AgentPathBuffer>, RefRO<LocalTransform>
+				RefRO<EnemyIdComponent>, RefRW<AgentPathComponent>, DynamicBuffer<AgentPathBuffer>, RefRO<LocalTransform>
 				>().WithEntityAccess())
 			{
 				// if (agent.ValueRO.IsDoneCalculatePath) { continue;}
 				// agent.ValueRW.IsDoneCalculatePath = true;
 				
-				
-				NativeArray<GridBuffer> pathNodeList = _gridBuffers.ToNativeArray(Allocator.Temp);
-				float2 startPos = _gridSingleton.GetPosFromId(data.ValueRO.PartitionId);
+                float2 startPos = localTransform.ValueRO.Position.xz;
 				float2 endPos = agent.ValueRO.Destination;
-				
-				if (!_gridSingleton.IsOnValidGrid(endPos) || !_gridSingleton.IsOnValidGrid(startPos))
+
+                if (!_gridSingleton.IsOnValidGrid(endPos) || !_gridSingleton.IsOnValidGrid(startPos))
 				{
+					if (buffer.Length > 0)
+					{
+						buffer.Clear();
+					}
 					continue;
 				}
 				
+				NativeArray<GridBuffer> pathNodeList = _gridBuffers.ToNativeArray(Allocator.Temp);
 				for (int i = 0; i < pathNodeList.Length; i++)
 				{
 					float2 pos = _gridSingleton.GetPosFromId(i);
@@ -151,7 +154,13 @@ public partial struct PathfindingSystem : ISystem
 				}
 				else
 				{
+					buffer.Clear();
+					buffer.Add(new AgentPathBuffer
+					{
+						Value = endPos,	
+					});
 					calculatePath(pathNodeList, endNode, buffer);
+					buffer.ElementAt(buffer.Length -1 ).Value = startPos;
 				}
 				
 				pathNodeList.Dispose();
@@ -176,36 +185,29 @@ public partial struct PathfindingSystem : ISystem
 			{
 				return;
 			}
-			else
+			
+			PathNode currentNode = endNode;
+			while (currentNode.ComeFromIndex != FAILURE_INDEX)
 			{
-				buffer.Clear();
-				buffer.Add(new AgentPathBuffer
+				PathNode comeNode = pathNodeArray[currentNode.ComeFromIndex].Value;
+				int bufferIndex = buffer.Add(new AgentPathBuffer
 				{
-					Value = endNode.Pos,	
+					Value = comeNode.Pos,
 				});
-				
-				PathNode currentNode = endNode;
-				while (currentNode.ComeFromIndex != FAILURE_INDEX)
+				#if DEBUG_PATH
+				if (buffer.Length >= 2)
 				{
-					PathNode comeNode = pathNodeArray[currentNode.ComeFromIndex].Value;
-					int bufferIndex = buffer.Add(new AgentPathBuffer
-					{
-						Value = comeNode.Pos,
-					});
-					#if DEBUG_PATH
-					if (buffer.Length >= 2)
-					{
-						UnityEngine.Debug.DrawLine(
-							new Vector3(buffer[bufferIndex-1].Value.x, 0, buffer[bufferIndex-1].Value.y), 
-							new Vector3(buffer[bufferIndex].Value.x, 0, buffer[bufferIndex].Value.y),
-							Color.cyan);
-						
-					}
-					#endif
-					currentNode = comeNode;
+					UnityEngine.Debug.DrawLine(
+						new Vector3(buffer[bufferIndex-1].Value.x, 0, buffer[bufferIndex-1].Value.y), 
+						new Vector3(buffer[bufferIndex].Value.x, 0, buffer[bufferIndex].Value.y),
+						Color.cyan);
 					
 				}
+				#endif
+				currentNode = comeNode;
+				
 			}
+			
 		}
 		private float calculateDistanceCost(float2 aPos, float2 bPos)
 		{

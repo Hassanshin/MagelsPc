@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace Baker
 {
-	public class AgentAuthoring : MonoBehaviour
+	public class AgentPathAuthoring : MonoBehaviour
 	{
 		public float2 Destination;
 	}
 
-	public class AgentAuthoringBaker : Baker<AgentAuthoring>
+	public class AgentPathAuthoringBaker : Baker<AgentPathAuthoring>
 	{
-		public override void Bake(AgentAuthoring authoring)
+		public override void Bake(AgentPathAuthoring authoring)
 		{
 			Entity entity = GetEntity(authoring, TransformUsageFlags.Dynamic);
 			
-			AddComponent(entity, new AgentComponent
+			AddComponent(entity, new AgentPathComponent
 			{
 				Destination = authoring.Destination,
 			});
@@ -25,7 +25,7 @@ namespace Baker
 	}
 }
 
-	public struct AgentComponent : IComponentData
+	public struct AgentPathComponent : IComponentData
 	{
 		public float2 Destination;
 		public bool IsDoneCalculatePath;

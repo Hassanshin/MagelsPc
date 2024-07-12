@@ -1,3 +1,4 @@
+#define DEBUG_PARTITION
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst;
@@ -11,21 +12,22 @@ using Tertle.DestroyCleanup;
 
 namespace Hash.HashMap
 {
-	public struct HashPos
+	public struct Partition
 	{
 		public float2 Pos;
 		public Entity Entity;
-		public int2 Area;
+		// public int2 Area;
 		
 		public override string ToString()
 		{
-			return Pos.ToString() + " " + Entity.ToString() + " " + Area.ToString();
+			return Pos.ToString() + " " + Entity.ToString();
 		}
 	}
-	public partial struct TestHashMapSystem : ISystem
+	public partial struct PartitionSystem : ISystem
 	{
 		public Random Random;
 		private GridSingleton _gridSingleton;
+		private SettingsSingleton _settingsSingleton;
 		public Entity InGame;
 		public void OnCreate(ref SystemState state)
 		{
@@ -48,10 +50,11 @@ namespace Hash.HashMap
 			
 			SystemAPI.TryGetSingletonEntity<InGameSingleton>(out InGame);
 			SystemAPI.TryGetSingleton(out _gridSingleton);
+			SystemAPI.TryGetSingleton(out _settingsSingleton);
 			SystemAPI.TryGetSingletonEntity<GridSingleton>(out Entity partition);
 			// Log(SpawnDatas.IsCreated);
 			
-			var Hash = new NativeParallelMultiHashMap<int, HashPos>(1024, Allocator.TempJob);
+			var Hash = new NativeParallelMultiHashMap<int, Partition>(1024, Allocator.TempJob);
 			// Log(Partitions.Length);
 			
 			// writing
@@ -79,23 +82,22 @@ namespace Hash.HashMap
 		public partial struct PartitionReaderJob : IJobEntity
 		{
 			[ReadOnly]
-			public NativeParallelMultiHashMap<int, HashPos>.ReadOnly HashMap;
+			public NativeParallelMultiHashMap<int, Partition>.ReadOnly HashMap;
 			
 			[ReadOnly]
 			public GridSingleton GridSingleton;
 			
 			[BurstCompile]
-			public void Execute(ref EnemyIdComponent data, in LocalTransform ownerPos, [ChunkIndexInQuery] int chunkIndex, Entity owner)
+			public void Execute(ref EnemyIdComponent data, AgentColliderComponent col, in LocalTransform ownerPos, [ChunkIndexInQuery] int chunkIndex, Entity owner)
 			{
-				int checkRadius = 2;
-				NativeList<int> neighbors = new(GridSingleton.CalculateNeighborCount(checkRadius), Allocator.Temp);
+				NativeList<int> neighbors = new(GridSingleton.CalculateNeighborCount(col.RadiusInt), Allocator.Temp);
 				neighbors.AddNoResize(data.PartitionId);
-				GridSingleton.GetNeighborId(ref neighbors, data.PartitionId, checkRadius);
+				GridSingleton.GetNeighborId(ref neighbors, data.PartitionId, col.RadiusInt);
 				
 				for (int i = 0; i < neighbors.Length; i++)
 				{
 					int key = neighbors[i];// + Check9[i];
-					if (HashMap.TryGetFirstValue(key, out HashPos neighbor, out var it))
+					if (HashMap.TryGetFirstValue(key, out Partition neighbor, out var it))
 					{
 						do
 						{
@@ -104,10 +106,12 @@ namespace Hash.HashMap
 								continue;
 							}
 							
-							// UnityEngine.Debug.DrawLine(
-							// 	new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
-							// 	new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
-							// 	UnityEngine.Color.yellow);
+							#if DEBUG_PARTITION
+							UnityEngine.Debug.DrawLine(
+								new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
+								new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
+								UnityEngine.Color.yellow);
+							#endif 
 							
 							if (math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1)
 							{
@@ -128,7 +132,7 @@ namespace Hash.HashMap
 		[BurstCompile]
 		public partial struct PartitionWriterJob : IJobEntity
 		{
-			public NativeParallelMultiHashMap<int, HashPos>.ParallelWriter HashMap;
+			public NativeParallelMultiHashMap<int, Partition>.ParallelWriter HashMap;
 			[ReadOnly]
 			public GridSingleton GridSingleton;
 			
@@ -137,9 +141,14 @@ namespace Hash.HashMap
 				[ChunkIndexInQuery] int chunkIndex, Entity owner)
 			{
 				float2 pos = localTransform.Position.xz;
+				if (!GridSingleton.IsOnValidGrid(pos))
+				{
+					return;
+				}
+				
 				int partitionId = GridSingleton.GetIdFromPos(pos);
 				// UnityEngine.Debug.Log(partitionId + " " + pos);
-				HashMap.Add(partitionId, new HashPos
+				HashMap.Add(partitionId, new Partition
 				{
 					Pos = pos,
 					Entity = owner,

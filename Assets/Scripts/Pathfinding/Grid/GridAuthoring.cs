@@ -175,9 +175,9 @@ namespace Baker
 		{
 			return 
 				pos.x < Origin.x + HalfSize.x &&
-				pos.x > Origin.x - HalfSize.x &&
+				pos.x >= Origin.x - HalfSize.x &&
 				pos.y < Origin.y + HalfSize.y &&
-				pos.y > Origin.y - HalfSize.y;
+				pos.y >= Origin.y - HalfSize.y;
 		}
 		
 		public readonly bool IsOnValidGrid(int id)
