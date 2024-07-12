@@ -10,9 +10,11 @@ using UnityEngine;
 using Unity.Collections;
 using Tertle.DestroyCleanup;
 using System.Diagnostics;
+using Hash.Util;
 
 namespace Hash.PathFinding
 {
+	[UpdateInGroup(typeof(HashCoreSystemGroup))]
 	
 	public partial struct PathfindingSystem : ISystem
 	{
@@ -23,10 +25,11 @@ namespace Hash.PathFinding
 		private GridSingleton _gridSingleton;
 		private DynamicBuffer<GridBuffer> _gridBuffers;
 		public float DeltaTime;
-		
+		private Entity _player;
+		private float3 _playerPos;
 		public void OnCreate(ref SystemState state)
 		{
-			state.RequireForUpdate<EnemyIdComponent>();
+			state.RequireForUpdate<IdComponent>();
 			state.RequireForUpdate<GridSingleton>();
 			
 		}
@@ -39,11 +42,15 @@ namespace Hash.PathFinding
 		public void OnUpdate(ref SystemState state)
 		{
 			SystemAPI.TryGetSingleton(out _gridSingleton);
+			
 			Spacing = _gridSingleton.Spacing;
 			SpacingInt = (int)math.ceil(Spacing);
 			GridSize = (int2)math.ceil(_gridSingleton.Size);
 			_gridBuffers = SystemAPI.GetSingletonBuffer<GridBuffer>();
 			DeltaTime = SystemAPI.Time.DeltaTime;
+			
+			SystemAPI.TryGetSingletonEntity<PlayerTag>(out _player);
+			_playerPos = SystemAPI.GetComponent<LocalTransform>(_player).Position;
 			
 			// var pathFindingJob = 
 			new PathFindingSystemJob()
@@ -51,7 +58,7 @@ namespace Hash.PathFinding
 				GridSingleton = _gridSingleton,
 				GridBuffers = _gridBuffers,
 				DeltaTime = DeltaTime,
-				
+				PlayerPos = _playerPos,
 			}.ScheduleParallel();
 			// pathFindingJob.Complete();
 		}
@@ -66,10 +73,12 @@ namespace Hash.PathFinding
 		public DynamicBuffer<GridBuffer> GridBuffers;
 		[ReadOnly]
 		public float DeltaTime;
-		
-		[BurstCompile]
+
+        public float3 PlayerPos;
+
+        [BurstCompile]
 		public void Execute(Entity owner, [ChunkIndexInQuery] int chunkIndex,
-			in EnemyIdComponent data, ref AgentPathComponent agent, DynamicBuffer<AgentPathBuffer> buffer, in LocalTransform localTransform)
+			in IdComponent data, ref AgentPathComponent agent, DynamicBuffer<AgentPathBuffer> buffer, in LocalTransform localTransform)
 		{
 			if (agent.CurrentUpdateFrequency < agent.MaxUpdateFrequency)
 			{
@@ -79,7 +88,7 @@ namespace Hash.PathFinding
 			agent.CurrentUpdateFrequency = 0;
 			
 			float2 startPos = localTransform.Position.xz;
-			float2 endPos = agent.Destination;
+			float2 endPos = PlayerPos.xz; // agent.Destination;
 			NativeArray<GridBuffer> gridArray = GridBuffers.ToNativeArray(Allocator.Temp);
 			
 			if (!GridSingleton.IsOnValidGrid(endPos) || !GridSingleton.IsOnValidGrid(startPos))

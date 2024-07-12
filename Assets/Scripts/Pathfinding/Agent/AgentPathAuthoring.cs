@@ -26,6 +26,7 @@ namespace Baker
 	public struct AgentPathComponent : IComponentData
 	{
 		public float2 Destination;
+		public float3 Destination3D => new float3(Destination.x, 0, Destination.y);
 		public bool IsDoneCalculatePath;
 		public readonly float MaxUpdateFrequency;
 		public float CurrentUpdateFrequency;

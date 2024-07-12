@@ -9,6 +9,7 @@ using Unity.Transforms;
 // using UnityEngine;
 using Unity.Collections;
 using Tertle.DestroyCleanup;
+using Hash.Util;
 
 namespace Hash.HashMap
 {
@@ -23,6 +24,8 @@ namespace Hash.HashMap
 			return Pos.ToString() + " " + Entity.ToString();
 		}
 	}
+	
+	[UpdateInGroup(typeof(HashCoreSystemGroup))]
 	public partial struct PartitionSystem : ISystem
 	{
 		public Random Random;
@@ -33,7 +36,7 @@ namespace Hash.HashMap
 		{
 			state.RequireForUpdate<SpawnDataBufferSingleton>();
 			state.RequireForUpdate<GridSingleton>();
-			state.RequireForUpdate<EnemyIdComponent>();
+			state.RequireForUpdate<IdComponent>();
 			
 		}
 		
@@ -58,7 +61,8 @@ namespace Hash.HashMap
 			// Log(Partitions.Length);
 			
 			// writing
-			var writerJob = new PartitionWriterJob()
+			var writerJob = 
+			new PartitionWriterJob()
 			{
 				HashMap = Hash.AsParallelWriter(),
 				GridSingleton = _gridSingleton,
@@ -66,11 +70,12 @@ namespace Hash.HashMap
 			writerJob.Complete();
 			
 			// reading
-			var readerJob = new PartitionReaderJob()
+			var readerJob = 
+			new PartitionReaderJob()
 			{
 				HashMap = Hash.AsReadOnly(),
 				GridSingleton = _gridSingleton,
-			}.ScheduleParallel(state.Dependency);
+			}.ScheduleParallel(writerJob);
 			readerJob.Complete();
 			
 			// Log($"{Hash.Count()}/{Hash.Capacity} standard counter = {AllCounter} partitioned = {PartitionCounter}");
@@ -88,7 +93,7 @@ namespace Hash.HashMap
 			public GridSingleton GridSingleton;
 			
 			[BurstCompile]
-			public void Execute(ref EnemyIdComponent data, AgentColliderComponent col, in LocalTransform ownerPos, [ChunkIndexInQuery] int chunkIndex, Entity owner)
+			public void Execute(ref IdComponent data, AgentColliderComponent col, in LocalTransform ownerPos, [ChunkIndexInQuery] int chunkIndex, Entity owner)
 			{
 				NativeList<int> neighbors = new(GridSingleton.CalculateNeighborCount(col.RadiusInt), Allocator.Temp);
 				neighbors.AddNoResize(data.PartitionId);
@@ -137,7 +142,7 @@ namespace Hash.HashMap
 			public GridSingleton GridSingleton;
 			
 			[BurstCompile]
-			public void Execute(in LocalTransform localTransform, ref EnemyIdComponent data,
+			public void Execute(in LocalTransform localTransform, ref IdComponent data,
 				[ChunkIndexInQuery] int chunkIndex, Entity owner)
 			{
 				float2 pos = localTransform.Position.xz;

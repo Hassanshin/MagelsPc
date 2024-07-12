@@ -18,53 +18,53 @@ namespace Hash.Util
 		
 	// }
 	
-	public partial class TomomiWeaponSystemGroup : ComponentSystemGroup 
-	{
+	// public partial class TomomiWeaponSystemGroup : ComponentSystemGroup 
+	// {
 		
-	}
+	// }
 	
-	[UpdateInGroup(typeof(InitializationSystemGroup))]
-	[UpdateAfter(typeof(SceneSystemGroup))]
-	public partial class TomomiInitializationSystemGroup : ComponentSystemGroup
-	{
+	// [UpdateInGroup(typeof(InitializationSystemGroup))]
+	// [UpdateAfter(typeof(SceneSystemGroup))]
+	// public partial class TomomiInitializationSystemGroup : ComponentSystemGroup
+	// {
 		
-	}
+	// }
 	
 	[UpdateInGroup(typeof(SimulationSystemGroup))]
 	[UpdateBefore(typeof(TransformSystemGroup))]
-	public partial class TomomiCoreSystemGroup : ComponentSystemGroup
+	public partial class HashCoreSystemGroup : ComponentSystemGroup
 	{
 		
 	}
 	
-	[UpdateInGroup(typeof(TransformSystemGroup), OrderFirst = true)]
-	public partial class TomomiTransformSystemGroup : ComponentSystemGroup
-	{
+	// [UpdateInGroup(typeof(TransformSystemGroup), OrderFirst = true)]
+	// public partial class TomomiTransformSystemGroup : ComponentSystemGroup
+	// {
 		
-	}
+	// }
 	
-	public partial class TomomiTriggerSystemGroup : ComponentSystemGroup
-	{
+	// public partial class TomomiTriggerSystemGroup : ComponentSystemGroup
+	// {
 		
-	}
+	// }
 	
 	[UpdateAfter(typeof(BeginSimulationEntityCommandBufferSystem))]
 	[UpdateInGroup(typeof(SimulationSystemGroup), OrderFirst = true)]
-	[UpdateBefore(typeof(BeginSimulationSystemGroup))]
+	// [UpdateBefore(typeof(BeginSimulationSystemGroup))]
 	public partial class DestroySystemGroup : ComponentSystemGroup
 	{
 	}
 	
-	[UpdateAfter(typeof(BeginSimulationEntityCommandBufferSystem))]
-	[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
-	[UpdateBefore(typeof(VariableRateSimulationSystemGroup))]
-	[UpdateInGroup(typeof(SimulationSystemGroup), OrderFirst = true)]
-	public partial class BeginSimulationSystemGroup : ComponentSystemGroup
-	{
-	}
+	// [UpdateAfter(typeof(BeginSimulationEntityCommandBufferSystem))]
+	// [UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
+	// [UpdateBefore(typeof(VariableRateSimulationSystemGroup))]
+	// [UpdateInGroup(typeof(SimulationSystemGroup), OrderFirst = true)]
+	// public partial class BeginSimulationSystemGroup : ComponentSystemGroup
+	// {
+	// }
 
-	[UpdateAfter(typeof(TransformSystemGroup))]
-	public partial class EndSimulationSystemGroup : ComponentSystemGroup
-	{
-	}
+	// [UpdateAfter(typeof(TransformSystemGroup))]
+	// public partial class EndSimulationSystemGroup : ComponentSystemGroup
+	// {
+	// }
 }
