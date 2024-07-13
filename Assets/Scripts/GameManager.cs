@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
+using Unity.Physics;
 
 public class GameManager : MonoBehaviour
 {
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
 		
 		var gridSingleton = _entityManager.GetComponentData<GridSingleton>(gridEntity);
 		float distancesq = math.distancesq(gridSingleton.Origin, playerPos.xz) ;
-		if (math.any(distancesq >= gridSingleton.HalfSizeSquared * 0.5f))
+		if (math.any(distancesq >= gridSingleton.DistanceUpdateCheck))
 		{
 			gridSingleton.Origin = math.ceil(playerPos.xz);
 			_entityManager.SetComponentData(gridEntity, gridSingleton);
@@ -94,9 +95,10 @@ public class GameManager : MonoBehaviour
 		var gridBuffer = entityManager.GetBuffer<GridBuffer>(gridEntity);
 		var gridSingleton = entityManager.GetComponentData<GridSingleton>(gridEntity);
 		
+		entityManager.CreateEntityQuery(new ComponentType[] { typeof(PhysicsWorldSingleton)}).TryGetSingleton(out PhysicsWorldSingleton world);
 		gridBuffer.Clear();
 		
-		foreach (var item in BakeWalkable(gridSingleton))
+		foreach (var item in BakeWalkable( world, gridSingleton))
 		{
 			gridBuffer.Add(new GridBuffer
 			{
@@ -106,7 +108,7 @@ public class GameManager : MonoBehaviour
 		
 	}
 	
-	public PathNode[] BakeWalkable(GridSingleton gridSingleton)
+	public PathNode[] BakeWalkable(PhysicsWorldSingleton world, GridSingleton gridSingleton)
 	{
 		
 		PathNode[] partitions = new PathNode[Mathf.CeilToInt(gridSingleton.Count)];
@@ -131,7 +133,7 @@ public class GameManager : MonoBehaviour
 				partitions[index] = new PathNode
 				{
 					Pos = pos,
-					IsWalkable = !Physics.CheckSphere(new Vector3(pos.x , 0, pos.y), gridSingleton.ObstacleCheckRadius, gridSingleton.ObstacleLayerMask),
+					IsWalkable =  !world.CheckSphere(new float3(pos.x , 0, pos.y), gridSingleton.ObstacleCheckRadius, CollisionFilter.Default),
 					Index = index,
 					ComeFromIndex = -1,
 					
@@ -140,7 +142,7 @@ public class GameManager : MonoBehaviour
 				counter++;
 			}
 		}
-		Debug.Log(gridSingleton.Count);
+		// Debug.Log(gridSingleton.Count);
 		
 		return partitions;
 	}

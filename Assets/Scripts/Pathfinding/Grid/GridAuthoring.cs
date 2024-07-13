@@ -20,6 +20,8 @@ namespace Baker
 		public Color BadColor = Color.red;
 		public bool ShowGizmo;
 		public bool ShowText;
+		public float DistancePercentCheck = 0.5f;
+		
 		[Header("Result")]
 		public PathNode[] Partitions;
 		
@@ -91,8 +93,8 @@ namespace Baker
 		public int GetIdFromPos(float2 pos)
 		{
 			// Translate pos to the grid origin
-            float2 origin = new float2(transform.position.x, transform.position.z);
-            pos -= origin;
+			float2 origin = new float2(transform.position.x, transform.position.z);
+			pos -= origin;
 			pos += Size * 0.5f;
 			
 			// Convert the position to grid coordinates using integer arithmetic
@@ -147,7 +149,7 @@ namespace Baker
 				Width = (int)math.ceil(authoring.Size.x),
 				MaxIndex = (int)math.ceil(authoring.Size.x * authoring.Size.y) - 1,
 				HalfSize = authoring.Size * 0.5f,
-				HalfSizeSquared = math.pow(authoring.Size * 0.5f, 2),
+				DistanceUpdateCheck = math.pow(authoring.Size * authoring.DistancePercentCheck, 2),
 				Origin = new float2(authoring.transform.position.x, authoring.transform.position.z),
 				
 				ObstacleCheckRadius = authoring.ObstacleCheckRadius,
@@ -206,7 +208,7 @@ namespace Baker
 		public int Width;
 		public float2 Size;
 		public float2 HalfSize;
-		public float2 HalfSizeSquared;
+		public float2 DistanceUpdateCheck;
 		public float2 Origin;
 		public float ObstacleCheckRadius;
 		public LayerMask ObstacleLayerMask;

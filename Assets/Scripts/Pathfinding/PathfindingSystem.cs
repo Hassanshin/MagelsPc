@@ -31,7 +31,6 @@ namespace Hash.PathFinding
 		{
 			state.RequireForUpdate<IdComponent>();
 			state.RequireForUpdate<GridSingleton>();
-			
 		}
 		
 		public void OnDestroy(ref SystemState state)
@@ -250,7 +249,7 @@ namespace Hash.PathFinding
 			float yDistance = math.abs(aPos.y - bPos.y);
 			float remaining = math.abs(xDistance - yDistance);
 			
-			return 14 * math.min(xDistance, yDistance) + 10 * remaining;
+			return 15 * math.min(xDistance, yDistance) + 10 * remaining;
 		}
 		
 		private int getLowestCostFNodeIndex(NativeList<int> openList, NativeArray<GridBuffer> pathNodeArray)
