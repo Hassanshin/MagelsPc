@@ -11,15 +11,17 @@ namespace Baker
 	{
 		public float2 Size;
 		public float2 Division => Size / Spacing;
-		public Color FineColor = Color.white;
-		public Color BadColor = Color.red;
-		
 		public float Spacing = 10;
 		public float2 corner => new float2(transform.position.x, transform.position.z) + (Size * 0.5f);
-		public PathNode[] Partitions;
 		public LayerMask ObstacleLayerMask;
+		public float ObstacleCheckRadius = 0.5f;
+		[Header("Debug")]
+		public Color FineColor = Color.white;
+		public Color BadColor = Color.red;
 		public bool ShowGizmo;
 		public bool ShowText;
+		[Header("Result")]
+		public PathNode[] Partitions;
 		
 		public void Start()
 		{
@@ -51,7 +53,7 @@ namespace Baker
 					Partitions[index] = new PathNode
 					{
 						Pos = pos,
-						IsWalkable = !Physics.CheckSphere(new Vector3(midX, 0, midY), Spacing * 0.5f, ObstacleLayerMask),
+						IsWalkable = !Physics.CheckSphere(new Vector3(midX, 0, midY), ObstacleCheckRadius, ObstacleLayerMask),
 						Index = index,
 						ComeFromIndex = -1,
 						

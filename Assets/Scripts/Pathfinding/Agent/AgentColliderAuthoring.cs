@@ -1,3 +1,4 @@
+using System;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
@@ -6,8 +7,11 @@ namespace Baker
 {
 	public class AgentColliderAuthoring : MonoBehaviour
 	{
-		public float Radius;
-		public ENUM_COLLIDER_LAYER Layer;
+		public AgentColliderComponent Comp = new()
+		{
+			Radius = 1,
+			RadiusInt = 1,
+		};
 	}
 
 	public class AgentColliderAuthoringBaker : Baker<AgentColliderAuthoring>
@@ -16,19 +20,18 @@ namespace Baker
 		{
 			Entity entity = GetEntity(authoring, TransformUsageFlags.None);
 			
-			AddComponent(entity, new AgentColliderComponent
-			{
-				Radius = authoring.Radius,
-				RadiusInt = Mathf.CeilToInt(authoring.Radius),
-				Layer = authoring.Layer,
-			});
+			AddComponent(entity, authoring.Comp);
 		}
 	}
 }
-
+	
+	[System.Serializable]
 	public struct AgentColliderComponent : IComponentData
 	{
 		public float Radius;
 		public int RadiusInt;
-		public ENUM_COLLIDER_LAYER Layer;
+		public ENUM_COLLIDER_SHAPE Shape;
+		public ENUM_COLLIDER_LAYER CollisionLayer;
+		public ENUM_COLLIDER_LAYER CollideWith;
 	}
+	

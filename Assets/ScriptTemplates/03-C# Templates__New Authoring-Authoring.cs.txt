@@ -6,7 +6,10 @@ namespace Baker
 {
     public class #SCRIPTNAME# : MonoBehaviour
     {
-        public float Value;
+        public #SCRIPTNAME#Component Comp = new()
+        {
+            Value = 1,
+        };
     }
 
     public class #SCRIPTNAME#Baker : Baker<#SCRIPTNAME#>
@@ -15,15 +18,13 @@ namespace Baker
         {
             Entity entity = GetEntity(authoring, TransformUsageFlags.None);
             
-            AddComponent(entity, new #SCRIPTNAME#Component
-            {
-                Value = authoring.Value
-            });
+            AddComponent(entity, authoring.Comp);
         }
     }
 }
 
 #ROOTNAMESPACEBEGIN#
+	[System.Serializable]
     public struct #SCRIPTNAME#Component : IComponentData
     {
         public float Value;

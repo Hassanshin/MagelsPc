@@ -16,14 +16,30 @@ namespace Hash.HashMap
 	public struct Partition
 	{
 		public float2 Pos;
+		public quaternion Rot;
 		public Entity Entity;
-		public float Radius;
-		public ENUM_COLLIDER_LAYER Layer;
+		public AgentColliderComponent Collider;
 		
 		public override string ToString()
 		{
 			return Pos.ToString() + " " + Entity.ToString();
 		}
+	}
+	
+	[System.Serializable]
+	public struct HitData 
+	{
+		public float2 Pos;
+		public Entity Target;
+		public Entity Attacker;
+		public float DistanceSq;
+		public float CurrentDuration;
+		public ENUM_COLLIDER_LAYER TargetLayer;
+		public override string ToString()
+		{
+			return $"{Attacker} \t-> {Target} \t| {CurrentDuration}";
+		}
+		
 	}
 	
 	[UpdateInGroup(typeof(HashCoreSystemGroup))]
@@ -112,10 +128,17 @@ namespace Hash.HashMap
 			{
 				HitDataHashMap.Add(hitData.Attacker, hitData);
 				// UnityEngine.Debug.Log(hitData.DistanceSq + "  \t" + hitData.Attacker + " " + hitData.Target);
-
-				var stats = StatsComponentLookup.GetRefRW(hitData.Target);
+				
 				var bullet = BulletComponentLookup.GetRefRW(hitData.Attacker);
-				calculateDamage(ref state, hitData, stats, bullet);
+				if (hitData.TargetLayer == ENUM_COLLIDER_LAYER.Enemy)
+				{
+					var stats = StatsComponentLookup.GetRefRW(hitData.Target);
+					processBulletHit(ref state, hitData, stats, bullet);
+				}
+				else if(hitData.TargetLayer == ENUM_COLLIDER_LAYER.Wall)
+				{
+					state.EntityManager.SetComponentEnabled<DestroyTag>(hitData.Attacker, true);
+				}
 			}
 			newHitDataList.Dispose();
 			
@@ -123,7 +146,7 @@ namespace Hash.HashMap
 			PartitionHashMap.Dispose();
 		}
 
-		private void calculateDamage(ref SystemState state, HitData hitData, RefRW<StatsComponent> stats, RefRW<BulletComponent> bullet)
+		private void processBulletHit(ref SystemState state, HitData hitData, RefRW<StatsComponent> stats, RefRW<BulletComponent> bullet)
 		{
 			if (stats.ValueRO.Data.Health.Value <= 0 || bullet.ValueRO.Pierce <= 0)
 			{
@@ -173,64 +196,56 @@ namespace Hash.HashMap
 			return updatedHitDataHashMap;
 		}
 		
-		[BurstCompile]
-		public partial struct PartitionReaderJob : IJobEntity
-		{
-			[ReadOnly]
-			public NativeParallelMultiHashMap<int, Partition>.ReadOnly HashMap;
+		// [BurstCompile]
+		// public partial struct PartitionReaderJob : IJobEntity
+		// {
+		// 	[ReadOnly]
+		// 	public NativeParallelMultiHashMap<int, Partition>.ReadOnly HashMap;
 			
-			[ReadOnly]
-			public GridSingleton GridSingleton;
+		// 	[ReadOnly]
+		// 	public GridSingleton GridSingleton;
 			
-			[BurstCompile]
-			public void Execute(ref IdComponent data, AgentColliderComponent col, in LocalTransform ownerPos, [ChunkIndexInQuery] int chunkIndex, Entity owner)
-			{
-				NativeList<int> neighbors = new(GridSingleton.CalculateNeighborCount(col.RadiusInt), Allocator.Temp);
-				neighbors.AddNoResize(data.PartitionId);
-				GridSingleton.GetNeighborId(ref neighbors, data.PartitionId, col.RadiusInt);
+		// 	[BurstCompile]
+		// 	public void Execute(ref IdComponent data, AgentColliderComponent col, in LocalTransform ownerPos, [ChunkIndexInQuery] int chunkIndex, Entity owner)
+		// 	{
+		// 		NativeList<int> neighbors = new(GridSingleton.CalculateNeighborCount(col.RadiusInt), Allocator.Temp);
+		// 		neighbors.AddNoResize(data.PartitionId);
+		// 		GridSingleton.GetNeighborId(ref neighbors, data.PartitionId, col.RadiusInt);
 				
-				for (int i = 0; i < neighbors.Length; i++)
-				{
-					int key = neighbors[i];// + Check9[i];
-					if (HashMap.TryGetFirstValue(key, out Partition neighbor, out var it))
-					{
-						do
-						{
-							if (neighbor.Entity == owner)
-							{
-								continue;
-							}
+		// 		for (int i = 0; i < neighbors.Length; i++)
+		// 		{
+		// 			int key = neighbors[i];// + Check9[i];
+		// 			if (HashMap.TryGetFirstValue(key, out Partition neighbor, out var it))
+		// 			{
+		// 				do
+		// 				{
+		// 					if (neighbor.Entity == owner)
+		// 					{
+		// 						continue;
+		// 					}
 							
-							// test bullet with enemy
-							if (col.Layer == ENUM_COLLIDER_LAYER.PlayerBullet && neighbor.Layer == ENUM_COLLIDER_LAYER.Enemy)
-							{
-								bool isCollided = math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1;
-								
-								#if DEBUG_PARTITION
-								UnityEngine.Debug.DrawLine(
-									new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
-									new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
-									isCollided ? UnityEngine.Color.white : UnityEngine.Color.magenta);
-								#endif
+		// 					bool isCollided = true;
+		// 					#if DEBUG_PARTITION
+		// 						UnityEngine.Debug.DrawLine(
+		// 							new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
+		// 							new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
+		// 							isCollided ? UnityEngine.Color.white : UnityEngine.Color.magenta);
+		// 					#endif
 
-								if (isCollided)
-								{
-									continue;
-								}
-								
-							}
-							
-							
-							// collide
+		// 					if (isCollided)
+		// 					{
+		// 						continue;
+		// 					}
+		// 					// collide
 							
 
-						} while (HashMap.TryGetNextValue(out neighbor, ref it));
-					}
-				}
+		// 				} while (HashMap.TryGetNextValue(out neighbor, ref it));
+		// 			}
+		// 		}
 				
-				neighbors.Dispose();
-			}
-		}
+		// 		neighbors.Dispose();
+		// 	}
+		// }
 		
 		[BurstCompile]
 		public partial struct PartitionWriteIdJob : IJobEntity
@@ -240,7 +255,7 @@ namespace Hash.HashMap
 			public GridSingleton GridSingleton;
 			
 			[BurstCompile]
-			public void Execute(in LocalTransform localTransform, ref IdComponent data, in AgentColliderComponent col,
+			public void Execute(LocalToWorld localTransform, ref IdComponent data, in AgentColliderComponent col,
 				[ChunkIndexInQuery] int chunkIndex, Entity owner)
 			{
 				float2 pos = localTransform.Position.xz;
@@ -253,10 +268,10 @@ namespace Hash.HashMap
 				// UnityEngine.Debug.Log(partitionId + " " + pos);
 				HashMap.Add(partitionId, new Partition
 				{
-					Pos = pos,
 					Entity = owner,
-					Layer = col.Layer,
-					Radius = col.Radius,
+					Pos = localTransform.Position.xz,
+					Rot = localTransform.Rotation,
+					Collider = col,
 				});
 				
 				data.PartitionId = partitionId;

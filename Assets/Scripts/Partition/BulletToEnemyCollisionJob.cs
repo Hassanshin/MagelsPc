@@ -47,7 +47,7 @@ namespace Hash.HashMap
 							}
 
 							// test bullet with enemy
-							if (col.Layer != ENUM_COLLIDER_LAYER.PlayerBullet || neighbor.Layer != ENUM_COLLIDER_LAYER.Enemy)
+							if ((neighbor.Collider.CollisionLayer & col.CollideWith) == 0)
 							{
 								continue;
 							}
@@ -59,8 +59,7 @@ namespace Hash.HashMap
 							}
 
 							float distancesq = math.distancesq(neighbor.Pos, ownerPos.Position.xz);
-							float combinedRadius = col.Radius + neighbor.Radius;
-							bool isCollided = distancesq <= math.pow(combinedRadius, 2);
+							bool isCollided = isCollidedCheck(distancesq, col, neighbor.Collider);
 
 							#if DEBUG_PARTITION
 							UnityEngine.Debug.DrawLine(
@@ -68,27 +67,37 @@ namespace Hash.HashMap
 								new float3(ownerPos.Position.x, 0, ownerPos.Position.z),
 								isCollided ? UnityEngine.Color.magenta : UnityEngine.Color.white);
 							#endif
-							
+
 							if (!isCollided)
 							{
 								continue;
 							}
-							
+
 							NewHitDataList.AddNoResize(new HitData
 							{
 								Pos = neighbor.Pos,
-								Attacker = owner,
 								Target = neighbor.Entity,
+								TargetLayer = neighbor.Collider.CollisionLayer,
+								
+								Attacker = owner,
 								DistanceSq = distancesq,
+								
 								CurrentDuration = bullet.DelayBetweenHits,
 							});
 
-						} 
+						}
 						while (PartitionHashMap.TryGetNextValue(out neighbor, ref it));
 					}
 				}
 				
 				neighbors.Dispose();
+			}
+
+			private bool isCollidedCheck(float distancesq, AgentColliderComponent col, AgentColliderComponent neighbor)
+			{
+				float combinedRadius = col.Radius + neighbor.Radius;
+				
+				return distancesq <= math.pow(combinedRadius, 2);
 			}
 
 			private bool alreadyHit(Entity owner, Entity enemy)
@@ -111,19 +120,5 @@ namespace Hash.HashMap
 
 	}
 	
-	[System.Serializable]
-	public struct HitData 
-	{
-		public float2 Pos;
-		public Entity Target;
-		public Entity Attacker;
-		public float DistanceSq;
-		public float CurrentDuration;
-
-		public override string ToString()
-		{
-			return $"{Attacker} \t-> {Target} \t| {CurrentDuration}";
-		}
-		
-	}
+	
 }

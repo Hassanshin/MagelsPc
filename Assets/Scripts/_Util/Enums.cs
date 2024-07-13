@@ -1,3 +1,5 @@
+using System;
+
 public enum ENUM_PATTERN_ORIGIN
 {
 	PLAYER,
@@ -122,16 +124,20 @@ public enum ENUM_GAME_STATE
 	Winning,
 }
 
-public enum ENUM_SHAPE 
+public enum ENUM_COLLIDER_SHAPE 
 {
 	Circle, 
 	Rectangle, 
 }
 
+[Flags]
 public enum ENUM_COLLIDER_LAYER
 {
-	Player,
-	PlayerBullet,
-	Enemy,
+	None = 0,
+	Player = 1,
+	PlayerBullet = 2,
+	Enemy = 4,
+	Wall = 8,
 }
+
 
