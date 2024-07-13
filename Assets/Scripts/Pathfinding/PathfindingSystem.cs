@@ -74,9 +74,9 @@ namespace Hash.PathFinding
 		[ReadOnly]
 		public float DeltaTime;
 
-        public float3 PlayerPos;
+		public float3 PlayerPos;
 
-        [BurstCompile]
+		[BurstCompile]
 		public void Execute(Entity owner, [ChunkIndexInQuery] int chunkIndex,
 			in IdComponent data, ref AgentPathComponent agent, DynamicBuffer<AgentPathBuffer> buffer, in LocalTransform localTransform)
 		{
@@ -112,6 +112,11 @@ namespace Hash.PathFinding
 			}
 			
 			int endNodeIndex = GridSingleton.GetIdFromPos(endPos);
+			
+			if (!GridSingleton.IsOnValidGrid(data.PartitionId))
+			{
+				return;
+			}
 			
 			GridBuffer startNode = gridArray[data.PartitionId];
 			startNode.Value.GCost = 0; 

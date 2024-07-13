@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 		{
 			_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 			_cam = Camera.main;
+			
+			
 		}
 		
 		public void Update()
@@ -78,6 +80,8 @@ public class PlayerController : MonoBehaviour
 					Rotation = this.transform.rotation,
 					Scale = this.transform.localScale.y,
 				});
+				
+				GameManager.Instance.UpdateGridByMovement(this.transform.position);
 			}
 		}
 

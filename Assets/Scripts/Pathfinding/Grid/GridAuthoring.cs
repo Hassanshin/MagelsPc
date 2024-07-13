@@ -142,7 +142,11 @@ namespace Baker
 				Width = (int)math.ceil(authoring.Size.x),
 				MaxIndex = (int)math.ceil(authoring.Size.x * authoring.Size.y) - 1,
 				HalfSize = authoring.Size * 0.5f,
+				HalfSizeSquared = math.pow(authoring.Size * 0.5f, 2),
 				Origin = new float2(authoring.transform.position.x, authoring.transform.position.z),
+				
+				ObstacleCheckRadius = authoring.ObstacleCheckRadius,
+				ObstacleLayerMask = authoring.ObstacleLayerMask,
 			});
 			
 			AddComponent<GridBuffer>(entity);
@@ -187,12 +191,17 @@ namespace Baker
 	public struct GridSingleton : IComponentData
 	{
 		public float Spacing;
+		public float2 Division => Size / Spacing;
+		
 		public int Count;
 		public int MaxIndex;
 		public int Width;
 		public float2 Size;
 		public float2 HalfSize;
+		public float2 HalfSizeSquared;
 		public float2 Origin;
+		public float ObstacleCheckRadius;
+		public LayerMask ObstacleLayerMask;
 		
 		public readonly bool IsOnValidGrid(float2 pos)
 		{
@@ -205,7 +214,7 @@ namespace Baker
 		
 		public readonly bool IsOnValidGrid(int id)
 		{
-			return id < Count;
+			return id > 0 && id < Count;
 		}
 		
 		public readonly int CalculateNeighborCount(int radius)
@@ -269,5 +278,15 @@ namespace Baker
 			float yPos = yIndex * Spacing - HalfSize.y;
 
 			return new float2(xPos, yPos);
+		}
+		
+		public float GetMidX(int i)
+		{
+			return (Spacing * i) + Spacing * 0.5f + -Spacing * (Division.x * 0.5f);
+		}
+
+		public float GetMidY(int j)
+		{
+			return (Spacing * j) + Spacing * 0.5f + -Spacing * (Division.y * 0.5f);
 		}
 	}

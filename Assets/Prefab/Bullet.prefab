@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
-  Pierce: 2
+  Pierce: 15
   DelayBetweenHits: 1
 --- !u!114 &2116602012682920823
 MonoBehaviour:
@@ -160,4 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c0d73e42f4bc84eaf387282722a30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 3
+  Duration: 0.3
