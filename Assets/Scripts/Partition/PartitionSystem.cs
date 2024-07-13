@@ -17,7 +17,8 @@ namespace Hash.HashMap
 	{
 		public float2 Pos;
 		public Entity Entity;
-		// public int2 Area;
+		public float Radius;
+		public ENUM_COLLIDER_LAYER Layer;
 		
 		public override string ToString()
 		{
@@ -34,7 +35,7 @@ namespace Hash.HashMap
 		public Entity InGame;
 		public void OnCreate(ref SystemState state)
 		{
-			state.RequireForUpdate<SpawnDataBufferSingleton>();
+			state.RequireForUpdate<EnemyDataBufferSingleton>();
 			state.RequireForUpdate<GridSingleton>();
 			state.RequireForUpdate<IdComponent>();
 			
@@ -70,18 +71,35 @@ namespace Hash.HashMap
 			writerJob.Complete();
 			
 			// reading
-			var readerJob = 
-			new PartitionReaderJob()
+			// var readerJob = 
+			// new PartitionReaderJob()
+			// {
+			// 	HashMap = Hash.AsReadOnly(),
+			// 	GridSingleton = _gridSingleton,
+			// }.ScheduleParallel(writerJob);
+			// readerJob.Complete();
+			
+			NativeList<HitData> bulletToEnemyHit = new(1024, Allocator.TempJob);
+			var bulletToEnemyHandle = 
+			new BulletToEnemyCollisionJob()
 			{
 				HashMap = Hash.AsReadOnly(),
 				GridSingleton = _gridSingleton,
+				HitDatas = bulletToEnemyHit.AsParallelWriter(),
+				
 			}.ScheduleParallel(writerJob);
-			readerJob.Complete();
+			bulletToEnemyHandle.Complete();
+			
+			foreach (var hitData in bulletToEnemyHit)
+			{
+				// UnityEngine.Debug.Log(hitData.DistanceSq + "  \t" + hitData.Attacker + " " + hitData.Target);
+			}
+			UnityEngine.Debug.Log(bulletToEnemyHit.Length);
+			bulletToEnemyHit.Dispose();
 			
 			// Log($"{Hash.Count()}/{Hash.Capacity} standard counter = {AllCounter} partitioned = {PartitionCounter}");
 			Hash.Dispose();
 		}
-		
 		
 		[BurstCompile]
 		public partial struct PartitionReaderJob : IJobEntity
@@ -111,17 +129,25 @@ namespace Hash.HashMap
 								continue;
 							}
 							
-							#if DEBUG_PARTITION
-							UnityEngine.Debug.DrawLine(
-								new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
-								new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
-								UnityEngine.Color.yellow);
-							#endif 
-							
-							if (math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1)
+							// test bullet with enemy
+							if (col.Layer == ENUM_COLLIDER_LAYER.PlayerBullet && neighbor.Layer == ENUM_COLLIDER_LAYER.Enemy)
 							{
-								continue;
+								bool isCollided = math.distancesq(neighbor.Pos, ownerPos.Position.xz) > 1;
+								
+								#if DEBUG_PARTITION
+								UnityEngine.Debug.DrawLine(
+									new float3(neighbor.Pos.x, 0, neighbor.Pos.y), 
+									new float3(ownerPos.Position.x , 0, ownerPos.Position.z), 
+									isCollided ? UnityEngine.Color.white : UnityEngine.Color.magenta);
+								#endif
+
+								if (isCollided)
+								{
+									continue;
+								}
+								
 							}
+							
 							
 							// collide
 							
@@ -142,7 +168,7 @@ namespace Hash.HashMap
 			public GridSingleton GridSingleton;
 			
 			[BurstCompile]
-			public void Execute(in LocalTransform localTransform, ref IdComponent data,
+			public void Execute(in LocalTransform localTransform, ref IdComponent data, in AgentColliderComponent col,
 				[ChunkIndexInQuery] int chunkIndex, Entity owner)
 			{
 				float2 pos = localTransform.Position.xz;
@@ -157,6 +183,8 @@ namespace Hash.HashMap
 				{
 					Pos = pos,
 					Entity = owner,
+					Layer = col.Layer,
+					Radius = col.Radius,
 				});
 				
 				data.PartitionId = partitionId;

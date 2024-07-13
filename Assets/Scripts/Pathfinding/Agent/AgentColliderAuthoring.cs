@@ -7,6 +7,7 @@ namespace Baker
 	public class AgentColliderAuthoring : MonoBehaviour
 	{
 		public float Radius;
+		public ENUM_COLLIDER_LAYER Layer;
 	}
 
 	public class AgentColliderAuthoringBaker : Baker<AgentColliderAuthoring>
@@ -19,6 +20,7 @@ namespace Baker
 			{
 				Radius = authoring.Radius,
 				RadiusInt = Mathf.CeilToInt(authoring.Radius),
+				Layer = authoring.Layer,
 			});
 		}
 	}
@@ -28,4 +30,5 @@ namespace Baker
 	{
 		public float Radius;
 		public int RadiusInt;
+		public ENUM_COLLIDER_LAYER Layer;
 	}

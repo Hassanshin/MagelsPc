@@ -15,7 +15,7 @@ using Random = Unity.Mathematics.Random;
 		EntityQuery _query;
 		RefRW<SpawnDataSingleton> _spawnDataSingleton;
 		uint _currentSeed;
-		DynamicBuffer<SpawnDataBufferSingleton> _spawnDatas;
+		DynamicBuffer<EnemyDataBufferSingleton> _spawnDatas;
 		GridSingleton _gridSingleton;
 		
 		public void OnCreate(ref SystemState state)
@@ -35,7 +35,7 @@ using Random = Unity.Mathematics.Random;
 		{
 			float deltaTime = SystemAPI.Time.DeltaTime;
 			_spawnDataSingleton = SystemAPI.GetSingletonRW<SpawnDataSingleton>();
-			_spawnDatas = SystemAPI.GetSingletonBuffer<SpawnDataBufferSingleton>();
+			_spawnDatas = SystemAPI.GetSingletonBuffer<EnemyDataBufferSingleton>();
 			
 			_gridSingleton = SystemAPI.GetSingleton<GridSingleton>();
 			SystemAPI.TryGetSingletonEntity<GridSingleton>(out Entity partition);

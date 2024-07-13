@@ -128,3 +128,10 @@ public enum ENUM_SHAPE
 	Rectangle, 
 }
 
+public enum ENUM_COLLIDER_LAYER
+{
+	Player,
+	PlayerBullet,
+	Enemy,
+}
+
