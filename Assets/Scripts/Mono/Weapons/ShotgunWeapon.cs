@@ -1,15 +1,30 @@
 using System.Collections;
 using UnityEngine;
 using Unity.Transforms;
+using Unity.Mathematics;
 
 public class ShotgunWeapon : BaseWeapon
 {
+	[Header("shotgun")]
+	[SerializeField]
+	private int _totalShot = 10;
+	
+	[SerializeField]
+	private float _maxAngle = 10;
+	
 	public override void Reload()
 	{
 		_currentAmmo = 0;
 		
 		StartCoroutine(reloadDelay(_maxAmmoReloadTime));
 	}
+	
+	// public void OnDrawGizmos()
+	// {
+	//     quaternion playerQuaternion = quaternion.LookRotation(_playerDirection, math.up());
+	//     quaternion debugDir = math.mul(playerQuaternion, quaternion.Euler(0, math.radians(_maxAngle), 0));
+	//     Debug.DrawRay(transform.position, math.mul(debugDir, math.forward()) * 5, Color.green);
+	// }
 	
 	private IEnumerator reloadDelay(float delay)
 	{
@@ -24,13 +39,23 @@ public class ShotgunWeapon : BaseWeapon
 
 	public override void Shoot()
 	{
-		var bullet = SpawnEntityBullet(new LocalTransform
+		float angleOffset = _maxAngle / (_totalShot - 1);
+		for (int i = 0; i < _totalShot; i++)
 		{
-			Position = _playerPos,
-			Rotation = Quaternion.LookRotation(_playerDirection),
-			Scale = 0.25f,
-		});
-		
-		_entityManager.SetComponentData(bullet, new MoveForwardComponent(_bulletSpeed, 0));
+			float angle = -_maxAngle / 2 + i * angleOffset;
+			
+			var bullet = SpawnEntityBullet(new LocalTransform
+			{
+				Position = _playerPos,
+				Rotation = math.mul(
+					quaternion.LookRotation(_playerDirection, math.up()), 
+					quaternion.Euler(new float3(0, math.radians(angle), 0))),
+				Scale = 0.25f,
+			});
+			
+			_entityManager.SetComponentData(bullet, new MoveForwardComponent(_bulletSpeed, 0));
+		}
+
+
 	}
 }

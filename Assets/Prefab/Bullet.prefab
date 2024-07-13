@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d7ac2de4639b74b92553d055cfadaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 23
-  Pierce: 5
+  Damage: 15
+  Pierce: 1
+  DelayBetweenHits: 0.5
 --- !u!114 &2116602012682920823
 MonoBehaviour:
   m_ObjectHideFlags: 0

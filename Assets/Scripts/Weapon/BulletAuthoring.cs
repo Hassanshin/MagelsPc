@@ -6,8 +6,9 @@ namespace Baker
 {
 	public class BulletAuthoring : MonoBehaviour
 	{
-		public int Damage;
-		public int Pierce;
+		public int Damage = 15;
+		public int Pierce = 12;
+		public float DelayBetweenHits = 0.5f;
 	}
 
 	public class BulletAuthoringBaker : Baker<BulletAuthoring>
@@ -20,6 +21,7 @@ namespace Baker
 			{
 				Damage = authoring.Damage,
 				Pierce = authoring.Pierce,
+				DelayBetweenHits = authoring.DelayBetweenHits,
 			});
 			
 			AddComponent<BulletTag>(entity);
@@ -32,4 +34,5 @@ namespace Baker
 	{
 		public int Damage;
 		public int Pierce;
+		public float DelayBetweenHits;
 	}

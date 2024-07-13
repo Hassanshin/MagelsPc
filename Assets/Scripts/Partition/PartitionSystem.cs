@@ -29,22 +29,26 @@ namespace Hash.HashMap
 	[UpdateInGroup(typeof(HashCoreSystemGroup))]
 	public partial struct PartitionSystem : ISystem
 	{
+		private const int INITIAL_CAPACITY = 1024;
 		public Random Random;
 		private GridSingleton _gridSingleton;
 		private SettingsSingleton _settingsSingleton;
 		public Entity InGame;
+		public NativeParallelMultiHashMap<Entity, HitData> HitDataHashMap;
+		public float DeltaTime;
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<EnemyDataBufferSingleton>();
 			state.RequireForUpdate<GridSingleton>();
 			state.RequireForUpdate<IdComponent>();
 			
+			HitDataHashMap = new NativeParallelMultiHashMap<Entity, HitData>(INITIAL_CAPACITY, Allocator.Persistent);
 		}
 		
 		public void OnDestroy()
 		{
 			// Hash.Dispose();
-			
+			HitDataHashMap.Dispose();
 		}
 
 		[BurstCompile]
@@ -56,16 +60,21 @@ namespace Hash.HashMap
 			SystemAPI.TryGetSingleton(out _gridSingleton);
 			SystemAPI.TryGetSingleton(out _settingsSingleton);
 			SystemAPI.TryGetSingletonEntity<GridSingleton>(out Entity partition);
+			
+			DeltaTime = SystemAPI.Time.DeltaTime;
 			// Log(SpawnDatas.IsCreated);
 			
-			var Hash = new NativeParallelMultiHashMap<int, Partition>(1024, Allocator.TempJob);
+			HitDataHashMap = DecayHitData();
+			
+			// define partition
+			var PartitionHashMap = new NativeParallelMultiHashMap<int, Partition>(1024, Allocator.TempJob);
 			// Log(Partitions.Length);
 			
 			// writing
 			var writerJob = 
-			new PartitionWriterJob()
+			new PartitionWriteIdJob()
 			{
-				HashMap = Hash.AsParallelWriter(),
+				HashMap = PartitionHashMap.AsParallelWriter(),
 				GridSingleton = _gridSingleton,
 			}.ScheduleParallel(state.Dependency);
 			writerJob.Complete();
@@ -79,26 +88,54 @@ namespace Hash.HashMap
 			// }.ScheduleParallel(writerJob);
 			// readerJob.Complete();
 			
-			NativeList<HitData> bulletToEnemyHit = new(1024, Allocator.TempJob);
+			NativeList<HitData> newHitDataList = new(INITIAL_CAPACITY, Allocator.TempJob);
 			var bulletToEnemyHandle = 
 			new BulletToEnemyCollisionJob()
 			{
-				HashMap = Hash.AsReadOnly(),
+				PartitionHashMap = PartitionHashMap.AsReadOnly(),
 				GridSingleton = _gridSingleton,
-				HitDatas = bulletToEnemyHit.AsParallelWriter(),
+				NewHitDataList = newHitDataList.AsParallelWriter(),
+				HitDataHashMap = HitDataHashMap.AsReadOnly(),
 				
 			}.ScheduleParallel(writerJob);
 			bulletToEnemyHandle.Complete();
 			
-			foreach (var hitData in bulletToEnemyHit)
+			foreach (HitData hitData in newHitDataList)
 			{
-				// UnityEngine.Debug.Log(hitData.DistanceSq + "  \t" + hitData.Attacker + " " + hitData.Target);
+				HitDataHashMap.Add(hitData.Attacker, hitData);
+				UnityEngine.Debug.Log(hitData.DistanceSq + "  \t" + hitData.Attacker + " " + hitData.Target);
 			}
-			UnityEngine.Debug.Log(bulletToEnemyHit.Length);
-			bulletToEnemyHit.Dispose();
+			newHitDataList.Dispose();
 			
 			// Log($"{Hash.Count()}/{Hash.Capacity} standard counter = {AllCounter} partitioned = {PartitionCounter}");
-			Hash.Dispose();
+			PartitionHashMap.Dispose();
+		}
+		
+		public NativeParallelMultiHashMap<Entity, HitData> DecayHitData()
+		{
+			var updatedHitDataHashMap = new NativeParallelMultiHashMap<Entity, HitData>(HitDataHashMap.Capacity, Allocator.TempJob);
+			 // Create an enumerator to iterate through all key-value pairs in the original hashmap
+			var enumerator = HitDataHashMap.GetEnumerator();
+
+			while (enumerator.MoveNext())
+			{
+				var key = enumerator.Current.Key;
+				var hitData = enumerator.Current.Value;
+
+				// Reduce the current duration
+				hitData.CurrentDuration -= DeltaTime;
+				
+				// If current duration is greater than 0, add it to the updated hashmap
+				if (hitData.CurrentDuration > 0)
+				{
+					updatedHitDataHashMap.Add(key, hitData);
+				}
+			}
+			
+			enumerator.Dispose();
+			HitDataHashMap.Dispose();
+			
+			return updatedHitDataHashMap;
 		}
 		
 		[BurstCompile]
@@ -161,7 +198,7 @@ namespace Hash.HashMap
 		}
 		
 		[BurstCompile]
-		public partial struct PartitionWriterJob : IJobEntity
+		public partial struct PartitionWriteIdJob : IJobEntity
 		{
 			public NativeParallelMultiHashMap<int, Partition>.ParallelWriter HashMap;
 			[ReadOnly]
