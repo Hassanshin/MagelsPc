@@ -29,18 +29,23 @@ namespace Hash.HashMap
 	[UpdateInGroup(typeof(HashCoreSystemGroup))]
 	public partial struct PartitionSystem : ISystem
 	{
-		private const int INITIAL_CAPACITY = 1024;
+		private const int INITIAL_CAPACITY = 2048;
 		public Random Random;
 		private GridSingleton _gridSingleton;
 		private SettingsSingleton _settingsSingleton;
 		public Entity InGame;
 		public NativeParallelMultiHashMap<Entity, HitData> HitDataHashMap;
 		public float DeltaTime;
+		public ComponentLookup<StatsComponent> StatsComponentLookup;
+		public ComponentLookup<BulletComponent> BulletComponentLookup;
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<EnemyDataBufferSingleton>();
 			state.RequireForUpdate<GridSingleton>();
 			state.RequireForUpdate<IdComponent>();
+			
+			StatsComponentLookup = SystemAPI.GetComponentLookup<StatsComponent>();
+			BulletComponentLookup = SystemAPI.GetComponentLookup<BulletComponent>();
 			
 			HitDataHashMap = new NativeParallelMultiHashMap<Entity, HitData>(INITIAL_CAPACITY, Allocator.Persistent);
 		}
@@ -61,14 +66,16 @@ namespace Hash.HashMap
 			SystemAPI.TryGetSingleton(out _settingsSingleton);
 			SystemAPI.TryGetSingletonEntity<GridSingleton>(out Entity partition);
 			
+			StatsComponentLookup.Update(ref state);
+			BulletComponentLookup.Update(ref state);
+			
 			DeltaTime = SystemAPI.Time.DeltaTime;
 			// Log(SpawnDatas.IsCreated);
 			
 			HitDataHashMap = DecayHitData();
 			
 			// define partition
-			var PartitionHashMap = new NativeParallelMultiHashMap<int, Partition>(1024, Allocator.TempJob);
-			// Log(Partitions.Length);
+			var PartitionHashMap = new NativeParallelMultiHashMap<int, Partition>(INITIAL_CAPACITY, Allocator.TempJob);
 			
 			// writing
 			var writerJob = 
@@ -92,10 +99,11 @@ namespace Hash.HashMap
 			var bulletToEnemyHandle = 
 			new BulletToEnemyCollisionJob()
 			{
-				PartitionHashMap = PartitionHashMap.AsReadOnly(),
 				GridSingleton = _gridSingleton,
-				NewHitDataList = newHitDataList.AsParallelWriter(),
+				PartitionHashMap = PartitionHashMap.AsReadOnly(),
+				
 				HitDataHashMap = HitDataHashMap.AsReadOnly(),
+				NewHitDataList = newHitDataList.AsParallelWriter(),
 				
 			}.ScheduleParallel(writerJob);
 			bulletToEnemyHandle.Complete();
@@ -103,14 +111,41 @@ namespace Hash.HashMap
 			foreach (HitData hitData in newHitDataList)
 			{
 				HitDataHashMap.Add(hitData.Attacker, hitData);
-				UnityEngine.Debug.Log(hitData.DistanceSq + "  \t" + hitData.Attacker + " " + hitData.Target);
+				// UnityEngine.Debug.Log(hitData.DistanceSq + "  \t" + hitData.Attacker + " " + hitData.Target);
+
+				var stats = StatsComponentLookup.GetRefRW(hitData.Target);
+				var bullet = BulletComponentLookup.GetRefRW(hitData.Attacker);
+				calculateDamage(ref state, hitData, stats, bullet);
 			}
 			newHitDataList.Dispose();
 			
 			// Log($"{Hash.Count()}/{Hash.Capacity} standard counter = {AllCounter} partitioned = {PartitionCounter}");
 			PartitionHashMap.Dispose();
 		}
-		
+
+		private void calculateDamage(ref SystemState state, HitData hitData, RefRW<StatsComponent> stats, RefRW<BulletComponent> bullet)
+		{
+			if (stats.ValueRO.Data.Health.Value <= 0 || bullet.ValueRO.Pierce <= 0)
+			{
+				return;
+			}
+			
+			stats.ValueRW.Data.Health.Add(-bullet.ValueRO.Damage);
+			
+			if (stats.ValueRO.Data.Health.Value <= 0)
+			{
+				// target die. drop items?
+				
+				state.EntityManager.SetComponentEnabled<DestroyTag>(hitData.Target, true);
+			}
+			
+			bullet.ValueRW.Pierce--;
+			if (bullet.ValueRO.Pierce <= 0)
+			{
+				state.EntityManager.SetComponentEnabled<DestroyTag>(hitData.Attacker, true);
+			}
+		}
+
 		public NativeParallelMultiHashMap<Entity, HitData> DecayHitData()
 		{
 			var updatedHitDataHashMap = new NativeParallelMultiHashMap<Entity, HitData>(HitDataHashMap.Capacity, Allocator.TempJob);

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 15
-  Pierce: 1
+  Pierce: 10
   DelayBetweenHits: 0.5
 --- !u!114 &2116602012682920823
 MonoBehaviour:

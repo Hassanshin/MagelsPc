@@ -4460,7 +4460,7 @@ MonoBehaviour:
     Index: 535
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
       x: -3.5
@@ -4780,7 +4780,7 @@ MonoBehaviour:
     Index: 575
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
       x: -3.5
@@ -6740,7 +6740,7 @@ MonoBehaviour:
     Index: 820
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 1
+    IsWalkable: 0
     ComeFromIndex: -1
   - Pos:
       x: 1.5
@@ -6748,7 +6748,7 @@ MonoBehaviour:
     Index: 821
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 1
+    IsWalkable: 0
     ComeFromIndex: -1
   - Pos:
       x: 2.5
@@ -13024,14 +13024,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd4fd55ee0bea646a62049450d1e790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpawnCount: 0
+  MaxSpawnCount: 1000
   EnemyList:
   - {fileID: 5799047079922632947, guid: 264c66ecb246d3444876c34cf257bd21, type: 3}
   BulletList:
   - {fileID: -1899966483167304530, guid: 8ae2903838ac56548bb03876dcc93077, type: 3}
   MinMaxRandomDeathDelay:
-    x: 2
-    y: 5
+    x: 100
+    y: 105
   Scale: 0.2
 --- !u!114 &712462193
 MonoBehaviour:
@@ -13245,7 +13245,7 @@ PrefabInstance:
     - target: {fileID: 9165146422413619724, guid: 264c66ecb246d3444876c34cf257bd21,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
