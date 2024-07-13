@@ -23,7 +23,7 @@ using Random = Unity.Mathematics.Random;
 			state.RequireForUpdate<SpawnDataSingleton>();
 			// state.RequireForUpdate<YOUR_DATA_COMPONENT>();
 			_query = new EntityQueryBuilder(Allocator.Temp)
-				.WithAll<IdComponent>()
+				.WithAll<EnemyTag>()
 				.Build(ref state);
 				
 			_currentSeed = (uint) UnityEngine.Random.Range(0, uint.MaxValue);
