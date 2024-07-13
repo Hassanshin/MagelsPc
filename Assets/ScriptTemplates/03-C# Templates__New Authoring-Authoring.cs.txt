@@ -2,7 +2,8 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-#ROOTNAMESPACEBEGIN#
+namespace Baker
+{
     public class #SCRIPTNAME# : MonoBehaviour
     {
         public float Value;
@@ -20,7 +21,9 @@ using UnityEngine;
             });
         }
     }
+}
 
+#ROOTNAMESPACEBEGIN#
     public struct #SCRIPTNAME#Component : IComponentData
     {
         public float Value;

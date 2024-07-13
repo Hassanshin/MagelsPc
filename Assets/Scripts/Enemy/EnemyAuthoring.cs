@@ -4,7 +4,6 @@ using UnityEngine;
 
     public class EnemyAuthoring : MonoBehaviour
     {
-        public float Value;
     }
 
     public class EnemyAuthoringBaker : Baker<EnemyAuthoring>
@@ -13,14 +12,12 @@ using UnityEngine;
         {
             Entity entity = GetEntity(authoring, TransformUsageFlags.None);
             
-            AddComponent(entity, new EnemyAuthoringComponent
+            AddComponent(entity, new EnemyTag
             {
-                Value = authoring.Value
             });
         }
     }
 
-    public struct EnemyAuthoringComponent : IComponentData
+    public struct EnemyTag : IComponentData
     {
-        public float Value;
     }
