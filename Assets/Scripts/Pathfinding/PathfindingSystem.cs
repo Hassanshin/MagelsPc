@@ -113,10 +113,10 @@ namespace Hash.PathFinding
 			
 			int endNodeIndex = GridSingleton.GetIdFromPos(endPos);
 			
-			if (!GridSingleton.IsOnValidGrid(data.PartitionId))
-			{
-				return;
-			}
+			// if (!GridSingleton.IsOnValidGrid(data.PartitionId))
+			// {
+			// 	return;
+			// }
 			
 			GridBuffer startNode = gridArray[data.PartitionId];
 			startNode.Value.GCost = 0; 
@@ -188,6 +188,11 @@ namespace Hash.PathFinding
 				
 				neighborList.Dispose();
 			}
+			
+			// if (!GridSingleton.IsOnValidGrid(endNodeIndex))
+			// {
+			// 	return;
+			// }
 			
 			PathNode endNode = gridArray[endNodeIndex].Value;
 			if (endNode.ComeFromIndex == -1)

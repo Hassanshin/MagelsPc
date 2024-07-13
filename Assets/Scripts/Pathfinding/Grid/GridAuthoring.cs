@@ -39,6 +39,9 @@ namespace Baker
 				return;
 			}
 			
+			// Get the origin
+			float2 origin = new float2(transform.position.x, transform.position.z);
+			
 			// Draw a division
 			int counter = 0;
 			for (int i = 0; i < Division.x; i++)
@@ -48,12 +51,12 @@ namespace Baker
 					float midX = getMidX(i);
 					float midY = getMidY(j);
 					
-					float2 pos = new float2(midX, midY);
+					float2 pos = new float2(midX, midY) + origin;
 					int index = GetIdFromPos(pos);
 					Partitions[index] = new PathNode
 					{
 						Pos = pos,
-						IsWalkable = !Physics.CheckSphere(new Vector3(midX, 0, midY), ObstacleCheckRadius, ObstacleLayerMask),
+						IsWalkable = !Physics.CheckSphere(new Vector3(midX + origin.x, 0, midY + origin.y), ObstacleCheckRadius, ObstacleLayerMask),
 						Index = index,
 						ComeFromIndex = -1,
 						
@@ -73,13 +76,13 @@ namespace Baker
 			{
 				Gizmos.color = Partitions[i].IsWalkable ? FineColor : BadColor;
 				
-				Gizmos.DrawWireCube(transform.position + (Vector3)Partitions[i].GetFloat3, new Vector3(Spacing-0.1f, 0, Spacing-0.1f));
+				Gizmos.DrawWireCube((Vector3)Partitions[i].GetFloat3, new Vector3(Spacing-0.1f, 0, Spacing-0.1f));
 				#if UNITY_EDITOR
 				if (ShowText)
 				{
 					int id = GetIdFromPos(Partitions[i].Pos);
 					float2 pos = GetPosFromId(id);
-					UnityEditor.Handles.Label(transform.position + (Vector3)Partitions[i].GetFloat3, $"{id}\n{pos.x},{pos.y}");
+					UnityEditor.Handles.Label((Vector3)Partitions[i].GetFloat3, $"{id}\n{pos.x},{pos.y}");
 				}
 				#endif
 			}
@@ -88,6 +91,8 @@ namespace Baker
 		public int GetIdFromPos(float2 pos)
 		{
 			// Translate pos to the grid origin
+            float2 origin = new float2(transform.position.x, transform.position.z);
+            pos -= origin;
 			pos += Size * 0.5f;
 			
 			// Convert the position to grid coordinates using integer arithmetic
@@ -183,7 +188,10 @@ namespace Baker
 
 		public override string ToString()
 		{
-			return Pos.ToString() + "." + Index + " W:" + IsWalkable;
+			return IsWalkable ?  
+				$"<color=white>{Pos}. {Index} W: {IsWalkable}</color>":
+				$"<color=red>{Pos}. {Index} W: {IsWalkable}</color>"
+				;
 		}
 	
 	}
@@ -252,7 +260,7 @@ namespace Baker
 		public readonly int GetIdFromPos(float2 pos)
 		{
 			// Translate pos to the grid origin
-			pos += HalfSize;
+			pos += -Origin + HalfSize;
 			
 			// Convert the position to grid coordinates using integer arithmetic
 			int xIndex = (int)(pos.x / Spacing);
