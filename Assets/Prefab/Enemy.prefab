@@ -189,11 +189,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     Health:
-      _value: 100
-      _defaultValue: 100
+      _value: 10
+      _defaultValue: 10
       _minMax:
         x: 0
-        y: 100
+        y: 10
     Energy:
       _value: 50
       _defaultValue: 50

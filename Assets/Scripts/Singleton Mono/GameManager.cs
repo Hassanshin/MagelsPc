@@ -85,7 +85,8 @@ public class GameManager : MonoBehaviour
 	public ENUM_GAME_STATE GameState => _gameState;
 	
 	private bool _isReady;
-	
+	private SpawnerManager _spawnerManager;
+	public int TotalKill = 0;
 	public void Start()
 	{
 		_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -94,7 +95,12 @@ public class GameManager : MonoBehaviour
 		foreach (BaseController item in Controllers)
 		{
 			item.IsInit = true;
-			item.Init();	
+			item.Init();
+			
+			if (item is SpawnerManager)
+			{
+				_spawnerManager = item as SpawnerManager;
+			}
 		}
 	}
 	
@@ -105,22 +111,34 @@ public class GameManager : MonoBehaviour
 
 	private void readHitData()
 	{
-		if (!_entityManager.CreateEntityQuery(new ComponentType[] { typeof(HitBufferDataMono) })
-			.TryGetSingletonBuffer<HitBufferDataMono>(out var hitBuffer))
+		if (_entityManager.CreateEntityQuery(new ComponentType[] { typeof(PlayerBulletHitBufferToMono) })
+			.TryGetSingletonBuffer<PlayerBulletHitBufferToMono>(out var bulletHitBuffer))
 		{
-			return;
+			if (bulletHitBuffer.Length < 0) { return; }
+
+			for (int i = bulletHitBuffer.Length - 1; i >= 0; i--)
+			{
+				var hit = bulletHitBuffer[i].Hit;
+				bulletHitBuffer[i].Weapon.Value.OnHit(hit);
+				if (hit.IsKilling)
+				{
+					TotalKill++;
+					
+					if (TotalKill % 50 == 0)
+					{
+						_spawnerManager.RandomSpawnPowerUps(hit.Pos, 25);
+					}
+					else
+					{
+						_spawnerManager.RandomSpawnPowerUps(hit.Pos, 1);
+					}
+				}
+			}
+
+			bulletHitBuffer.Clear();
 		}
-		
-		if (hitBuffer.Length < 0) { return; }
-		
-		for (int i = hitBuffer.Length - 1; i >= 0 ; i--)
-		{
-			hitBuffer[i].Weapon.Value.OnHit(hitBuffer[i].Hit);
-		}
-		
-		hitBuffer.Clear();
 	}
-	
+
 	public void StartGame()
 	{
 		_gameState = ENUM_GAME_STATE.Playing;

@@ -58,11 +58,15 @@ namespace Hash.HashMap
 		public float DeltaTime;
 		public ComponentLookup<StatsComponent> StatsComponentLookup;
 		public ComponentLookup<BulletComponent> BulletComponentLookup;
-		public DynamicBuffer<HitBufferDataMono> HitBufferMono;
+		public ComponentLookup<PowerUpsComponent> PowerUpsComponentLookup;
+		public DynamicBuffer<PlayerBulletHitBufferToMono> PlayerBulletHitBufferMono;
+		public DynamicBuffer<PlayerGettingHitBufferToMono> PlayerGettingHitBufferMono;
+		
 		public Entity Player;
 		public RefRW<IFrameComponent> PlayerIFrame;
 		public RefRW<StatsComponent> PlayerStats;
 		public LocalTransform PlayerPos;
+		public int PlayerGridId;
 		
 		public void OnCreate(ref SystemState state)
 		{
@@ -72,6 +76,7 @@ namespace Hash.HashMap
 			
 			StatsComponentLookup = SystemAPI.GetComponentLookup<StatsComponent>();
 			BulletComponentLookup = SystemAPI.GetComponentLookup<BulletComponent>();
+			PowerUpsComponentLookup = SystemAPI.GetComponentLookup<PowerUpsComponent>();
 			
 			HitDataHashMap = new NativeParallelMultiHashMap<Entity, HitData>(INITIAL_CAPACITY, Allocator.Persistent);
 		}
@@ -91,10 +96,13 @@ namespace Hash.HashMap
 			SystemAPI.TryGetSingleton(out _gridSingleton);
 			SystemAPI.TryGetSingleton(out _settingsSingleton);
 			// SystemAPI.TryGetSingletonEntity<GridSingleton>(value: out Entity partition);
-			SystemAPI.TryGetSingletonBuffer(out HitBufferMono);
+			
+			SystemAPI.TryGetSingletonBuffer(out PlayerBulletHitBufferMono);
+			SystemAPI.TryGetSingletonBuffer(out PlayerGettingHitBufferMono);
 			
 			StatsComponentLookup.Update(ref state);
 			BulletComponentLookup.Update(ref state);
+			PowerUpsComponentLookup.Update(ref state);
 			
 			SystemAPI.TryGetSingletonEntity<PlayerTag>(value: out Player);
 			PlayerStats = StatsComponentLookup.GetRefRW(Player);
@@ -118,8 +126,8 @@ namespace Hash.HashMap
 			
 			if (!PlayerIFrame.ValueRO.IsOnIFrame)
 			{
-				int playerGridId = _gridSingleton.GetIdFromPos(PlayerPos.Position.xz);
-				if (PartitionHashMap.TryGetFirstValue(playerGridId, out Partition neighbor, out var it))
+				PlayerGridId = _gridSingleton.GetIdFromPos(PlayerPos.Position.xz);
+				if (PartitionHashMap.TryGetFirstValue(PlayerGridId, out Partition neighbor, out var it))
 				{
 					do
 					{
@@ -127,33 +135,12 @@ namespace Hash.HashMap
 						{
 							continue;
 						}
-
-						// test enemy
-						if ((neighbor.Collider.CollisionLayer & ENUM_COLLIDER_LAYER.Enemy) == 0)
-						{
-							continue;
-						}
-
-						float distancesq = math.distancesq(neighbor.Pos, PlayerPos.Position.xz);
-						bool isCollided = distancesq <= 0.5f;
 						
-						#if DEBUG_PARTITION
-						UnityEngine.Debug.DrawLine(
-							new float3(neighbor.Pos.x, 0, neighbor.Pos.y),
-							new float3(PlayerPos.Position.x, 0, PlayerPos.Position.z),
-							isCollided ? UnityEngine.Color.red : UnityEngine.Color.green);
-						#endif
-
-						if (!isCollided)
-						{
-							continue;
-						}
+						enemyHitPlayerCheck(ref state, neighbor);
+						powerUpsHitPlayerCheck(ref state, neighbor);
 						
-						// do real health and trigger iFrame
-						PlayerIFrame.ValueRW.CurrentDuration = 1f;
-				
-						int damage = (int)math.ceil(StatsComponentLookup[neighbor.Entity].Attack.Value);
-						PlayerStats.ValueRW.Health.Add(-damage);
+						PlayerIFrame.ValueRW.CurrentDuration = 0.2f;
+						
 						break;
 					}
 					while (PartitionHashMap.TryGetNextValue(out neighbor, ref it));
@@ -197,7 +184,7 @@ namespace Hash.HashMap
 				}
 				
 				// to be read by mono
-				HitBufferMono.Add(new HitBufferDataMono
+				PlayerBulletHitBufferMono.Add(new PlayerBulletHitBufferToMono
 				{
 					Hit = hitData,
 					Weapon = bullet.ValueRO.Weapon,
@@ -207,6 +194,74 @@ namespace Hash.HashMap
 			
 			// Log($"{Hash.Count()}/{Hash.Capacity} standard counter = {AllCounter} partitioned = {PartitionCounter}");
 			PartitionHashMap.Dispose();
+		}
+
+		private void enemyHitPlayerCheck(ref SystemState state, Partition neighbor)
+		{
+			// test enemy
+			if ((neighbor.Collider.CollisionLayer & ENUM_COLLIDER_LAYER.Enemy) == 0)
+			{
+				return;
+			}
+
+			float distancesq = math.distancesq(neighbor.Pos, PlayerPos.Position.xz);
+			bool isCollided = distancesq <= 0.5f;
+
+			#if DEBUG_PARTITION
+			UnityEngine.Debug.DrawLine(
+				new float3(neighbor.Pos.x, 0, neighbor.Pos.y),
+				new float3(PlayerPos.Position.x, 0, PlayerPos.Position.z),
+				isCollided ? UnityEngine.Color.red : UnityEngine.Color.green);
+			#endif
+
+			if (!isCollided)
+			{
+				return;
+			}
+
+			// do real health
+
+			int damage = (int)math.ceil(StatsComponentLookup[neighbor.Entity].Attack.Value);
+			PlayerStats.ValueRW.Health.Add(-damage);
+		}
+		
+		private void powerUpsHitPlayerCheck(ref SystemState state, Partition neighbor)
+		{
+			// test enemy
+			if ((neighbor.Collider.CollisionLayer & ENUM_COLLIDER_LAYER.PowerUps) == 0)
+			{
+				return;
+			}
+
+			float distancesq = math.distancesq(neighbor.Pos, PlayerPos.Position.xz);
+			bool isCollided = distancesq <= 0.5f;
+
+			#if DEBUG_PARTITION
+			UnityEngine.Debug.DrawLine(
+				new float3(neighbor.Pos.x, 0, neighbor.Pos.y),
+				new float3(PlayerPos.Position.x, 0, PlayerPos.Position.z),
+				isCollided ? UnityEngine.Color.red : UnityEngine.Color.magenta);
+			#endif
+
+			if (!isCollided)
+			{
+				return;
+			}
+			
+			state.EntityManager.SetComponentEnabled<DestroyTag>(neighbor.Entity, true);
+
+			PowerUpsComponent powerUpsComponent = PowerUpsComponentLookup[neighbor.Entity];
+			if (powerUpsComponent.Type == ENUM_POWER_UPS_TYPE.Health)
+			{
+				PlayerStats.ValueRW.Health.Add(powerUpsComponent.Amount);
+				return;
+			}
+			PlayerGettingHitBufferMono.Add(new PlayerGettingHitBufferToMono
+			{
+				Layer = ENUM_COLLIDER_LAYER.PowerUps,
+				PowerUps = powerUpsComponent,
+				Pos = new float3(neighbor.Pos.x, 0, neighbor.Pos.y),
+			});
 		}
 
 		private void processBulletHit(ref SystemState state, HitData hitData, RefRW<StatsComponent> stats, RefRW<BulletComponent> bullet)

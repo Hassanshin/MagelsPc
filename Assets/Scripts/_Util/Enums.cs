@@ -139,6 +139,17 @@ public enum ENUM_COLLIDER_LAYER
 	PlayerBullet = 2,
 	Enemy = 4,
 	Wall = 8,
+	PowerUps = 16,
+}
+
+public enum ENUM_POWER_UPS_TYPE
+{
+	Health = 0,
+	Damage = 1,
+	Pierce = 2,
+	Spread = 3,
+	Bullet = 4,
+	Duration = 5,
 }
 
 

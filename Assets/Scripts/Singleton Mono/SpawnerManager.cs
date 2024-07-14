@@ -14,6 +14,7 @@ public class SpawnerManager : BaseController
 	EntityManager _entityManager;
 	DynamicBuffer<EnemyDataBufferSingleton> _spawnEnemyDatas;
 	DynamicBuffer<DataBlockDataBufferSingleton> _spawnDataBlockDatas;
+	DynamicBuffer<PowerUpsDataBufferSingleton> _powerUpsDatas;
 	DynamicBuffer<WallDataBufferSingleton> _spawnWallDatas;
 	
 	[Header("Data")]
@@ -98,7 +99,7 @@ public class SpawnerManager : BaseController
 	
 	public void GroupSpawn(MagelSchedule schedule, Vector3Int center)
 	{
-        schedule.SpawnedEntity = new System.Collections.Generic.List<Entity>();
+		schedule.SpawnedEntity = new System.Collections.Generic.List<Entity>();
 		for (int i = 0; i < schedule.EnemyChance.Count; i++)
 		{
 			int randomAmount = UnityEngine.Random.Range(schedule.EnemyChance[i].x, schedule.EnemyChance[i].y + 1);
@@ -119,6 +120,25 @@ public class SpawnerManager : BaseController
 		return new float3(
 			UnityEngine.Random.Range(-schedule.HalfSize.x + 1, schedule.HalfSize.x - 2), 0,
 			UnityEngine.Random.Range(-schedule.HalfSize.y + 1, 0));
+	}
+	
+	public void RandomSpawnPowerUps(float2 pos, int chance)
+	{
+		if (!_entityManager.CreateEntityQuery(new ComponentType[] { typeof(PowerUpsDataBufferSingleton) })
+			.TryGetSingletonBuffer(out _powerUpsDatas))
+		{
+			return;
+		}
+		
+		bool willDrop = UnityEngine.Random.Range(1, 101) <= chance;
+		
+		if (!willDrop)
+		{
+			return;
+		}
+		int index = UnityEngine.Random.Range(0, _powerUpsDatas.Length);
+		
+		SpawnPowerUps(index, new float3(pos.x, 0, pos.y));
 	}
 
 	public void RemoveWall(Vector3Int vector3Int)
@@ -202,6 +222,18 @@ public class SpawnerManager : BaseController
 		}
 		
 		Entity spawned = _entityManager.Instantiate(_spawnDataBlockDatas[index].Entity);
+		_entityManager.SetComponentData(spawned, new LocalTransform
+		{
+			Position = pos,
+			Rotation = quaternion.identity,
+			Scale = 1,
+		});
+		return spawned;
+	}
+
+	public Entity SpawnPowerUps(int index, float3 pos)
+	{
+		Entity spawned = _entityManager.Instantiate(_powerUpsDatas[index].Entity);
 		_entityManager.SetComponentData(spawned, new LocalTransform
 		{
 			Position = pos,

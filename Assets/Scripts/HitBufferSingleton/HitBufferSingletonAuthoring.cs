@@ -16,14 +16,23 @@ namespace Baker
 		{
 			Entity entity = GetEntity(authoring, TransformUsageFlags.None);
 			
-			AddBuffer<HitBufferDataMono>(entity);
+			AddBuffer<PlayerBulletHitBufferToMono>(entity);
+			AddBuffer<PlayerGettingHitBufferToMono>(entity);
 		}
 	}
 }
 
 	[System.Serializable]
-	public struct HitBufferDataMono : IBufferElementData
+	public struct PlayerBulletHitBufferToMono : IBufferElementData
 	{
 		public UnityObjectRef<BaseWeapon> Weapon;
 		public HitData Hit;
+	}
+	
+	[System.Serializable]
+	public struct PlayerGettingHitBufferToMono : IBufferElementData
+	{
+		public ENUM_COLLIDER_LAYER Layer;
+		public PowerUpsComponent PowerUps;
+		public float3 Pos;
 	}

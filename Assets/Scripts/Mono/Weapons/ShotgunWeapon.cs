@@ -6,12 +6,7 @@ using Hash.HashMap;
 
 public class ShotgunWeapon : BaseWeapon
 {
-	[Header("shotgun")]
-	[SerializeField]
-	private int _totalShot = 10;
 	
-	[SerializeField]
-	private float _maxAngle = 10;
 	
 	public override void Reload()
 	{
@@ -40,21 +35,26 @@ public class ShotgunWeapon : BaseWeapon
 
 	public override void Shoot()
 	{
-		float angleOffset = _maxAngle / (_totalShot - 1);
-		for (int i = 0; i < _totalShot; i++)
-		{
-			float angle = -_maxAngle / 2 + i * angleOffset;
-			
-			var bullet = SpawnEntityBullet(new LocalTransform
-			{
-				Position = _playerPos,
-				Rotation = math.mul(
-					quaternion.LookRotation(_playerDirection, math.up()), 
-					quaternion.Euler(new float3(0, math.radians(angle), 0))),
-				Scale = 0.25f,
-			});
-			
-		}
+		float angleOffset = MaxAngle / (TotalShot > 1 ? TotalShot - 1 : 1); // Prevent division by zero
+
+        for (int i = 0; i < TotalShot; i++)
+        {
+            float angle = -MaxAngle / 2 + i * angleOffset;
+            quaternion rotation = math.mul(
+                quaternion.LookRotation(_playerDirection, math.up()),
+                quaternion.Euler(new float3(0, math.radians(angle), 0))
+            );
+
+            // Normalize the quaternion to ensure it's always valid
+            rotation = math.normalize(rotation);
+
+            var bullet = SpawnEntityBullet(new LocalTransform
+            {
+                Position = _playerPos,
+                Rotation = rotation,
+                Scale = 0.25f,
+            });
+        }
 
 
 	}

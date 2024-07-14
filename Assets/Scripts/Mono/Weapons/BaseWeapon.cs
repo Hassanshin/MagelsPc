@@ -1,4 +1,5 @@
 using Hash.HashMap;
+using Tertle.DestroyCleanup;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
@@ -8,7 +9,14 @@ using UnityEngine;
 		[SerializeField]
 		protected int _bulletId;
 		[SerializeField]
-		protected BulletComponent _bulletComp;
+		public BulletComponent BulletComp;
+		[SerializeField]
+		public int TotalShot = 10;
+		
+		[SerializeField]
+		public float MaxAngle = 10;
+		[SerializeField]
+		public float BulletDuration = 1;
 		
 		[Header("State")]
 		[SerializeField]
@@ -44,7 +52,7 @@ using UnityEngine;
 		protected virtual void Start()
 		{
 			_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-			_bulletComp.Weapon = this;
+			BulletComp.Weapon = this;
 		}
 		
 		protected virtual void FixedUpdate()
@@ -58,9 +66,13 @@ using UnityEngine;
 			var spawned = _entityManager.Instantiate(_buffer[_bulletId].Entity);
 			
 			_entityManager.SetComponentData(spawned, localTransform);
-			_entityManager.SetComponentData(spawned, new MoveForwardComponent(_bulletComp.Speed, 0));
-			_entityManager.SetComponentData(spawned, _bulletComp);
-			
+			_entityManager.SetComponentData(spawned, new MoveForwardComponent(BulletComp.Speed, 0));
+			_entityManager.SetComponentData(spawned, BulletComp);
+			_entityManager.SetComponentData(spawned, new DestroyByDurationComponent
+			{
+				Duration = BulletDuration,
+				MaxDuration = BulletDuration,
+			});
 			
 			return spawned;
 		}

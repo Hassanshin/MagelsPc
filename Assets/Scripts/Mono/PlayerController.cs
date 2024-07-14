@@ -5,42 +5,42 @@ using Unity.Transforms;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
+{
+	private EntityManager _entityManager;
+	private UiManager _uiManager;
+	private Entity _entity;
+	[SerializeField]
+	private Rigidbody _rigidbody;
+	[SerializeField]
+	private float _speed = 3;
+	[SerializeField]
+	private Vector3 _direction;
+	[SerializeField]
+	private float _velocity;
+	[SerializeField]
+	private Vector3 _input;
+	private Camera _cam;
+	private bool _isWalking;
+	public bool IsWalking => _isWalking;
+	
+	public List<BaseWeapon> Weapons = new List<BaseWeapon>();
+	private bool _isReady;
+	private bool _isReloading;
+	
+	Vector3 _cursorWorldpoint = new Vector3();
+	[SerializeField]
+	private Transform _aimingTransform;
+	[SerializeField]
+	private ParticleSystem _vfxMuzzle;
+	public void Start()
 	{
-		private EntityManager _entityManager;
-		private UiManager _uiManager;
-		private Entity _entity;
-		[SerializeField]
-		private Rigidbody _rigidbody;
-		[SerializeField]
-		private float _speed = 3;
-		[SerializeField]
-		private Vector3 _direction;
-		[SerializeField]
-		private float _velocity;
-		[SerializeField]
-		private Vector3 _input;
-		private Camera _cam;
-		private bool _isWalking;
-		public bool IsWalking => _isWalking;
+		_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+		_uiManager = GameManager.Instance.GetController<UiManager>();
+		_cam = Camera.main;
 		
-		public List<BaseWeapon> Weapons = new List<BaseWeapon>();
-		private bool _isReady;
-		private bool _isReloading;
+	}
 		
-		Vector3 _cursorWorldpoint = new Vector3();
-		[SerializeField]
-		private Transform _aimingTransform;
-		[SerializeField]
-		private ParticleSystem _vfxMuzzle;
-		public void Start()
-		{
-			_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-			_uiManager = GameManager.Instance.GetController<UiManager>();
-			_cam = Camera.main;
-			
-		}
-		
-		public void Update()
+	public void Update()
 	{
 		_isReady = _entityManager.CreateEntityQuery(new ComponentType[] { typeof(PlayerTag) }).TryGetSingletonEntity<PlayerTag>(out _entity);
 		if (!_isReady) { return; }
@@ -56,7 +56,49 @@ public class PlayerController : MonoBehaviour
 		}
 
 		updateUi();
+		readPowerUpsData();
+	}
 
+	private void readPowerUpsData()
+	{
+		if (_entityManager.CreateEntityQuery(new ComponentType[] { typeof(PlayerGettingHitBufferToMono) })
+			.TryGetSingletonBuffer<PlayerGettingHitBufferToMono>(out var gettingHitBuffer))
+		{
+			if (gettingHitBuffer.Length < 0) { return; }
+
+			for (int i = gettingHitBuffer.Length - 1; i >= 0; i--)
+			{
+				applyPowerUp(gettingHitBuffer[i].PowerUps);
+
+			}
+
+			gettingHitBuffer.Clear();
+		}
+	}
+
+	private void applyPowerUp(PowerUpsComponent powerUp)
+	{
+		Debug.Log(powerUp.Type);
+		switch (powerUp.Type)
+		{
+			case ENUM_POWER_UPS_TYPE.Health:
+				// do in ecs
+				break;
+			case ENUM_POWER_UPS_TYPE.Damage:
+				Weapons[0].BulletComp.Damage += powerUp.Amount;
+				break;
+			case ENUM_POWER_UPS_TYPE.Pierce:
+				Weapons[0].BulletComp.Pierce += powerUp.Amount;
+				break;
+			case ENUM_POWER_UPS_TYPE.Spread:
+				Weapons[0].MaxAngle += powerUp.Amount;
+				break;
+			case ENUM_POWER_UPS_TYPE.Bullet:
+				Weapons[0].TotalShot += powerUp.Amount;
+				break;
+			case ENUM_POWER_UPS_TYPE.Duration:
+				break;
+		}
 	}
 
 	private void updateUi()
@@ -72,63 +114,63 @@ public class PlayerController : MonoBehaviour
 	}
 
 	public void FixedUpdate()
+	{
+		if (!_isReady) {return;}
+		float hor = Input.GetAxis("Horizontal");
+		float ver = Input.GetAxis("Vertical");
+		
+		_input.x = hor;
+		_input.z = ver;
+		
+		_direction = new Vector3(hor, 0, ver);
+		
+		_rigidbody.velocity = _speed * Time.fixedDeltaTime * _direction.normalized;
+		_isWalking = _rigidbody.velocity != Vector3.zero;
+		if (!_isWalking)
 		{
-			if (!_isReady) {return;}
-			float hor = Input.GetAxis("Horizontal");
-			float ver = Input.GetAxis("Vertical");
+			_velocity = 0;
 			
-			_input.x = hor;
-			_input.z = ver;
-			
-			_direction = new Vector3(hor, 0, ver);
-			
-			_rigidbody.velocity = _speed * Time.fixedDeltaTime * _direction.normalized;
-			_isWalking = _rigidbody.velocity != Vector3.zero;
-			if (!_isWalking)
-			{
-				_velocity = 0;
-				
-			}
-			else
-			{
-				_velocity = _rigidbody.velocity.sqrMagnitude;
-				
-				// set current velocity as direction
-				// transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
-				
-				_entityManager.SetComponentData(_entity, new LocalTransform
-				{
-					Position = this.transform.position,
-					Rotation = this.transform.rotation,
-					Scale = this.transform.localScale.y,
-				});
-				
-				GameManager.Instance.UpdateGridByMovement(this.transform.position);
-			}
-			
-			// facing
-			Vector3 _mousePos = Input.mousePosition;
-			_cursorWorldpoint = Camera.main.ScreenToWorldPoint(new Vector3(_mousePos.x, _mousePos.y, _cam.transform.position.y));
-			_cursorWorldpoint.y = 0;
-			transform.rotation = Quaternion.LookRotation((_cursorWorldpoint - this.transform.position).normalized);
 		}
-
-		private void shoot()
+		else
 		{
-			for (int i = 0; i < Weapons.Count; i++)
-			{
-				Weapons[i].Shoot();
-				
-			}
+			_velocity = _rigidbody.velocity.sqrMagnitude;
 			
-			_vfxMuzzle.Play();
+			// set current velocity as direction
+			// transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
+			
+			_entityManager.SetComponentData(_entity, new LocalTransform
+			{
+				Position = this.transform.position,
+				Rotation = this.transform.rotation,
+				Scale = this.transform.localScale.y,
+			});
+			
+			GameManager.Instance.UpdateGridByMovement(this.transform.position);
 		}
 		
-		private void reload()
+		// facing
+		Vector3 _mousePos = Input.mousePosition;
+		_cursorWorldpoint = Camera.main.ScreenToWorldPoint(new Vector3(_mousePos.x, _mousePos.y, _cam.transform.position.y));
+		_cursorWorldpoint.y = 0;
+		transform.rotation = Quaternion.LookRotation((_cursorWorldpoint - this.transform.position).normalized);
+	}
+
+	private void shoot()
+	{
+		for (int i = 0; i < Weapons.Count; i++)
 		{
-			for (int i = 0; i < Weapons.Count; i++)
-			{
-				Weapons[i].Reload();
-			}
+			Weapons[i].Shoot();
+			
+		}
+		
+		_vfxMuzzle.Play();
+	}
+	
+	private void reload()
+	{
+		for (int i = 0; i < Weapons.Count; i++)
+		{
+			Weapons[i].Reload();
 		}
 	}
+}

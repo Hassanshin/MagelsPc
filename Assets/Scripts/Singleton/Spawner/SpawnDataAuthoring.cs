@@ -11,6 +11,7 @@ namespace Baker
 		public BulletAuthoring[] BulletList;
 		public GameObject[] WallList;
 		public GameObject[] DataBlockList;
+		public PowerUpsAuthoring[] PowerUpsList;
 		public float2 MinMaxRandomDeathDelay = new float2(1, 10);
 		public float Scale = 1;
 	}
@@ -33,6 +34,8 @@ namespace Baker
 			
 			bakeWallBuffer(entity, authoring.WallList, TransformUsageFlags.None );
 			bakeDataBlockBuffer(entity, authoring.DataBlockList, TransformUsageFlags.None );
+			
+			bakeDataPowerUpsBuffer(entity, authoring.PowerUpsList, TransformUsageFlags.Dynamic );
 		}
 		
 		private void bakeEnemyBuffer(Entity entity, EnemyAuthoring[] prefabs, TransformUsageFlags flags)
@@ -84,6 +87,18 @@ namespace Baker
 				buffer[i] = new DataBlockDataBufferSingleton { Entity = convertToEntity };	
 			}
 		}
+		private void bakeDataPowerUpsBuffer(Entity entity, PowerUpsAuthoring[] prefabs, TransformUsageFlags flags)
+		{
+			DynamicBuffer<PowerUpsDataBufferSingleton> buffer = AddBuffer<PowerUpsDataBufferSingleton>(entity);
+			buffer.Length = prefabs.Length;
+			
+			for (int i = 0; i < prefabs.Length; i++)
+			{
+				Entity convertToEntity = GetEntity(prefabs[i], flags);
+
+				buffer[i] = new PowerUpsDataBufferSingleton { Entity = convertToEntity };	
+			}
+		}
 	}
 }
 	
@@ -102,6 +117,10 @@ namespace Baker
 		public Entity Entity;
 	}
 	public struct DataBlockDataBufferSingleton : IBufferElementData
+	{
+		public Entity Entity;
+	}
+	public struct PowerUpsDataBufferSingleton : IBufferElementData
 	{
 		public Entity Entity;
 	}
