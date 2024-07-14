@@ -119,6 +119,7 @@ public enum ENUM_DAMAGE_TYPE
 
 public enum ENUM_GAME_STATE
 {
+	Idling,
 	Playing,
 	Losing,
 	Winning,

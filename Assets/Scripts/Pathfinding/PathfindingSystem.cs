@@ -14,8 +14,8 @@ using Hash.Util;
 
 namespace Hash.PathFinding
 {
+	[BurstCompile]
 	[UpdateInGroup(typeof(HashCoreSystemGroup))]
-	
 	public partial struct PathfindingSystem : ISystem
 	{
 		public float Spacing;

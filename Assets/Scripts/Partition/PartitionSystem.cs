@@ -43,6 +43,7 @@ namespace Hash.HashMap
 		
 	}
 	
+	[BurstCompile]
 	[UpdateInGroup(typeof(HashCoreSystemGroup))]
 	public partial struct PartitionSystem : ISystem
 	{
@@ -139,7 +140,7 @@ namespace Hash.HashMap
 					var stats = StatsComponentLookup.GetRefRW(hitData.Target);
 					processBulletHit(ref state, hitData, stats, bullet);
 					hitData.IsKilling = stats.ValueRO.Data.Health.Value <= 0;
-					UnityEngine.Debug.Log(hitData.IsKilling);
+					// UnityEngine.Debug.Log(hitData.IsKilling);
 				}
 				else if(hitData.TargetLayer == ENUM_COLLIDER_LAYER.Wall)
 				{

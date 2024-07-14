@@ -9,6 +9,7 @@ using UnityEngine;
 using Unity.Collections;
 
 #ROOTNAMESPACEBEGIN#
+    [BurstCompile]
     [UpdateInGroup(typeof(TomomiCoreSystemGroup))]
     public partial struct #SCRIPTNAME# : ISystem
     {

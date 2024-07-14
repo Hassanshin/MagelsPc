@@ -4,10 +4,11 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 using Unity.Physics;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-	#region Systems
+	#region Singleton
 	public static GameManager Instance;
 	
 	public void Awake()
@@ -22,6 +23,22 @@ public class GameManager : MonoBehaviour
 		}
 	}
 	
+	[Header("Controller")]
+	public List<BaseController> Controllers = new List<BaseController>();
+	
+	/// <summary>
+	/// Get specific controller by generic parameter
+	/// </summary>
+	/// <typeparam name="T">controller name</typeparam>
+	/// <returns></returns>
+	public T GetController<T>() where T : BaseController
+	{
+		return Controllers.OfType<T>().FirstOrDefault();
+	}
+	
+	#endregion
+	
+	#region ECS grids
 	private EntityManager _entityManager;
 	[SerializeField]
 	private bool _showGizmo;
@@ -29,6 +46,11 @@ public class GameManager : MonoBehaviour
 	private bool _showText;
 	public Color FineColor = Color.white;
 	public Color BadColor = Color.red;
+	CollisionFilter _obstacleFilter = new CollisionFilter
+	{
+		BelongsTo = 1u << 6,
+		CollidesWith = uint.MaxValue,
+	};
 	public void OnDrawGizmos()
 	{
 		if (!_showGizmo || !_isReady) { return; }
@@ -59,12 +81,20 @@ public class GameManager : MonoBehaviour
 	
 	#endregion
 	
+	public ENUM_GAME_STATE GameState;
+	
 	private bool _isReady;
 	
 	public void Start()
 	{
 		_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 		_isReady = true;
+		
+		foreach (BaseController item in Controllers)
+		{
+			item.IsInit = true;
+			item.Init();	
+		}
 	}
 	
 	public void Update()
@@ -153,11 +183,11 @@ public class GameManager : MonoBehaviour
 				
 				float2 pos = new float2(midX, midY) + gridSingleton.Origin;
 				int index = gridSingleton.GetIdFromPos(pos);
-				
+
 				partitions[index] = new PathNode
 				{
 					Pos = pos,
-					IsWalkable =  !world.CheckSphere(new float3(pos.x , 0, pos.y), gridSingleton.ObstacleCheckRadius, CollisionFilter.Default),
+					IsWalkable =  !world.CheckSphere(new float3(pos.x , 0, pos.y), gridSingleton.ObstacleCheckRadius, _obstacleFilter),
 					Index = index,
 					ComeFromIndex = -1,
 					
