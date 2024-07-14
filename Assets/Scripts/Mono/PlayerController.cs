@@ -25,6 +25,12 @@ public class PlayerController : MonoBehaviour
 		public List<BaseWeapon> Weapons = new List<BaseWeapon>();
 		private bool _isReady;
 		private bool _isReloading;
+		
+		Vector3 _cursorWorldpoint = new Vector3();
+		[SerializeField]
+		private Transform _aimingTransform;
+		[SerializeField]
+		private ParticleSystem _vfxMuzzle;
 		public void Start()
 		{
 			_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -72,7 +78,9 @@ public class PlayerController : MonoBehaviour
 			else
 			{
 				_velocity = _rigidbody.velocity.sqrMagnitude;
-				transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
+				
+				// set current velocity as direction
+				// transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
 				
 				_entityManager.SetComponentData(_entity, new LocalTransform
 				{
@@ -83,6 +91,12 @@ public class PlayerController : MonoBehaviour
 				
 				GameManager.Instance.UpdateGridByMovement(this.transform.position);
 			}
+			
+			// facing
+			Vector3 _mousePos = Input.mousePosition;
+			_cursorWorldpoint = Camera.main.ScreenToWorldPoint(new Vector3(_mousePos.x, _mousePos.y, _cam.transform.position.y));
+			_cursorWorldpoint.y = 0;
+			transform.rotation = Quaternion.LookRotation((_cursorWorldpoint - this.transform.position).normalized);
 		}
 
 		private void shoot()
@@ -92,6 +106,8 @@ public class PlayerController : MonoBehaviour
 				Weapons[i].Shoot();
 				
 			}
+			
+			_vfxMuzzle.Play();
 		}
 		
 		private void reload()

@@ -30,6 +30,7 @@ namespace Hash.HashMap
 	public struct HitData 
 	{
 		public float2 Pos;
+		public bool IsKilling;
 		public Entity Target;
 		public Entity Attacker;
 		public float DistanceSq;
@@ -54,6 +55,7 @@ namespace Hash.HashMap
 		public float DeltaTime;
 		public ComponentLookup<StatsComponent> StatsComponentLookup;
 		public ComponentLookup<BulletComponent> BulletComponentLookup;
+		public DynamicBuffer<HitBufferDataMono> HitBufferMono;
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<EnemyDataBufferSingleton>();
@@ -80,7 +82,8 @@ namespace Hash.HashMap
 			SystemAPI.TryGetSingletonEntity<InGameSingleton>(out InGame);
 			SystemAPI.TryGetSingleton(out _gridSingleton);
 			SystemAPI.TryGetSingleton(out _settingsSingleton);
-			SystemAPI.TryGetSingletonEntity<GridSingleton>(out Entity partition);
+			SystemAPI.TryGetSingletonEntity<GridSingleton>(value: out Entity partition);
+			SystemAPI.TryGetSingletonBuffer(out HitBufferMono);
 			
 			StatsComponentLookup.Update(ref state);
 			BulletComponentLookup.Update(ref state);
@@ -124,8 +127,9 @@ namespace Hash.HashMap
 			}.ScheduleParallel(writerJob);
 			bulletToEnemyHandle.Complete();
 			
-			foreach (HitData hitData in newHitDataList)
+			for (int i = 0; i < newHitDataList.Length; i++)
 			{
+				HitData hitData = newHitDataList[i];
 				HitDataHashMap.Add(hitData.Attacker, hitData);
 				// UnityEngine.Debug.Log(hitData.DistanceSq + "  \t" + hitData.Attacker + " " + hitData.Target);
 				
@@ -134,11 +138,20 @@ namespace Hash.HashMap
 				{
 					var stats = StatsComponentLookup.GetRefRW(hitData.Target);
 					processBulletHit(ref state, hitData, stats, bullet);
+					hitData.IsKilling = stats.ValueRO.Data.Health.Value <= 0;
+					UnityEngine.Debug.Log(hitData.IsKilling);
 				}
 				else if(hitData.TargetLayer == ENUM_COLLIDER_LAYER.Wall)
 				{
 					state.EntityManager.SetComponentEnabled<DestroyTag>(hitData.Attacker, true);
 				}
+				
+				// to be read by mono
+				HitBufferMono.Add(new HitBufferDataMono
+				{
+					Hit = hitData,
+					Weapon = bullet.ValueRO.Weapon,
+				});
 			}
 			newHitDataList.Dispose();
 			
@@ -158,7 +171,6 @@ namespace Hash.HashMap
 			if (stats.ValueRO.Data.Health.Value <= 0)
 			{
 				// target die. drop items?
-				
 				state.EntityManager.SetComponentEnabled<DestroyTag>(hitData.Target, true);
 			}
 			

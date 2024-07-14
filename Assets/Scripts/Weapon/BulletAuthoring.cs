@@ -29,10 +29,13 @@ namespace Baker
 	}
 }
 	public struct BulletTag : IComponentData { }
-
+	
+	[System.Serializable]
 	public struct BulletComponent : IComponentData
 	{
 		public int Damage;
 		public int Pierce;
 		public float DelayBetweenHits;
+		public float Speed;
+		public UnityObjectRef<BaseWeapon> Weapon;
 	}

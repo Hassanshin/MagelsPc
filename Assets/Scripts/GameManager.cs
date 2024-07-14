@@ -67,9 +67,33 @@ public class GameManager : MonoBehaviour
 		_isReady = true;
 	}
 	
+	public void Update()
+	{
+		readHitData();
+	}
+
+	private void readHitData()
+	{
+		if (!_entityManager.CreateEntityQuery(new ComponentType[] { typeof(HitBufferDataMono) })
+			.TryGetSingletonBuffer<HitBufferDataMono>(out var hitBuffer))
+		{
+			return;
+		}
+		
+		if (hitBuffer.Length < 0) { return; }
+		
+		for (int i = hitBuffer.Length - 1; i >= 0 ; i--)
+		{
+			hitBuffer[i].Weapon.Value.OnHit(hitBuffer[i].Hit);
+		}
+		
+		hitBuffer.Clear();
+	}
+
 	public void UpdateGridByMovement(float3 playerPos)
 	{
-		if (!_entityManager.CreateEntityQuery(new ComponentType[] { typeof(GridSingleton)}).TryGetSingletonEntity<GridSingleton>(out Entity gridEntity))
+		if (!_entityManager.CreateEntityQuery(new ComponentType[] { typeof(GridSingleton)})
+			.TryGetSingletonEntity<GridSingleton>(out Entity gridEntity))
 		{
 			return;
 		}

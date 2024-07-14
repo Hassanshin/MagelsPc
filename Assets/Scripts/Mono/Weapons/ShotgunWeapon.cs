@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Unity.Transforms;
 using Unity.Mathematics;
+using Hash.HashMap;
 
 public class ShotgunWeapon : BaseWeapon
 {
@@ -53,9 +54,16 @@ public class ShotgunWeapon : BaseWeapon
 				Scale = 0.25f,
 			});
 			
-			_entityManager.SetComponentData(bullet, new MoveForwardComponent(_bulletSpeed, 0));
 		}
 
 
+	}
+
+	public override void OnHit(HitData data)
+	{
+		Vector3 pos = new Vector3(data.Pos.x, 0, data.Pos.y);
+		GameObject vfx = data.IsKilling ? 
+			SpawnVfxKill(pos, Quaternion.identity):
+			SpawnVfxHit(pos, Quaternion.identity);
 	}
 }

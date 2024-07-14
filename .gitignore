@@ -66,3 +66,6 @@ Assets/NetCodeGenerated*
 RiderScriptEditorPersistedState.asset
 *.csproj
 *.sln
+
+# Ignored assets
+Assets/Art/External*
