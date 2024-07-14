@@ -3345,7 +3345,7 @@ Transform:
   m_GameObject: {fileID: 433381842}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3378,7 +3378,7 @@ MonoBehaviour:
   DistancePercentCheck: 0.2
   Partitions:
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -14.5
     Index: 0
     GCost: 2.1474836e+9
@@ -3386,7 +3386,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -14.5
     Index: 1
     GCost: 2.1474836e+9
@@ -3394,7 +3394,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -14.5
     Index: 2
     GCost: 2.1474836e+9
@@ -3402,7 +3402,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -14.5
     Index: 3
     GCost: 2.1474836e+9
@@ -3410,7 +3410,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -14.5
     Index: 4
     GCost: 2.1474836e+9
@@ -3418,7 +3418,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -14.5
     Index: 5
     GCost: 2.1474836e+9
@@ -3426,7 +3426,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -14.5
     Index: 6
     GCost: 2.1474836e+9
@@ -3434,7 +3434,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -14.5
     Index: 7
     GCost: 2.1474836e+9
@@ -3442,7 +3442,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -14.5
     Index: 8
     GCost: 2.1474836e+9
@@ -3450,7 +3450,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -14.5
     Index: 9
     GCost: 2.1474836e+9
@@ -3458,7 +3458,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -14.5
     Index: 10
     GCost: 2.1474836e+9
@@ -3466,7 +3466,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -14.5
     Index: 11
     GCost: 2.1474836e+9
@@ -3474,7 +3474,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -14.5
     Index: 12
     GCost: 2.1474836e+9
@@ -3482,7 +3482,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -14.5
     Index: 13
     GCost: 2.1474836e+9
@@ -3490,7 +3490,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -14.5
     Index: 14
     GCost: 2.1474836e+9
@@ -3498,7 +3498,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -14.5
     Index: 15
     GCost: 2.1474836e+9
@@ -3506,7 +3506,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -14.5
     Index: 16
     GCost: 2.1474836e+9
@@ -3514,7 +3514,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -14.5
     Index: 17
     GCost: 2.1474836e+9
@@ -3522,7 +3522,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -14.5
     Index: 18
     GCost: 2.1474836e+9
@@ -3530,7 +3530,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -14.5
     Index: 19
     GCost: 2.1474836e+9
@@ -3538,7 +3538,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -14.5
     Index: 20
     GCost: 2.1474836e+9
@@ -3546,7 +3546,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -14.5
     Index: 21
     GCost: 2.1474836e+9
@@ -3554,7 +3554,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -14.5
     Index: 22
     GCost: 2.1474836e+9
@@ -3562,23 +3562,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -14.5
     Index: 23
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -14.5
     Index: 24
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -14.5
     Index: 25
     GCost: 2.1474836e+9
@@ -3586,7 +3586,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -14.5
     Index: 26
     GCost: 2.1474836e+9
@@ -3594,7 +3594,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -14.5
     Index: 27
     GCost: 2.1474836e+9
@@ -3602,7 +3602,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -14.5
     Index: 28
     GCost: 2.1474836e+9
@@ -3610,7 +3610,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -14.5
     Index: 29
     GCost: 2.1474836e+9
@@ -3618,7 +3618,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -13.5
     Index: 30
     GCost: 2.1474836e+9
@@ -3626,7 +3626,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -13.5
     Index: 31
     GCost: 2.1474836e+9
@@ -3634,7 +3634,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -13.5
     Index: 32
     GCost: 2.1474836e+9
@@ -3642,7 +3642,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -13.5
     Index: 33
     GCost: 2.1474836e+9
@@ -3650,7 +3650,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -13.5
     Index: 34
     GCost: 2.1474836e+9
@@ -3658,7 +3658,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -13.5
     Index: 35
     GCost: 2.1474836e+9
@@ -3666,7 +3666,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -13.5
     Index: 36
     GCost: 2.1474836e+9
@@ -3674,7 +3674,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -13.5
     Index: 37
     GCost: 2.1474836e+9
@@ -3682,7 +3682,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -13.5
     Index: 38
     GCost: 2.1474836e+9
@@ -3690,7 +3690,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -13.5
     Index: 39
     GCost: 2.1474836e+9
@@ -3698,7 +3698,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -13.5
     Index: 40
     GCost: 2.1474836e+9
@@ -3706,7 +3706,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -13.5
     Index: 41
     GCost: 2.1474836e+9
@@ -3714,7 +3714,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -13.5
     Index: 42
     GCost: 2.1474836e+9
@@ -3722,7 +3722,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -13.5
     Index: 43
     GCost: 2.1474836e+9
@@ -3730,7 +3730,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -13.5
     Index: 44
     GCost: 2.1474836e+9
@@ -3738,7 +3738,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -13.5
     Index: 45
     GCost: 2.1474836e+9
@@ -3746,7 +3746,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -13.5
     Index: 46
     GCost: 2.1474836e+9
@@ -3754,7 +3754,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -13.5
     Index: 47
     GCost: 2.1474836e+9
@@ -3762,7 +3762,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -13.5
     Index: 48
     GCost: 2.1474836e+9
@@ -3770,7 +3770,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -13.5
     Index: 49
     GCost: 2.1474836e+9
@@ -3778,7 +3778,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -13.5
     Index: 50
     GCost: 2.1474836e+9
@@ -3786,7 +3786,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -13.5
     Index: 51
     GCost: 2.1474836e+9
@@ -3794,7 +3794,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -13.5
     Index: 52
     GCost: 2.1474836e+9
@@ -3802,23 +3802,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -13.5
     Index: 53
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -13.5
     Index: 54
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -13.5
     Index: 55
     GCost: 2.1474836e+9
@@ -3826,7 +3826,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -13.5
     Index: 56
     GCost: 2.1474836e+9
@@ -3834,7 +3834,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -13.5
     Index: 57
     GCost: 2.1474836e+9
@@ -3842,7 +3842,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -13.5
     Index: 58
     GCost: 2.1474836e+9
@@ -3850,7 +3850,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -13.5
     Index: 59
     GCost: 2.1474836e+9
@@ -3858,7 +3858,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -12.5
     Index: 60
     GCost: 2.1474836e+9
@@ -3866,7 +3866,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -12.5
     Index: 61
     GCost: 2.1474836e+9
@@ -3874,7 +3874,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -12.5
     Index: 62
     GCost: 2.1474836e+9
@@ -3882,7 +3882,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -12.5
     Index: 63
     GCost: 2.1474836e+9
@@ -3890,7 +3890,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -12.5
     Index: 64
     GCost: 2.1474836e+9
@@ -3898,7 +3898,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -12.5
     Index: 65
     GCost: 2.1474836e+9
@@ -3906,7 +3906,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -12.5
     Index: 66
     GCost: 2.1474836e+9
@@ -3914,7 +3914,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -12.5
     Index: 67
     GCost: 2.1474836e+9
@@ -3922,7 +3922,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -12.5
     Index: 68
     GCost: 2.1474836e+9
@@ -3930,7 +3930,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -12.5
     Index: 69
     GCost: 2.1474836e+9
@@ -3938,7 +3938,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -12.5
     Index: 70
     GCost: 2.1474836e+9
@@ -3946,7 +3946,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -12.5
     Index: 71
     GCost: 2.1474836e+9
@@ -3954,7 +3954,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -12.5
     Index: 72
     GCost: 2.1474836e+9
@@ -3962,7 +3962,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -12.5
     Index: 73
     GCost: 2.1474836e+9
@@ -3970,7 +3970,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -12.5
     Index: 74
     GCost: 2.1474836e+9
@@ -3978,7 +3978,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -12.5
     Index: 75
     GCost: 2.1474836e+9
@@ -3986,7 +3986,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -12.5
     Index: 76
     GCost: 2.1474836e+9
@@ -3994,7 +3994,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -12.5
     Index: 77
     GCost: 2.1474836e+9
@@ -4002,7 +4002,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -12.5
     Index: 78
     GCost: 2.1474836e+9
@@ -4010,7 +4010,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -12.5
     Index: 79
     GCost: 2.1474836e+9
@@ -4018,7 +4018,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -12.5
     Index: 80
     GCost: 2.1474836e+9
@@ -4026,7 +4026,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -12.5
     Index: 81
     GCost: 2.1474836e+9
@@ -4034,7 +4034,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -12.5
     Index: 82
     GCost: 2.1474836e+9
@@ -4042,23 +4042,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -12.5
     Index: 83
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -12.5
     Index: 84
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -12.5
     Index: 85
     GCost: 2.1474836e+9
@@ -4066,7 +4066,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -12.5
     Index: 86
     GCost: 2.1474836e+9
@@ -4074,7 +4074,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -12.5
     Index: 87
     GCost: 2.1474836e+9
@@ -4082,7 +4082,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -12.5
     Index: 88
     GCost: 2.1474836e+9
@@ -4090,7 +4090,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -12.5
     Index: 89
     GCost: 2.1474836e+9
@@ -4098,7 +4098,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -11.5
     Index: 90
     GCost: 2.1474836e+9
@@ -4106,7 +4106,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -11.5
     Index: 91
     GCost: 2.1474836e+9
@@ -4114,7 +4114,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -11.5
     Index: 92
     GCost: 2.1474836e+9
@@ -4122,7 +4122,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -11.5
     Index: 93
     GCost: 2.1474836e+9
@@ -4130,7 +4130,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -11.5
     Index: 94
     GCost: 2.1474836e+9
@@ -4138,7 +4138,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -11.5
     Index: 95
     GCost: 2.1474836e+9
@@ -4146,7 +4146,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -11.5
     Index: 96
     GCost: 2.1474836e+9
@@ -4154,7 +4154,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -11.5
     Index: 97
     GCost: 2.1474836e+9
@@ -4162,7 +4162,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -11.5
     Index: 98
     GCost: 2.1474836e+9
@@ -4170,7 +4170,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -11.5
     Index: 99
     GCost: 2.1474836e+9
@@ -4178,7 +4178,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -11.5
     Index: 100
     GCost: 2.1474836e+9
@@ -4186,7 +4186,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -11.5
     Index: 101
     GCost: 2.1474836e+9
@@ -4194,7 +4194,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -11.5
     Index: 102
     GCost: 2.1474836e+9
@@ -4202,7 +4202,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -11.5
     Index: 103
     GCost: 2.1474836e+9
@@ -4210,7 +4210,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -11.5
     Index: 104
     GCost: 2.1474836e+9
@@ -4218,7 +4218,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -11.5
     Index: 105
     GCost: 2.1474836e+9
@@ -4226,7 +4226,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -11.5
     Index: 106
     GCost: 2.1474836e+9
@@ -4234,7 +4234,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -11.5
     Index: 107
     GCost: 2.1474836e+9
@@ -4242,7 +4242,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -11.5
     Index: 108
     GCost: 2.1474836e+9
@@ -4250,7 +4250,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -11.5
     Index: 109
     GCost: 2.1474836e+9
@@ -4258,7 +4258,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -11.5
     Index: 110
     GCost: 2.1474836e+9
@@ -4266,7 +4266,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -11.5
     Index: 111
     GCost: 2.1474836e+9
@@ -4274,7 +4274,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -11.5
     Index: 112
     GCost: 2.1474836e+9
@@ -4282,23 +4282,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -11.5
     Index: 113
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -11.5
     Index: 114
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -11.5
     Index: 115
     GCost: 2.1474836e+9
@@ -4306,7 +4306,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -11.5
     Index: 116
     GCost: 2.1474836e+9
@@ -4314,7 +4314,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -11.5
     Index: 117
     GCost: 2.1474836e+9
@@ -4322,7 +4322,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -11.5
     Index: 118
     GCost: 2.1474836e+9
@@ -4330,7 +4330,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -11.5
     Index: 119
     GCost: 2.1474836e+9
@@ -4338,7 +4338,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -10.5
     Index: 120
     GCost: 2.1474836e+9
@@ -4346,7 +4346,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -10.5
     Index: 121
     GCost: 2.1474836e+9
@@ -4354,7 +4354,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -10.5
     Index: 122
     GCost: 2.1474836e+9
@@ -4362,7 +4362,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -10.5
     Index: 123
     GCost: 2.1474836e+9
@@ -4370,7 +4370,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -10.5
     Index: 124
     GCost: 2.1474836e+9
@@ -4378,7 +4378,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -10.5
     Index: 125
     GCost: 2.1474836e+9
@@ -4386,7 +4386,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -10.5
     Index: 126
     GCost: 2.1474836e+9
@@ -4394,7 +4394,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -10.5
     Index: 127
     GCost: 2.1474836e+9
@@ -4402,7 +4402,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -10.5
     Index: 128
     GCost: 2.1474836e+9
@@ -4410,7 +4410,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -10.5
     Index: 129
     GCost: 2.1474836e+9
@@ -4418,7 +4418,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -10.5
     Index: 130
     GCost: 2.1474836e+9
@@ -4426,7 +4426,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -10.5
     Index: 131
     GCost: 2.1474836e+9
@@ -4434,7 +4434,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -10.5
     Index: 132
     GCost: 2.1474836e+9
@@ -4442,15 +4442,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -10.5
     Index: 133
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -10.5
     Index: 134
     GCost: 2.1474836e+9
@@ -4458,7 +4458,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -10.5
     Index: 135
     GCost: 2.1474836e+9
@@ -4466,7 +4466,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -10.5
     Index: 136
     GCost: 2.1474836e+9
@@ -4474,7 +4474,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -10.5
     Index: 137
     GCost: 2.1474836e+9
@@ -4482,7 +4482,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -10.5
     Index: 138
     GCost: 2.1474836e+9
@@ -4490,7 +4490,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -10.5
     Index: 139
     GCost: 2.1474836e+9
@@ -4498,7 +4498,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -10.5
     Index: 140
     GCost: 2.1474836e+9
@@ -4506,7 +4506,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -10.5
     Index: 141
     GCost: 2.1474836e+9
@@ -4514,7 +4514,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -10.5
     Index: 142
     GCost: 2.1474836e+9
@@ -4522,7 +4522,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -10.5
     Index: 143
     GCost: 2.1474836e+9
@@ -4530,7 +4530,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -10.5
     Index: 144
     GCost: 2.1474836e+9
@@ -4538,7 +4538,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -10.5
     Index: 145
     GCost: 2.1474836e+9
@@ -4546,7 +4546,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -10.5
     Index: 146
     GCost: 2.1474836e+9
@@ -4554,7 +4554,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -10.5
     Index: 147
     GCost: 2.1474836e+9
@@ -4562,7 +4562,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -10.5
     Index: 148
     GCost: 2.1474836e+9
@@ -4570,7 +4570,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -10.5
     Index: 149
     GCost: 2.1474836e+9
@@ -4578,7 +4578,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -9.5
     Index: 150
     GCost: 2.1474836e+9
@@ -4586,7 +4586,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -9.5
     Index: 151
     GCost: 2.1474836e+9
@@ -4594,7 +4594,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -9.5
     Index: 152
     GCost: 2.1474836e+9
@@ -4602,7 +4602,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -9.5
     Index: 153
     GCost: 2.1474836e+9
@@ -4610,7 +4610,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -9.5
     Index: 154
     GCost: 2.1474836e+9
@@ -4618,7 +4618,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -9.5
     Index: 155
     GCost: 2.1474836e+9
@@ -4626,7 +4626,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -9.5
     Index: 156
     GCost: 2.1474836e+9
@@ -4634,7 +4634,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -9.5
     Index: 157
     GCost: 2.1474836e+9
@@ -4642,7 +4642,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -9.5
     Index: 158
     GCost: 2.1474836e+9
@@ -4650,7 +4650,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -9.5
     Index: 159
     GCost: 2.1474836e+9
@@ -4658,7 +4658,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -9.5
     Index: 160
     GCost: 2.1474836e+9
@@ -4666,7 +4666,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -9.5
     Index: 161
     GCost: 2.1474836e+9
@@ -4674,7 +4674,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -9.5
     Index: 162
     GCost: 2.1474836e+9
@@ -4682,7 +4682,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -9.5
     Index: 163
     GCost: 2.1474836e+9
@@ -4690,7 +4690,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -9.5
     Index: 164
     GCost: 2.1474836e+9
@@ -4698,7 +4698,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -9.5
     Index: 165
     GCost: 2.1474836e+9
@@ -4706,7 +4706,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -9.5
     Index: 166
     GCost: 2.1474836e+9
@@ -4714,7 +4714,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -9.5
     Index: 167
     GCost: 2.1474836e+9
@@ -4722,7 +4722,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -9.5
     Index: 168
     GCost: 2.1474836e+9
@@ -4730,7 +4730,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -9.5
     Index: 169
     GCost: 2.1474836e+9
@@ -4738,7 +4738,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -9.5
     Index: 170
     GCost: 2.1474836e+9
@@ -4746,7 +4746,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -9.5
     Index: 171
     GCost: 2.1474836e+9
@@ -4754,7 +4754,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -9.5
     Index: 172
     GCost: 2.1474836e+9
@@ -4762,23 +4762,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -9.5
     Index: 173
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -9.5
     Index: 174
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -9.5
     Index: 175
     GCost: 2.1474836e+9
@@ -4786,7 +4786,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -9.5
     Index: 176
     GCost: 2.1474836e+9
@@ -4794,7 +4794,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -9.5
     Index: 177
     GCost: 2.1474836e+9
@@ -4802,7 +4802,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -9.5
     Index: 178
     GCost: 2.1474836e+9
@@ -4810,7 +4810,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -9.5
     Index: 179
     GCost: 2.1474836e+9
@@ -4818,7 +4818,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -8.5
     Index: 180
     GCost: 2.1474836e+9
@@ -4826,7 +4826,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -8.5
     Index: 181
     GCost: 2.1474836e+9
@@ -4834,7 +4834,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -8.5
     Index: 182
     GCost: 2.1474836e+9
@@ -4842,7 +4842,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -8.5
     Index: 183
     GCost: 2.1474836e+9
@@ -4850,7 +4850,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -8.5
     Index: 184
     GCost: 2.1474836e+9
@@ -4858,7 +4858,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -8.5
     Index: 185
     GCost: 2.1474836e+9
@@ -4866,7 +4866,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -8.5
     Index: 186
     GCost: 2.1474836e+9
@@ -4874,7 +4874,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -8.5
     Index: 187
     GCost: 2.1474836e+9
@@ -4882,7 +4882,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -8.5
     Index: 188
     GCost: 2.1474836e+9
@@ -4890,7 +4890,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -8.5
     Index: 189
     GCost: 2.1474836e+9
@@ -4898,7 +4898,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -8.5
     Index: 190
     GCost: 2.1474836e+9
@@ -4906,7 +4906,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -8.5
     Index: 191
     GCost: 2.1474836e+9
@@ -4914,7 +4914,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -8.5
     Index: 192
     GCost: 2.1474836e+9
@@ -4922,7 +4922,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -8.5
     Index: 193
     GCost: 2.1474836e+9
@@ -4930,7 +4930,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -8.5
     Index: 194
     GCost: 2.1474836e+9
@@ -4938,7 +4938,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -8.5
     Index: 195
     GCost: 2.1474836e+9
@@ -4946,7 +4946,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -8.5
     Index: 196
     GCost: 2.1474836e+9
@@ -4954,7 +4954,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -8.5
     Index: 197
     GCost: 2.1474836e+9
@@ -4962,7 +4962,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -8.5
     Index: 198
     GCost: 2.1474836e+9
@@ -4970,7 +4970,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -8.5
     Index: 199
     GCost: 2.1474836e+9
@@ -4978,7 +4978,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -8.5
     Index: 200
     GCost: 2.1474836e+9
@@ -4986,7 +4986,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -8.5
     Index: 201
     GCost: 2.1474836e+9
@@ -4994,7 +4994,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -8.5
     Index: 202
     GCost: 2.1474836e+9
@@ -5002,23 +5002,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -8.5
     Index: 203
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -8.5
     Index: 204
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -8.5
     Index: 205
     GCost: 2.1474836e+9
@@ -5026,7 +5026,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -8.5
     Index: 206
     GCost: 2.1474836e+9
@@ -5034,7 +5034,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -8.5
     Index: 207
     GCost: 2.1474836e+9
@@ -5042,7 +5042,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -8.5
     Index: 208
     GCost: 2.1474836e+9
@@ -5050,7 +5050,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -8.5
     Index: 209
     GCost: 2.1474836e+9
@@ -5058,7 +5058,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -7.5
     Index: 210
     GCost: 2.1474836e+9
@@ -5066,7 +5066,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -7.5
     Index: 211
     GCost: 2.1474836e+9
@@ -5074,7 +5074,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -7.5
     Index: 212
     GCost: 2.1474836e+9
@@ -5082,7 +5082,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -7.5
     Index: 213
     GCost: 2.1474836e+9
@@ -5090,7 +5090,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -7.5
     Index: 214
     GCost: 2.1474836e+9
@@ -5098,7 +5098,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -7.5
     Index: 215
     GCost: 2.1474836e+9
@@ -5106,7 +5106,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -7.5
     Index: 216
     GCost: 2.1474836e+9
@@ -5114,7 +5114,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -7.5
     Index: 217
     GCost: 2.1474836e+9
@@ -5122,7 +5122,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -7.5
     Index: 218
     GCost: 2.1474836e+9
@@ -5130,7 +5130,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -7.5
     Index: 219
     GCost: 2.1474836e+9
@@ -5138,7 +5138,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -7.5
     Index: 220
     GCost: 2.1474836e+9
@@ -5146,23 +5146,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -7.5
     Index: 221
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -7.5
     Index: 222
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -7.5
     Index: 223
     GCost: 2.1474836e+9
@@ -5170,7 +5170,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -7.5
     Index: 224
     GCost: 2.1474836e+9
@@ -5178,7 +5178,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -7.5
     Index: 225
     GCost: 2.1474836e+9
@@ -5186,7 +5186,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -7.5
     Index: 226
     GCost: 2.1474836e+9
@@ -5194,7 +5194,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -7.5
     Index: 227
     GCost: 2.1474836e+9
@@ -5202,7 +5202,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -7.5
     Index: 228
     GCost: 2.1474836e+9
@@ -5210,7 +5210,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -7.5
     Index: 229
     GCost: 2.1474836e+9
@@ -5218,7 +5218,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -7.5
     Index: 230
     GCost: 2.1474836e+9
@@ -5226,7 +5226,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -7.5
     Index: 231
     GCost: 2.1474836e+9
@@ -5234,7 +5234,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -7.5
     Index: 232
     GCost: 2.1474836e+9
@@ -5242,23 +5242,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -7.5
     Index: 233
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -7.5
     Index: 234
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -7.5
     Index: 235
     GCost: 2.1474836e+9
@@ -5266,7 +5266,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -7.5
     Index: 236
     GCost: 2.1474836e+9
@@ -5274,7 +5274,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -7.5
     Index: 237
     GCost: 2.1474836e+9
@@ -5282,7 +5282,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -7.5
     Index: 238
     GCost: 2.1474836e+9
@@ -5290,7 +5290,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -7.5
     Index: 239
     GCost: 2.1474836e+9
@@ -5298,7 +5298,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -6.5
     Index: 240
     GCost: 2.1474836e+9
@@ -5306,7 +5306,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -6.5
     Index: 241
     GCost: 2.1474836e+9
@@ -5314,7 +5314,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -6.5
     Index: 242
     GCost: 2.1474836e+9
@@ -5322,7 +5322,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -6.5
     Index: 243
     GCost: 2.1474836e+9
@@ -5330,7 +5330,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -6.5
     Index: 244
     GCost: 2.1474836e+9
@@ -5338,7 +5338,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -6.5
     Index: 245
     GCost: 2.1474836e+9
@@ -5346,7 +5346,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -6.5
     Index: 246
     GCost: 2.1474836e+9
@@ -5354,7 +5354,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -6.5
     Index: 247
     GCost: 2.1474836e+9
@@ -5362,7 +5362,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -6.5
     Index: 248
     GCost: 2.1474836e+9
@@ -5370,7 +5370,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -6.5
     Index: 249
     GCost: 2.1474836e+9
@@ -5378,7 +5378,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -6.5
     Index: 250
     GCost: 2.1474836e+9
@@ -5386,23 +5386,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -6.5
     Index: 251
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -6.5
     Index: 252
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -6.5
     Index: 253
     GCost: 2.1474836e+9
@@ -5410,7 +5410,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -6.5
     Index: 254
     GCost: 2.1474836e+9
@@ -5418,7 +5418,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -6.5
     Index: 255
     GCost: 2.1474836e+9
@@ -5426,7 +5426,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -6.5
     Index: 256
     GCost: 2.1474836e+9
@@ -5434,7 +5434,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -6.5
     Index: 257
     GCost: 2.1474836e+9
@@ -5442,7 +5442,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -6.5
     Index: 258
     GCost: 2.1474836e+9
@@ -5450,7 +5450,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -6.5
     Index: 259
     GCost: 2.1474836e+9
@@ -5458,7 +5458,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -6.5
     Index: 260
     GCost: 2.1474836e+9
@@ -5466,7 +5466,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -6.5
     Index: 261
     GCost: 2.1474836e+9
@@ -5474,7 +5474,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -6.5
     Index: 262
     GCost: 2.1474836e+9
@@ -5482,23 +5482,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -6.5
     Index: 263
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -6.5
     Index: 264
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -6.5
     Index: 265
     GCost: 2.1474836e+9
@@ -5506,7 +5506,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -6.5
     Index: 266
     GCost: 2.1474836e+9
@@ -5514,7 +5514,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -6.5
     Index: 267
     GCost: 2.1474836e+9
@@ -5522,7 +5522,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -6.5
     Index: 268
     GCost: 2.1474836e+9
@@ -5530,7 +5530,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -6.5
     Index: 269
     GCost: 2.1474836e+9
@@ -5538,7 +5538,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -5.5
     Index: 270
     GCost: 2.1474836e+9
@@ -5546,7 +5546,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -5.5
     Index: 271
     GCost: 2.1474836e+9
@@ -5554,7 +5554,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -5.5
     Index: 272
     GCost: 2.1474836e+9
@@ -5562,7 +5562,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -5.5
     Index: 273
     GCost: 2.1474836e+9
@@ -5570,7 +5570,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -5.5
     Index: 274
     GCost: 2.1474836e+9
@@ -5578,7 +5578,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -5.5
     Index: 275
     GCost: 2.1474836e+9
@@ -5586,7 +5586,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -5.5
     Index: 276
     GCost: 2.1474836e+9
@@ -5594,7 +5594,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -5.5
     Index: 277
     GCost: 2.1474836e+9
@@ -5602,7 +5602,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -5.5
     Index: 278
     GCost: 2.1474836e+9
@@ -5610,7 +5610,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -5.5
     Index: 279
     GCost: 2.1474836e+9
@@ -5618,7 +5618,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -5.5
     Index: 280
     GCost: 2.1474836e+9
@@ -5626,23 +5626,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -5.5
     Index: 281
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -5.5
     Index: 282
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -5.5
     Index: 283
     GCost: 2.1474836e+9
@@ -5650,7 +5650,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -5.5
     Index: 284
     GCost: 2.1474836e+9
@@ -5658,7 +5658,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -5.5
     Index: 285
     GCost: 2.1474836e+9
@@ -5666,7 +5666,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -5.5
     Index: 286
     GCost: 2.1474836e+9
@@ -5674,7 +5674,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -5.5
     Index: 287
     GCost: 2.1474836e+9
@@ -5682,7 +5682,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -5.5
     Index: 288
     GCost: 2.1474836e+9
@@ -5690,7 +5690,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -5.5
     Index: 289
     GCost: 2.1474836e+9
@@ -5698,7 +5698,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -5.5
     Index: 290
     GCost: 2.1474836e+9
@@ -5706,7 +5706,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -5.5
     Index: 291
     GCost: 2.1474836e+9
@@ -5714,7 +5714,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -5.5
     Index: 292
     GCost: 2.1474836e+9
@@ -5722,7 +5722,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -5.5
     Index: 293
     GCost: 2.1474836e+9
@@ -5730,7 +5730,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -5.5
     Index: 294
     GCost: 2.1474836e+9
@@ -5738,7 +5738,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -5.5
     Index: 295
     GCost: 2.1474836e+9
@@ -5746,7 +5746,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -5.5
     Index: 296
     GCost: 2.1474836e+9
@@ -5754,7 +5754,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -5.5
     Index: 297
     GCost: 2.1474836e+9
@@ -5762,7 +5762,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -5.5
     Index: 298
     GCost: 2.1474836e+9
@@ -5770,7 +5770,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -5.5
     Index: 299
     GCost: 2.1474836e+9
@@ -5778,7 +5778,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -4.5
     Index: 300
     GCost: 2.1474836e+9
@@ -5786,7 +5786,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -4.5
     Index: 301
     GCost: 2.1474836e+9
@@ -5794,7 +5794,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -4.5
     Index: 302
     GCost: 2.1474836e+9
@@ -5802,7 +5802,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -4.5
     Index: 303
     GCost: 2.1474836e+9
@@ -5810,7 +5810,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -4.5
     Index: 304
     GCost: 2.1474836e+9
@@ -5818,7 +5818,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -4.5
     Index: 305
     GCost: 2.1474836e+9
@@ -5826,7 +5826,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -4.5
     Index: 306
     GCost: 2.1474836e+9
@@ -5834,7 +5834,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -4.5
     Index: 307
     GCost: 2.1474836e+9
@@ -5842,7 +5842,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -4.5
     Index: 308
     GCost: 2.1474836e+9
@@ -5850,7 +5850,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -4.5
     Index: 309
     GCost: 2.1474836e+9
@@ -5858,7 +5858,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -4.5
     Index: 310
     GCost: 2.1474836e+9
@@ -5866,23 +5866,23 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -4.5
     Index: 311
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -4.5
     Index: 312
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -4.5
     Index: 313
     GCost: 2.1474836e+9
@@ -5890,7 +5890,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -4.5
     Index: 314
     GCost: 2.1474836e+9
@@ -5898,7 +5898,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -4.5
     Index: 315
     GCost: 2.1474836e+9
@@ -5906,7 +5906,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -4.5
     Index: 316
     GCost: 2.1474836e+9
@@ -5914,7 +5914,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -4.5
     Index: 317
     GCost: 2.1474836e+9
@@ -5922,7 +5922,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -4.5
     Index: 318
     GCost: 2.1474836e+9
@@ -5930,7 +5930,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -4.5
     Index: 319
     GCost: 2.1474836e+9
@@ -5938,7 +5938,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -4.5
     Index: 320
     GCost: 2.1474836e+9
@@ -5946,7 +5946,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -4.5
     Index: 321
     GCost: 2.1474836e+9
@@ -5954,7 +5954,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -4.5
     Index: 322
     GCost: 2.1474836e+9
@@ -5962,7 +5962,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -4.5
     Index: 323
     GCost: 2.1474836e+9
@@ -5970,7 +5970,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -4.5
     Index: 324
     GCost: 2.1474836e+9
@@ -5978,7 +5978,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -4.5
     Index: 325
     GCost: 2.1474836e+9
@@ -5986,7 +5986,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -4.5
     Index: 326
     GCost: 2.1474836e+9
@@ -5994,7 +5994,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -4.5
     Index: 327
     GCost: 2.1474836e+9
@@ -6002,7 +6002,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -4.5
     Index: 328
     GCost: 2.1474836e+9
@@ -6010,7 +6010,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -4.5
     Index: 329
     GCost: 2.1474836e+9
@@ -6018,207 +6018,207 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -3.5
     Index: 330
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -3.5
     Index: 331
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -3.5
     Index: 332
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -3.5
     Index: 333
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -3.5
     Index: 334
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -3.5
     Index: 335
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -3.5
     Index: 336
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -3.5
     Index: 337
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -3.5
     Index: 338
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -3.5
     Index: 339
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -3.5
     Index: 340
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -3.5
     Index: 341
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -3.5
     Index: 342
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -3.5
     Index: 343
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -3.5
     Index: 344
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -3.5
     Index: 345
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -3.5
     Index: 346
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -3.5
     Index: 347
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -3.5
     Index: 348
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -3.5
     Index: 349
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -3.5
     Index: 350
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -3.5
     Index: 351
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -3.5
     Index: 352
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -3.5
     Index: 353
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -3.5
     Index: 354
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -3.5
     Index: 355
     GCost: 2.1474836e+9
@@ -6226,7 +6226,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -3.5
     Index: 356
     GCost: 2.1474836e+9
@@ -6234,7 +6234,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -3.5
     Index: 357
     GCost: 2.1474836e+9
@@ -6242,7 +6242,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -3.5
     Index: 358
     GCost: 2.1474836e+9
@@ -6250,7 +6250,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -3.5
     Index: 359
     GCost: 2.1474836e+9
@@ -6258,7 +6258,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -2.5
     Index: 360
     GCost: 2.1474836e+9
@@ -6266,7 +6266,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -2.5
     Index: 361
     GCost: 2.1474836e+9
@@ -6274,7 +6274,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -2.5
     Index: 362
     GCost: 2.1474836e+9
@@ -6282,7 +6282,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -2.5
     Index: 363
     GCost: 2.1474836e+9
@@ -6290,7 +6290,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -2.5
     Index: 364
     GCost: 2.1474836e+9
@@ -6298,7 +6298,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -2.5
     Index: 365
     GCost: 2.1474836e+9
@@ -6306,7 +6306,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -2.5
     Index: 366
     GCost: 2.1474836e+9
@@ -6314,7 +6314,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -2.5
     Index: 367
     GCost: 2.1474836e+9
@@ -6322,7 +6322,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -2.5
     Index: 368
     GCost: 2.1474836e+9
@@ -6330,7 +6330,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -2.5
     Index: 369
     GCost: 2.1474836e+9
@@ -6338,7 +6338,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -2.5
     Index: 370
     GCost: 2.1474836e+9
@@ -6346,7 +6346,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -2.5
     Index: 371
     GCost: 2.1474836e+9
@@ -6354,7 +6354,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -2.5
     Index: 372
     GCost: 2.1474836e+9
@@ -6362,7 +6362,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -2.5
     Index: 373
     GCost: 2.1474836e+9
@@ -6370,7 +6370,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -2.5
     Index: 374
     GCost: 2.1474836e+9
@@ -6378,7 +6378,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -2.5
     Index: 375
     GCost: 2.1474836e+9
@@ -6386,7 +6386,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -2.5
     Index: 376
     GCost: 2.1474836e+9
@@ -6394,7 +6394,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -2.5
     Index: 377
     GCost: 2.1474836e+9
@@ -6402,7 +6402,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -2.5
     Index: 378
     GCost: 2.1474836e+9
@@ -6410,7 +6410,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -2.5
     Index: 379
     GCost: 2.1474836e+9
@@ -6418,7 +6418,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -2.5
     Index: 380
     GCost: 2.1474836e+9
@@ -6426,7 +6426,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -2.5
     Index: 381
     GCost: 2.1474836e+9
@@ -6434,7 +6434,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -2.5
     Index: 382
     GCost: 2.1474836e+9
@@ -6442,7 +6442,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -2.5
     Index: 383
     GCost: 2.1474836e+9
@@ -6450,7 +6450,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -2.5
     Index: 384
     GCost: 2.1474836e+9
@@ -6458,7 +6458,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -2.5
     Index: 385
     GCost: 2.1474836e+9
@@ -6466,7 +6466,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -2.5
     Index: 386
     GCost: 2.1474836e+9
@@ -6474,7 +6474,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -2.5
     Index: 387
     GCost: 2.1474836e+9
@@ -6482,7 +6482,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -2.5
     Index: 388
     GCost: 2.1474836e+9
@@ -6490,7 +6490,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -2.5
     Index: 389
     GCost: 2.1474836e+9
@@ -6498,7 +6498,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -1.5
     Index: 390
     GCost: 2.1474836e+9
@@ -6506,7 +6506,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -1.5
     Index: 391
     GCost: 2.1474836e+9
@@ -6514,7 +6514,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -1.5
     Index: 392
     GCost: 2.1474836e+9
@@ -6522,7 +6522,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -1.5
     Index: 393
     GCost: 2.1474836e+9
@@ -6530,7 +6530,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -1.5
     Index: 394
     GCost: 2.1474836e+9
@@ -6538,7 +6538,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -1.5
     Index: 395
     GCost: 2.1474836e+9
@@ -6546,7 +6546,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -1.5
     Index: 396
     GCost: 2.1474836e+9
@@ -6554,7 +6554,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -1.5
     Index: 397
     GCost: 2.1474836e+9
@@ -6562,7 +6562,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -1.5
     Index: 398
     GCost: 2.1474836e+9
@@ -6570,7 +6570,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -1.5
     Index: 399
     GCost: 2.1474836e+9
@@ -6578,7 +6578,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -1.5
     Index: 400
     GCost: 2.1474836e+9
@@ -6586,7 +6586,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -1.5
     Index: 401
     GCost: 2.1474836e+9
@@ -6594,7 +6594,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -1.5
     Index: 402
     GCost: 2.1474836e+9
@@ -6602,7 +6602,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -1.5
     Index: 403
     GCost: 2.1474836e+9
@@ -6610,7 +6610,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -1.5
     Index: 404
     GCost: 2.1474836e+9
@@ -6618,7 +6618,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -1.5
     Index: 405
     GCost: 2.1474836e+9
@@ -6626,7 +6626,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -1.5
     Index: 406
     GCost: 2.1474836e+9
@@ -6634,7 +6634,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -1.5
     Index: 407
     GCost: 2.1474836e+9
@@ -6642,7 +6642,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -1.5
     Index: 408
     GCost: 2.1474836e+9
@@ -6650,7 +6650,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -1.5
     Index: 409
     GCost: 2.1474836e+9
@@ -6658,7 +6658,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -1.5
     Index: 410
     GCost: 2.1474836e+9
@@ -6666,7 +6666,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -1.5
     Index: 411
     GCost: 2.1474836e+9
@@ -6674,7 +6674,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -1.5
     Index: 412
     GCost: 2.1474836e+9
@@ -6682,7 +6682,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -1.5
     Index: 413
     GCost: 2.1474836e+9
@@ -6690,7 +6690,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -1.5
     Index: 414
     GCost: 2.1474836e+9
@@ -6698,7 +6698,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -1.5
     Index: 415
     GCost: 2.1474836e+9
@@ -6706,7 +6706,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -1.5
     Index: 416
     GCost: 2.1474836e+9
@@ -6714,7 +6714,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -1.5
     Index: 417
     GCost: 2.1474836e+9
@@ -6722,7 +6722,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -1.5
     Index: 418
     GCost: 2.1474836e+9
@@ -6730,7 +6730,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -1.5
     Index: 419
     GCost: 2.1474836e+9
@@ -6738,7 +6738,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: -0.5
     Index: 420
     GCost: 2.1474836e+9
@@ -6746,7 +6746,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: -0.5
     Index: 421
     GCost: 2.1474836e+9
@@ -6754,7 +6754,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: -0.5
     Index: 422
     GCost: 2.1474836e+9
@@ -6762,7 +6762,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: -0.5
     Index: 423
     GCost: 2.1474836e+9
@@ -6770,7 +6770,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: -0.5
     Index: 424
     GCost: 2.1474836e+9
@@ -6778,7 +6778,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: -0.5
     Index: 425
     GCost: 2.1474836e+9
@@ -6786,7 +6786,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: -0.5
     Index: 426
     GCost: 2.1474836e+9
@@ -6794,7 +6794,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: -0.5
     Index: 427
     GCost: 2.1474836e+9
@@ -6802,7 +6802,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: -0.5
     Index: 428
     GCost: 2.1474836e+9
@@ -6810,7 +6810,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: -0.5
     Index: 429
     GCost: 2.1474836e+9
@@ -6818,7 +6818,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: -0.5
     Index: 430
     GCost: 2.1474836e+9
@@ -6826,7 +6826,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: -0.5
     Index: 431
     GCost: 2.1474836e+9
@@ -6834,7 +6834,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: -0.5
     Index: 432
     GCost: 2.1474836e+9
@@ -6842,7 +6842,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: -0.5
     Index: 433
     GCost: 2.1474836e+9
@@ -6850,7 +6850,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: -0.5
     Index: 434
     GCost: 2.1474836e+9
@@ -6858,7 +6858,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: -0.5
     Index: 435
     GCost: 2.1474836e+9
@@ -6866,7 +6866,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: -0.5
     Index: 436
     GCost: 2.1474836e+9
@@ -6874,7 +6874,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: -0.5
     Index: 437
     GCost: 2.1474836e+9
@@ -6882,7 +6882,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: -0.5
     Index: 438
     GCost: 2.1474836e+9
@@ -6890,7 +6890,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: -0.5
     Index: 439
     GCost: 2.1474836e+9
@@ -6898,7 +6898,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: -0.5
     Index: 440
     GCost: 2.1474836e+9
@@ -6906,7 +6906,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: -0.5
     Index: 441
     GCost: 2.1474836e+9
@@ -6914,7 +6914,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: -0.5
     Index: 442
     GCost: 2.1474836e+9
@@ -6922,7 +6922,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: -0.5
     Index: 443
     GCost: 2.1474836e+9
@@ -6930,7 +6930,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: -0.5
     Index: 444
     GCost: 2.1474836e+9
@@ -6938,7 +6938,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: -0.5
     Index: 445
     GCost: 2.1474836e+9
@@ -6946,7 +6946,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: -0.5
     Index: 446
     GCost: 2.1474836e+9
@@ -6954,7 +6954,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: -0.5
     Index: 447
     GCost: 2.1474836e+9
@@ -6962,7 +6962,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: -0.5
     Index: 448
     GCost: 2.1474836e+9
@@ -6970,7 +6970,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: -0.5
     Index: 449
     GCost: 2.1474836e+9
@@ -6978,7 +6978,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 0.5
     Index: 450
     GCost: 2.1474836e+9
@@ -6986,7 +6986,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 0.5
     Index: 451
     GCost: 2.1474836e+9
@@ -6994,7 +6994,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 0.5
     Index: 452
     GCost: 2.1474836e+9
@@ -7002,7 +7002,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 0.5
     Index: 453
     GCost: 2.1474836e+9
@@ -7010,7 +7010,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 0.5
     Index: 454
     GCost: 2.1474836e+9
@@ -7018,7 +7018,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 0.5
     Index: 455
     GCost: 2.1474836e+9
@@ -7026,7 +7026,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 0.5
     Index: 456
     GCost: 2.1474836e+9
@@ -7034,7 +7034,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 0.5
     Index: 457
     GCost: 2.1474836e+9
@@ -7042,7 +7042,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 0.5
     Index: 458
     GCost: 2.1474836e+9
@@ -7050,7 +7050,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 0.5
     Index: 459
     GCost: 2.1474836e+9
@@ -7058,7 +7058,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 0.5
     Index: 460
     GCost: 2.1474836e+9
@@ -7066,7 +7066,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 0.5
     Index: 461
     GCost: 2.1474836e+9
@@ -7074,7 +7074,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 0.5
     Index: 462
     GCost: 2.1474836e+9
@@ -7082,7 +7082,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 0.5
     Index: 463
     GCost: 2.1474836e+9
@@ -7090,7 +7090,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 0.5
     Index: 464
     GCost: 2.1474836e+9
@@ -7098,7 +7098,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 0.5
     Index: 465
     GCost: 2.1474836e+9
@@ -7106,7 +7106,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 0.5
     Index: 466
     GCost: 2.1474836e+9
@@ -7114,7 +7114,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 0.5
     Index: 467
     GCost: 2.1474836e+9
@@ -7122,7 +7122,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 0.5
     Index: 468
     GCost: 2.1474836e+9
@@ -7130,7 +7130,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 0.5
     Index: 469
     GCost: 2.1474836e+9
@@ -7138,7 +7138,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 0.5
     Index: 470
     GCost: 2.1474836e+9
@@ -7146,7 +7146,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 0.5
     Index: 471
     GCost: 2.1474836e+9
@@ -7154,7 +7154,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 0.5
     Index: 472
     GCost: 2.1474836e+9
@@ -7162,7 +7162,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 0.5
     Index: 473
     GCost: 2.1474836e+9
@@ -7170,7 +7170,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 0.5
     Index: 474
     GCost: 2.1474836e+9
@@ -7178,7 +7178,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 0.5
     Index: 475
     GCost: 2.1474836e+9
@@ -7186,7 +7186,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 0.5
     Index: 476
     GCost: 2.1474836e+9
@@ -7194,7 +7194,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 0.5
     Index: 477
     GCost: 2.1474836e+9
@@ -7202,7 +7202,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 0.5
     Index: 478
     GCost: 2.1474836e+9
@@ -7210,7 +7210,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 0.5
     Index: 479
     GCost: 2.1474836e+9
@@ -7218,7 +7218,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 1.5
     Index: 480
     GCost: 2.1474836e+9
@@ -7226,7 +7226,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 1.5
     Index: 481
     GCost: 2.1474836e+9
@@ -7234,7 +7234,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 1.5
     Index: 482
     GCost: 2.1474836e+9
@@ -7242,7 +7242,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 1.5
     Index: 483
     GCost: 2.1474836e+9
@@ -7250,7 +7250,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 1.5
     Index: 484
     GCost: 2.1474836e+9
@@ -7258,7 +7258,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 1.5
     Index: 485
     GCost: 2.1474836e+9
@@ -7266,7 +7266,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 1.5
     Index: 486
     GCost: 2.1474836e+9
@@ -7274,7 +7274,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 1.5
     Index: 487
     GCost: 2.1474836e+9
@@ -7282,7 +7282,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 1.5
     Index: 488
     GCost: 2.1474836e+9
@@ -7290,7 +7290,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 1.5
     Index: 489
     GCost: 2.1474836e+9
@@ -7298,7 +7298,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 1.5
     Index: 490
     GCost: 2.1474836e+9
@@ -7306,7 +7306,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 1.5
     Index: 491
     GCost: 2.1474836e+9
@@ -7314,7 +7314,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 1.5
     Index: 492
     GCost: 2.1474836e+9
@@ -7322,7 +7322,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 1.5
     Index: 493
     GCost: 2.1474836e+9
@@ -7330,7 +7330,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 1.5
     Index: 494
     GCost: 2.1474836e+9
@@ -7338,7 +7338,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 1.5
     Index: 495
     GCost: 2.1474836e+9
@@ -7346,7 +7346,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 1.5
     Index: 496
     GCost: 2.1474836e+9
@@ -7354,7 +7354,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 1.5
     Index: 497
     GCost: 2.1474836e+9
@@ -7362,7 +7362,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 1.5
     Index: 498
     GCost: 2.1474836e+9
@@ -7370,7 +7370,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 1.5
     Index: 499
     GCost: 2.1474836e+9
@@ -7378,7 +7378,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 1.5
     Index: 500
     GCost: 2.1474836e+9
@@ -7386,7 +7386,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 1.5
     Index: 501
     GCost: 2.1474836e+9
@@ -7394,7 +7394,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 1.5
     Index: 502
     GCost: 2.1474836e+9
@@ -7402,7 +7402,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 1.5
     Index: 503
     GCost: 2.1474836e+9
@@ -7410,7 +7410,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 1.5
     Index: 504
     GCost: 2.1474836e+9
@@ -7418,7 +7418,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 1.5
     Index: 505
     GCost: 2.1474836e+9
@@ -7426,7 +7426,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 1.5
     Index: 506
     GCost: 2.1474836e+9
@@ -7434,7 +7434,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 1.5
     Index: 507
     GCost: 2.1474836e+9
@@ -7442,7 +7442,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 1.5
     Index: 508
     GCost: 2.1474836e+9
@@ -7450,7 +7450,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 1.5
     Index: 509
     GCost: 2.1474836e+9
@@ -7458,7 +7458,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 2.5
     Index: 510
     GCost: 2.1474836e+9
@@ -7466,7 +7466,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 2.5
     Index: 511
     GCost: 2.1474836e+9
@@ -7474,7 +7474,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 2.5
     Index: 512
     GCost: 2.1474836e+9
@@ -7482,7 +7482,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 2.5
     Index: 513
     GCost: 2.1474836e+9
@@ -7490,7 +7490,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 2.5
     Index: 514
     GCost: 2.1474836e+9
@@ -7498,7 +7498,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 2.5
     Index: 515
     GCost: 2.1474836e+9
@@ -7506,7 +7506,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 2.5
     Index: 516
     GCost: 2.1474836e+9
@@ -7514,7 +7514,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 2.5
     Index: 517
     GCost: 2.1474836e+9
@@ -7522,7 +7522,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 2.5
     Index: 518
     GCost: 2.1474836e+9
@@ -7530,7 +7530,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 2.5
     Index: 519
     GCost: 2.1474836e+9
@@ -7538,7 +7538,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 2.5
     Index: 520
     GCost: 2.1474836e+9
@@ -7546,7 +7546,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 2.5
     Index: 521
     GCost: 2.1474836e+9
@@ -7554,7 +7554,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 2.5
     Index: 522
     GCost: 2.1474836e+9
@@ -7562,7 +7562,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 2.5
     Index: 523
     GCost: 2.1474836e+9
@@ -7570,7 +7570,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 2.5
     Index: 524
     GCost: 2.1474836e+9
@@ -7578,7 +7578,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 2.5
     Index: 525
     GCost: 2.1474836e+9
@@ -7586,7 +7586,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 2.5
     Index: 526
     GCost: 2.1474836e+9
@@ -7594,7 +7594,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 2.5
     Index: 527
     GCost: 2.1474836e+9
@@ -7602,7 +7602,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 2.5
     Index: 528
     GCost: 2.1474836e+9
@@ -7610,7 +7610,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 2.5
     Index: 529
     GCost: 2.1474836e+9
@@ -7618,7 +7618,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 2.5
     Index: 530
     GCost: 2.1474836e+9
@@ -7626,7 +7626,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 2.5
     Index: 531
     GCost: 2.1474836e+9
@@ -7634,7 +7634,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 2.5
     Index: 532
     GCost: 2.1474836e+9
@@ -7642,7 +7642,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 2.5
     Index: 533
     GCost: 2.1474836e+9
@@ -7650,7 +7650,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 2.5
     Index: 534
     GCost: 2.1474836e+9
@@ -7658,7 +7658,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 2.5
     Index: 535
     GCost: 2.1474836e+9
@@ -7666,7 +7666,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 2.5
     Index: 536
     GCost: 2.1474836e+9
@@ -7674,7 +7674,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 2.5
     Index: 537
     GCost: 2.1474836e+9
@@ -7682,7 +7682,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 2.5
     Index: 538
     GCost: 2.1474836e+9
@@ -7690,7 +7690,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 2.5
     Index: 539
     GCost: 2.1474836e+9
@@ -7698,79 +7698,79 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 3.5
     Index: 540
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 3.5
     Index: 541
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 3.5
     Index: 542
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 3.5
     Index: 543
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 3.5
     Index: 544
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 3.5
     Index: 545
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 3.5
     Index: 546
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 3.5
     Index: 547
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 3.5
     Index: 548
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 3.5
     Index: 549
     GCost: 2.1474836e+9
@@ -7778,7 +7778,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 3.5
     Index: 550
     GCost: 2.1474836e+9
@@ -7786,119 +7786,119 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 3.5
     Index: 551
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 3.5
     Index: 552
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 3.5
     Index: 553
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 3.5
     Index: 554
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 3.5
     Index: 555
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 3.5
     Index: 556
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 3.5
     Index: 557
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 3.5
     Index: 558
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 3.5
     Index: 559
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 3.5
     Index: 560
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 3.5
     Index: 561
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 3.5
     Index: 562
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 3.5
     Index: 563
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 3.5
     Index: 564
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 3.5
     Index: 565
     GCost: 2.1474836e+9
@@ -7906,7 +7906,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 3.5
     Index: 566
     GCost: 2.1474836e+9
@@ -7914,7 +7914,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 3.5
     Index: 567
     GCost: 2.1474836e+9
@@ -7922,7 +7922,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 3.5
     Index: 568
     GCost: 2.1474836e+9
@@ -7930,7 +7930,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 3.5
     Index: 569
     GCost: 2.1474836e+9
@@ -7938,7 +7938,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 4.5
     Index: 570
     GCost: 2.1474836e+9
@@ -7946,7 +7946,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 4.5
     Index: 571
     GCost: 2.1474836e+9
@@ -7954,7 +7954,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 4.5
     Index: 572
     GCost: 2.1474836e+9
@@ -7962,7 +7962,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 4.5
     Index: 573
     GCost: 2.1474836e+9
@@ -7970,7 +7970,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 4.5
     Index: 574
     GCost: 2.1474836e+9
@@ -7978,15 +7978,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 4.5
     Index: 575
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 4.5
     Index: 576
     GCost: 2.1474836e+9
@@ -7994,7 +7994,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 4.5
     Index: 577
     GCost: 2.1474836e+9
@@ -8002,7 +8002,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 4.5
     Index: 578
     GCost: 2.1474836e+9
@@ -8010,7 +8010,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 4.5
     Index: 579
     GCost: 2.1474836e+9
@@ -8018,7 +8018,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 4.5
     Index: 580
     GCost: 2.1474836e+9
@@ -8026,7 +8026,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 4.5
     Index: 581
     GCost: 2.1474836e+9
@@ -8034,7 +8034,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 4.5
     Index: 582
     GCost: 2.1474836e+9
@@ -8042,7 +8042,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 4.5
     Index: 583
     GCost: 2.1474836e+9
@@ -8050,15 +8050,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 4.5
     Index: 584
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 4.5
     Index: 585
     GCost: 2.1474836e+9
@@ -8066,7 +8066,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 4.5
     Index: 586
     GCost: 2.1474836e+9
@@ -8074,7 +8074,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 4.5
     Index: 587
     GCost: 2.1474836e+9
@@ -8082,7 +8082,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 4.5
     Index: 588
     GCost: 2.1474836e+9
@@ -8090,7 +8090,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 4.5
     Index: 589
     GCost: 2.1474836e+9
@@ -8098,7 +8098,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 4.5
     Index: 590
     GCost: 2.1474836e+9
@@ -8106,7 +8106,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 4.5
     Index: 591
     GCost: 2.1474836e+9
@@ -8114,7 +8114,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 4.5
     Index: 592
     GCost: 2.1474836e+9
@@ -8122,7 +8122,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 4.5
     Index: 593
     GCost: 2.1474836e+9
@@ -8130,7 +8130,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 4.5
     Index: 594
     GCost: 2.1474836e+9
@@ -8138,7 +8138,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 4.5
     Index: 595
     GCost: 2.1474836e+9
@@ -8146,7 +8146,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 4.5
     Index: 596
     GCost: 2.1474836e+9
@@ -8154,7 +8154,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 4.5
     Index: 597
     GCost: 2.1474836e+9
@@ -8162,7 +8162,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 4.5
     Index: 598
     GCost: 2.1474836e+9
@@ -8170,7 +8170,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 4.5
     Index: 599
     GCost: 2.1474836e+9
@@ -8178,7 +8178,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 5.5
     Index: 600
     GCost: 2.1474836e+9
@@ -8186,7 +8186,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 5.5
     Index: 601
     GCost: 2.1474836e+9
@@ -8194,7 +8194,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 5.5
     Index: 602
     GCost: 2.1474836e+9
@@ -8202,7 +8202,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 5.5
     Index: 603
     GCost: 2.1474836e+9
@@ -8210,7 +8210,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 5.5
     Index: 604
     GCost: 2.1474836e+9
@@ -8218,15 +8218,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 5.5
     Index: 605
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 5.5
     Index: 606
     GCost: 2.1474836e+9
@@ -8234,7 +8234,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 5.5
     Index: 607
     GCost: 2.1474836e+9
@@ -8242,7 +8242,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 5.5
     Index: 608
     GCost: 2.1474836e+9
@@ -8250,7 +8250,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 5.5
     Index: 609
     GCost: 2.1474836e+9
@@ -8258,7 +8258,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 5.5
     Index: 610
     GCost: 2.1474836e+9
@@ -8266,7 +8266,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 5.5
     Index: 611
     GCost: 2.1474836e+9
@@ -8274,7 +8274,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 5.5
     Index: 612
     GCost: 2.1474836e+9
@@ -8282,7 +8282,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 5.5
     Index: 613
     GCost: 2.1474836e+9
@@ -8290,15 +8290,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 5.5
     Index: 614
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 5.5
     Index: 615
     GCost: 2.1474836e+9
@@ -8306,7 +8306,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 5.5
     Index: 616
     GCost: 2.1474836e+9
@@ -8314,7 +8314,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 5.5
     Index: 617
     GCost: 2.1474836e+9
@@ -8322,7 +8322,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 5.5
     Index: 618
     GCost: 2.1474836e+9
@@ -8330,7 +8330,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 5.5
     Index: 619
     GCost: 2.1474836e+9
@@ -8338,7 +8338,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 5.5
     Index: 620
     GCost: 2.1474836e+9
@@ -8346,7 +8346,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 5.5
     Index: 621
     GCost: 2.1474836e+9
@@ -8354,7 +8354,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 5.5
     Index: 622
     GCost: 2.1474836e+9
@@ -8362,7 +8362,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 5.5
     Index: 623
     GCost: 2.1474836e+9
@@ -8370,7 +8370,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 5.5
     Index: 624
     GCost: 2.1474836e+9
@@ -8378,7 +8378,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 5.5
     Index: 625
     GCost: 2.1474836e+9
@@ -8386,7 +8386,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 5.5
     Index: 626
     GCost: 2.1474836e+9
@@ -8394,7 +8394,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 5.5
     Index: 627
     GCost: 2.1474836e+9
@@ -8402,7 +8402,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 5.5
     Index: 628
     GCost: 2.1474836e+9
@@ -8410,7 +8410,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 5.5
     Index: 629
     GCost: 2.1474836e+9
@@ -8418,7 +8418,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 6.5
     Index: 630
     GCost: 2.1474836e+9
@@ -8426,7 +8426,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 6.5
     Index: 631
     GCost: 2.1474836e+9
@@ -8434,7 +8434,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 6.5
     Index: 632
     GCost: 2.1474836e+9
@@ -8442,7 +8442,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 6.5
     Index: 633
     GCost: 2.1474836e+9
@@ -8450,7 +8450,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 6.5
     Index: 634
     GCost: 2.1474836e+9
@@ -8458,15 +8458,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 6.5
     Index: 635
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 6.5
     Index: 636
     GCost: 2.1474836e+9
@@ -8474,7 +8474,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 6.5
     Index: 637
     GCost: 2.1474836e+9
@@ -8482,7 +8482,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 6.5
     Index: 638
     GCost: 2.1474836e+9
@@ -8490,7 +8490,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 6.5
     Index: 639
     GCost: 2.1474836e+9
@@ -8498,7 +8498,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 6.5
     Index: 640
     GCost: 2.1474836e+9
@@ -8506,7 +8506,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 6.5
     Index: 641
     GCost: 2.1474836e+9
@@ -8514,7 +8514,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 6.5
     Index: 642
     GCost: 2.1474836e+9
@@ -8522,7 +8522,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 6.5
     Index: 643
     GCost: 2.1474836e+9
@@ -8530,15 +8530,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 6.5
     Index: 644
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 6.5
     Index: 645
     GCost: 2.1474836e+9
@@ -8546,7 +8546,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 6.5
     Index: 646
     GCost: 2.1474836e+9
@@ -8554,7 +8554,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 6.5
     Index: 647
     GCost: 2.1474836e+9
@@ -8562,7 +8562,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 6.5
     Index: 648
     GCost: 2.1474836e+9
@@ -8570,7 +8570,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 6.5
     Index: 649
     GCost: 2.1474836e+9
@@ -8578,7 +8578,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 6.5
     Index: 650
     GCost: 2.1474836e+9
@@ -8586,7 +8586,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 6.5
     Index: 651
     GCost: 2.1474836e+9
@@ -8594,7 +8594,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 6.5
     Index: 652
     GCost: 2.1474836e+9
@@ -8602,7 +8602,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 6.5
     Index: 653
     GCost: 2.1474836e+9
@@ -8610,7 +8610,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 6.5
     Index: 654
     GCost: 2.1474836e+9
@@ -8618,7 +8618,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 6.5
     Index: 655
     GCost: 2.1474836e+9
@@ -8626,7 +8626,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 6.5
     Index: 656
     GCost: 2.1474836e+9
@@ -8634,7 +8634,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 6.5
     Index: 657
     GCost: 2.1474836e+9
@@ -8642,7 +8642,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 6.5
     Index: 658
     GCost: 2.1474836e+9
@@ -8650,7 +8650,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 6.5
     Index: 659
     GCost: 2.1474836e+9
@@ -8658,7 +8658,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 7.5
     Index: 660
     GCost: 2.1474836e+9
@@ -8666,7 +8666,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 7.5
     Index: 661
     GCost: 2.1474836e+9
@@ -8674,7 +8674,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 7.5
     Index: 662
     GCost: 2.1474836e+9
@@ -8682,7 +8682,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 7.5
     Index: 663
     GCost: 2.1474836e+9
@@ -8690,7 +8690,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 7.5
     Index: 664
     GCost: 2.1474836e+9
@@ -8698,15 +8698,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 7.5
     Index: 665
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 7.5
     Index: 666
     GCost: 2.1474836e+9
@@ -8714,7 +8714,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 7.5
     Index: 667
     GCost: 2.1474836e+9
@@ -8722,7 +8722,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 7.5
     Index: 668
     GCost: 2.1474836e+9
@@ -8730,7 +8730,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 7.5
     Index: 669
     GCost: 2.1474836e+9
@@ -8738,7 +8738,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 7.5
     Index: 670
     GCost: 2.1474836e+9
@@ -8746,7 +8746,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 7.5
     Index: 671
     GCost: 2.1474836e+9
@@ -8754,7 +8754,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 7.5
     Index: 672
     GCost: 2.1474836e+9
@@ -8762,7 +8762,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 7.5
     Index: 673
     GCost: 2.1474836e+9
@@ -8770,15 +8770,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 7.5
     Index: 674
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 7.5
     Index: 675
     GCost: 2.1474836e+9
@@ -8786,7 +8786,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 7.5
     Index: 676
     GCost: 2.1474836e+9
@@ -8794,7 +8794,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 7.5
     Index: 677
     GCost: 2.1474836e+9
@@ -8802,7 +8802,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 7.5
     Index: 678
     GCost: 2.1474836e+9
@@ -8810,7 +8810,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 7.5
     Index: 679
     GCost: 2.1474836e+9
@@ -8818,7 +8818,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 7.5
     Index: 680
     GCost: 2.1474836e+9
@@ -8826,7 +8826,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 7.5
     Index: 681
     GCost: 2.1474836e+9
@@ -8834,7 +8834,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 7.5
     Index: 682
     GCost: 2.1474836e+9
@@ -8842,7 +8842,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 7.5
     Index: 683
     GCost: 2.1474836e+9
@@ -8850,7 +8850,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 7.5
     Index: 684
     GCost: 2.1474836e+9
@@ -8858,7 +8858,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 7.5
     Index: 685
     GCost: 2.1474836e+9
@@ -8866,7 +8866,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 7.5
     Index: 686
     GCost: 2.1474836e+9
@@ -8874,7 +8874,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 7.5
     Index: 687
     GCost: 2.1474836e+9
@@ -8882,7 +8882,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 7.5
     Index: 688
     GCost: 2.1474836e+9
@@ -8890,7 +8890,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 7.5
     Index: 689
     GCost: 2.1474836e+9
@@ -8898,7 +8898,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 8.5
     Index: 690
     GCost: 2.1474836e+9
@@ -8906,7 +8906,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 8.5
     Index: 691
     GCost: 2.1474836e+9
@@ -8914,7 +8914,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 8.5
     Index: 692
     GCost: 2.1474836e+9
@@ -8922,7 +8922,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 8.5
     Index: 693
     GCost: 2.1474836e+9
@@ -8930,7 +8930,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 8.5
     Index: 694
     GCost: 2.1474836e+9
@@ -8938,15 +8938,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 8.5
     Index: 695
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 8.5
     Index: 696
     GCost: 2.1474836e+9
@@ -8954,7 +8954,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 8.5
     Index: 697
     GCost: 2.1474836e+9
@@ -8962,7 +8962,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 8.5
     Index: 698
     GCost: 2.1474836e+9
@@ -8970,7 +8970,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 8.5
     Index: 699
     GCost: 2.1474836e+9
@@ -8978,7 +8978,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 8.5
     Index: 700
     GCost: 2.1474836e+9
@@ -8986,7 +8986,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 8.5
     Index: 701
     GCost: 2.1474836e+9
@@ -8994,7 +8994,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 8.5
     Index: 702
     GCost: 2.1474836e+9
@@ -9002,7 +9002,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 8.5
     Index: 703
     GCost: 2.1474836e+9
@@ -9010,15 +9010,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 8.5
     Index: 704
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 8.5
     Index: 705
     GCost: 2.1474836e+9
@@ -9026,7 +9026,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 8.5
     Index: 706
     GCost: 2.1474836e+9
@@ -9034,7 +9034,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 8.5
     Index: 707
     GCost: 2.1474836e+9
@@ -9042,7 +9042,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 8.5
     Index: 708
     GCost: 2.1474836e+9
@@ -9050,7 +9050,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 8.5
     Index: 709
     GCost: 2.1474836e+9
@@ -9058,7 +9058,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 8.5
     Index: 710
     GCost: 2.1474836e+9
@@ -9066,7 +9066,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 8.5
     Index: 711
     GCost: 2.1474836e+9
@@ -9074,7 +9074,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 8.5
     Index: 712
     GCost: 2.1474836e+9
@@ -9082,7 +9082,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 8.5
     Index: 713
     GCost: 2.1474836e+9
@@ -9090,7 +9090,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 8.5
     Index: 714
     GCost: 2.1474836e+9
@@ -9098,7 +9098,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 8.5
     Index: 715
     GCost: 2.1474836e+9
@@ -9106,7 +9106,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 8.5
     Index: 716
     GCost: 2.1474836e+9
@@ -9114,7 +9114,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 8.5
     Index: 717
     GCost: 2.1474836e+9
@@ -9122,7 +9122,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 8.5
     Index: 718
     GCost: 2.1474836e+9
@@ -9130,7 +9130,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 8.5
     Index: 719
     GCost: 2.1474836e+9
@@ -9138,7 +9138,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 9.5
     Index: 720
     GCost: 2.1474836e+9
@@ -9146,7 +9146,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 9.5
     Index: 721
     GCost: 2.1474836e+9
@@ -9154,7 +9154,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 9.5
     Index: 722
     GCost: 2.1474836e+9
@@ -9162,7 +9162,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 9.5
     Index: 723
     GCost: 2.1474836e+9
@@ -9170,7 +9170,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 9.5
     Index: 724
     GCost: 2.1474836e+9
@@ -9178,15 +9178,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 9.5
     Index: 725
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 9.5
     Index: 726
     GCost: 2.1474836e+9
@@ -9194,7 +9194,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 9.5
     Index: 727
     GCost: 2.1474836e+9
@@ -9202,7 +9202,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 9.5
     Index: 728
     GCost: 2.1474836e+9
@@ -9210,7 +9210,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 9.5
     Index: 729
     GCost: 2.1474836e+9
@@ -9218,7 +9218,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 9.5
     Index: 730
     GCost: 2.1474836e+9
@@ -9226,7 +9226,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 9.5
     Index: 731
     GCost: 2.1474836e+9
@@ -9234,7 +9234,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 9.5
     Index: 732
     GCost: 2.1474836e+9
@@ -9242,7 +9242,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 9.5
     Index: 733
     GCost: 2.1474836e+9
@@ -9250,15 +9250,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 9.5
     Index: 734
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 9.5
     Index: 735
     GCost: 2.1474836e+9
@@ -9266,7 +9266,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 9.5
     Index: 736
     GCost: 2.1474836e+9
@@ -9274,7 +9274,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 9.5
     Index: 737
     GCost: 2.1474836e+9
@@ -9282,7 +9282,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 9.5
     Index: 738
     GCost: 2.1474836e+9
@@ -9290,7 +9290,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 9.5
     Index: 739
     GCost: 2.1474836e+9
@@ -9298,7 +9298,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 9.5
     Index: 740
     GCost: 2.1474836e+9
@@ -9306,7 +9306,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 9.5
     Index: 741
     GCost: 2.1474836e+9
@@ -9314,7 +9314,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 9.5
     Index: 742
     GCost: 2.1474836e+9
@@ -9322,7 +9322,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 9.5
     Index: 743
     GCost: 2.1474836e+9
@@ -9330,7 +9330,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 9.5
     Index: 744
     GCost: 2.1474836e+9
@@ -9338,7 +9338,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 9.5
     Index: 745
     GCost: 2.1474836e+9
@@ -9346,7 +9346,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 9.5
     Index: 746
     GCost: 2.1474836e+9
@@ -9354,7 +9354,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 9.5
     Index: 747
     GCost: 2.1474836e+9
@@ -9362,7 +9362,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 9.5
     Index: 748
     GCost: 2.1474836e+9
@@ -9370,7 +9370,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 9.5
     Index: 749
     GCost: 2.1474836e+9
@@ -9378,7 +9378,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 10.5
     Index: 750
     GCost: 2.1474836e+9
@@ -9386,7 +9386,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 10.5
     Index: 751
     GCost: 2.1474836e+9
@@ -9394,7 +9394,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 10.5
     Index: 752
     GCost: 2.1474836e+9
@@ -9402,7 +9402,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 10.5
     Index: 753
     GCost: 2.1474836e+9
@@ -9410,7 +9410,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 10.5
     Index: 754
     GCost: 2.1474836e+9
@@ -9418,15 +9418,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 10.5
     Index: 755
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 10.5
     Index: 756
     GCost: 2.1474836e+9
@@ -9434,7 +9434,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 10.5
     Index: 757
     GCost: 2.1474836e+9
@@ -9442,7 +9442,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 10.5
     Index: 758
     GCost: 2.1474836e+9
@@ -9450,7 +9450,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 10.5
     Index: 759
     GCost: 2.1474836e+9
@@ -9458,7 +9458,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 10.5
     Index: 760
     GCost: 2.1474836e+9
@@ -9466,7 +9466,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 10.5
     Index: 761
     GCost: 2.1474836e+9
@@ -9474,7 +9474,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 10.5
     Index: 762
     GCost: 2.1474836e+9
@@ -9482,7 +9482,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 10.5
     Index: 763
     GCost: 2.1474836e+9
@@ -9490,15 +9490,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 10.5
     Index: 764
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 10.5
     Index: 765
     GCost: 2.1474836e+9
@@ -9506,7 +9506,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 10.5
     Index: 766
     GCost: 2.1474836e+9
@@ -9514,7 +9514,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 10.5
     Index: 767
     GCost: 2.1474836e+9
@@ -9522,7 +9522,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 10.5
     Index: 768
     GCost: 2.1474836e+9
@@ -9530,7 +9530,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 10.5
     Index: 769
     GCost: 2.1474836e+9
@@ -9538,7 +9538,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 10.5
     Index: 770
     GCost: 2.1474836e+9
@@ -9546,7 +9546,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 10.5
     Index: 771
     GCost: 2.1474836e+9
@@ -9554,7 +9554,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 10.5
     Index: 772
     GCost: 2.1474836e+9
@@ -9562,7 +9562,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 10.5
     Index: 773
     GCost: 2.1474836e+9
@@ -9570,7 +9570,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 10.5
     Index: 774
     GCost: 2.1474836e+9
@@ -9578,7 +9578,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 10.5
     Index: 775
     GCost: 2.1474836e+9
@@ -9586,7 +9586,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 10.5
     Index: 776
     GCost: 2.1474836e+9
@@ -9594,7 +9594,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 10.5
     Index: 777
     GCost: 2.1474836e+9
@@ -9602,7 +9602,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 10.5
     Index: 778
     GCost: 2.1474836e+9
@@ -9610,7 +9610,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 10.5
     Index: 779
     GCost: 2.1474836e+9
@@ -9618,7 +9618,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 11.5
     Index: 780
     GCost: 2.1474836e+9
@@ -9626,7 +9626,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 11.5
     Index: 781
     GCost: 2.1474836e+9
@@ -9634,7 +9634,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 11.5
     Index: 782
     GCost: 2.1474836e+9
@@ -9642,7 +9642,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 11.5
     Index: 783
     GCost: 2.1474836e+9
@@ -9650,7 +9650,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 11.5
     Index: 784
     GCost: 2.1474836e+9
@@ -9658,15 +9658,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 11.5
     Index: 785
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 11.5
     Index: 786
     GCost: 2.1474836e+9
@@ -9674,7 +9674,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 11.5
     Index: 787
     GCost: 2.1474836e+9
@@ -9682,7 +9682,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 11.5
     Index: 788
     GCost: 2.1474836e+9
@@ -9690,7 +9690,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 11.5
     Index: 789
     GCost: 2.1474836e+9
@@ -9698,7 +9698,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 11.5
     Index: 790
     GCost: 2.1474836e+9
@@ -9706,7 +9706,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 11.5
     Index: 791
     GCost: 2.1474836e+9
@@ -9714,7 +9714,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 11.5
     Index: 792
     GCost: 2.1474836e+9
@@ -9722,7 +9722,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 11.5
     Index: 793
     GCost: 2.1474836e+9
@@ -9730,15 +9730,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 11.5
     Index: 794
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 11.5
     Index: 795
     GCost: 2.1474836e+9
@@ -9746,7 +9746,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 11.5
     Index: 796
     GCost: 2.1474836e+9
@@ -9754,7 +9754,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 11.5
     Index: 797
     GCost: 2.1474836e+9
@@ -9762,7 +9762,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 11.5
     Index: 798
     GCost: 2.1474836e+9
@@ -9770,7 +9770,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 11.5
     Index: 799
     GCost: 2.1474836e+9
@@ -9778,7 +9778,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 11.5
     Index: 800
     GCost: 2.1474836e+9
@@ -9786,7 +9786,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 11.5
     Index: 801
     GCost: 2.1474836e+9
@@ -9794,7 +9794,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 11.5
     Index: 802
     GCost: 2.1474836e+9
@@ -9802,7 +9802,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 11.5
     Index: 803
     GCost: 2.1474836e+9
@@ -9810,7 +9810,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 11.5
     Index: 804
     GCost: 2.1474836e+9
@@ -9818,7 +9818,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 11.5
     Index: 805
     GCost: 2.1474836e+9
@@ -9826,7 +9826,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 11.5
     Index: 806
     GCost: 2.1474836e+9
@@ -9834,7 +9834,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 11.5
     Index: 807
     GCost: 2.1474836e+9
@@ -9842,7 +9842,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 11.5
     Index: 808
     GCost: 2.1474836e+9
@@ -9850,7 +9850,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 11.5
     Index: 809
     GCost: 2.1474836e+9
@@ -9858,7 +9858,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 12.5
     Index: 810
     GCost: 2.1474836e+9
@@ -9866,7 +9866,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 12.5
     Index: 811
     GCost: 2.1474836e+9
@@ -9874,7 +9874,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 12.5
     Index: 812
     GCost: 2.1474836e+9
@@ -9882,7 +9882,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 12.5
     Index: 813
     GCost: 2.1474836e+9
@@ -9890,7 +9890,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 12.5
     Index: 814
     GCost: 2.1474836e+9
@@ -9898,15 +9898,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 12.5
     Index: 815
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 12.5
     Index: 816
     GCost: 2.1474836e+9
@@ -9914,7 +9914,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 12.5
     Index: 817
     GCost: 2.1474836e+9
@@ -9922,7 +9922,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 12.5
     Index: 818
     GCost: 2.1474836e+9
@@ -9930,7 +9930,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 12.5
     Index: 819
     GCost: 2.1474836e+9
@@ -9938,7 +9938,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 12.5
     Index: 820
     GCost: 2.1474836e+9
@@ -9946,7 +9946,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 12.5
     Index: 821
     GCost: 2.1474836e+9
@@ -9954,7 +9954,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 12.5
     Index: 822
     GCost: 2.1474836e+9
@@ -9962,7 +9962,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 12.5
     Index: 823
     GCost: 2.1474836e+9
@@ -9970,15 +9970,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 12.5
     Index: 824
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 12.5
     Index: 825
     GCost: 2.1474836e+9
@@ -9986,7 +9986,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 12.5
     Index: 826
     GCost: 2.1474836e+9
@@ -9994,7 +9994,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 12.5
     Index: 827
     GCost: 2.1474836e+9
@@ -10002,7 +10002,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 12.5
     Index: 828
     GCost: 2.1474836e+9
@@ -10010,7 +10010,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 12.5
     Index: 829
     GCost: 2.1474836e+9
@@ -10018,7 +10018,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 12.5
     Index: 830
     GCost: 2.1474836e+9
@@ -10026,7 +10026,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 12.5
     Index: 831
     GCost: 2.1474836e+9
@@ -10034,7 +10034,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 12.5
     Index: 832
     GCost: 2.1474836e+9
@@ -10042,7 +10042,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 12.5
     Index: 833
     GCost: 2.1474836e+9
@@ -10050,7 +10050,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 12.5
     Index: 834
     GCost: 2.1474836e+9
@@ -10058,7 +10058,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 12.5
     Index: 835
     GCost: 2.1474836e+9
@@ -10066,7 +10066,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 12.5
     Index: 836
     GCost: 2.1474836e+9
@@ -10074,7 +10074,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 12.5
     Index: 837
     GCost: 2.1474836e+9
@@ -10082,7 +10082,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 12.5
     Index: 838
     GCost: 2.1474836e+9
@@ -10090,7 +10090,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 12.5
     Index: 839
     GCost: 2.1474836e+9
@@ -10098,7 +10098,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 13.5
     Index: 840
     GCost: 2.1474836e+9
@@ -10106,7 +10106,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 13.5
     Index: 841
     GCost: 2.1474836e+9
@@ -10114,7 +10114,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 13.5
     Index: 842
     GCost: 2.1474836e+9
@@ -10122,7 +10122,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 13.5
     Index: 843
     GCost: 2.1474836e+9
@@ -10130,7 +10130,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 13.5
     Index: 844
     GCost: 2.1474836e+9
@@ -10138,15 +10138,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 13.5
     Index: 845
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 13.5
     Index: 846
     GCost: 2.1474836e+9
@@ -10154,7 +10154,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 13.5
     Index: 847
     GCost: 2.1474836e+9
@@ -10162,7 +10162,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 13.5
     Index: 848
     GCost: 2.1474836e+9
@@ -10170,7 +10170,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 13.5
     Index: 849
     GCost: 2.1474836e+9
@@ -10178,7 +10178,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 13.5
     Index: 850
     GCost: 2.1474836e+9
@@ -10186,7 +10186,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 13.5
     Index: 851
     GCost: 2.1474836e+9
@@ -10194,7 +10194,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 13.5
     Index: 852
     GCost: 2.1474836e+9
@@ -10202,7 +10202,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 13.5
     Index: 853
     GCost: 2.1474836e+9
@@ -10210,15 +10210,15 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 13.5
     Index: 854
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 13.5
     Index: 855
     GCost: 2.1474836e+9
@@ -10226,7 +10226,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 13.5
     Index: 856
     GCost: 2.1474836e+9
@@ -10234,7 +10234,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 13.5
     Index: 857
     GCost: 2.1474836e+9
@@ -10242,7 +10242,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 13.5
     Index: 858
     GCost: 2.1474836e+9
@@ -10250,7 +10250,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 13.5
     Index: 859
     GCost: 2.1474836e+9
@@ -10258,7 +10258,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 13.5
     Index: 860
     GCost: 2.1474836e+9
@@ -10266,7 +10266,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 13.5
     Index: 861
     GCost: 2.1474836e+9
@@ -10274,7 +10274,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 13.5
     Index: 862
     GCost: 2.1474836e+9
@@ -10282,7 +10282,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 13.5
     Index: 863
     GCost: 2.1474836e+9
@@ -10290,7 +10290,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 13.5
     Index: 864
     GCost: 2.1474836e+9
@@ -10298,7 +10298,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 13.5
     Index: 865
     GCost: 2.1474836e+9
@@ -10306,7 +10306,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 13.5
     Index: 866
     GCost: 2.1474836e+9
@@ -10314,7 +10314,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 13.5
     Index: 867
     GCost: 2.1474836e+9
@@ -10322,7 +10322,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 13.5
     Index: 868
     GCost: 2.1474836e+9
@@ -10330,7 +10330,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 13.5
     Index: 869
     GCost: 2.1474836e+9
@@ -10338,7 +10338,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -14.5
+      x: -34.5
       y: 14.5
     Index: 870
     GCost: 2.1474836e+9
@@ -10346,7 +10346,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -13.5
+      x: -33.5
       y: 14.5
     Index: 871
     GCost: 2.1474836e+9
@@ -10354,7 +10354,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -12.5
+      x: -32.5
       y: 14.5
     Index: 872
     GCost: 2.1474836e+9
@@ -10362,7 +10362,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -11.5
+      x: -31.5
       y: 14.5
     Index: 873
     GCost: 2.1474836e+9
@@ -10370,7 +10370,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -10.5
+      x: -30.5
       y: 14.5
     Index: 874
     GCost: 2.1474836e+9
@@ -10378,87 +10378,87 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -9.5
+      x: -29.5
       y: 14.5
     Index: 875
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -8.5
+      x: -28.5
       y: 14.5
     Index: 876
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -7.5
+      x: -27.5
       y: 14.5
     Index: 877
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -6.5
+      x: -26.5
       y: 14.5
     Index: 878
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -5.5
+      x: -25.5
       y: 14.5
     Index: 879
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -4.5
+      x: -24.5
       y: 14.5
     Index: 880
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -3.5
+      x: -23.5
       y: 14.5
     Index: 881
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -2.5
+      x: -22.5
       y: 14.5
     Index: 882
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -1.5
+      x: -21.5
       y: 14.5
     Index: 883
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: -0.5
+      x: -20.5
       y: 14.5
     Index: 884
     GCost: 2.1474836e+9
     HCost: 0
-    IsWalkable: 0
+    IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 0.5
+      x: -19.5
       y: 14.5
     Index: 885
     GCost: 2.1474836e+9
@@ -10466,7 +10466,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 1.5
+      x: -18.5
       y: 14.5
     Index: 886
     GCost: 2.1474836e+9
@@ -10474,7 +10474,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 2.5
+      x: -17.5
       y: 14.5
     Index: 887
     GCost: 2.1474836e+9
@@ -10482,7 +10482,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 3.5
+      x: -16.5
       y: 14.5
     Index: 888
     GCost: 2.1474836e+9
@@ -10490,7 +10490,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 4.5
+      x: -15.5
       y: 14.5
     Index: 889
     GCost: 2.1474836e+9
@@ -10498,7 +10498,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 5.5
+      x: -14.5
       y: 14.5
     Index: 890
     GCost: 2.1474836e+9
@@ -10506,7 +10506,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 6.5
+      x: -13.5
       y: 14.5
     Index: 891
     GCost: 2.1474836e+9
@@ -10514,7 +10514,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 7.5
+      x: -12.5
       y: 14.5
     Index: 892
     GCost: 2.1474836e+9
@@ -10522,7 +10522,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 8.5
+      x: -11.5
       y: 14.5
     Index: 893
     GCost: 2.1474836e+9
@@ -10530,7 +10530,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 9.5
+      x: -10.5
       y: 14.5
     Index: 894
     GCost: 2.1474836e+9
@@ -10538,7 +10538,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 10.5
+      x: -9.5
       y: 14.5
     Index: 895
     GCost: 2.1474836e+9
@@ -10546,7 +10546,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 11.5
+      x: -8.5
       y: 14.5
     Index: 896
     GCost: 2.1474836e+9
@@ -10554,7 +10554,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 12.5
+      x: -7.5
       y: 14.5
     Index: 897
     GCost: 2.1474836e+9
@@ -10562,7 +10562,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 13.5
+      x: -6.5
       y: 14.5
     Index: 898
     GCost: 2.1474836e+9
@@ -10570,7 +10570,7 @@ MonoBehaviour:
     IsWalkable: 1
     ComeFromIndex: -1
   - Pos:
-      x: 14.5
+      x: -5.5
       y: 14.5
     Index: 899
     GCost: 2.1474836e+9
