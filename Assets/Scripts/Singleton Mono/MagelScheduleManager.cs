@@ -10,6 +10,8 @@ public class MagelSchedule
 	public float StartTime;
 	public float EndTime;
 	public Vector2Int HalfSize;
+	public List<Vector2Int> EnemyChance;
+	public List<Entity> SpawnedEntity;
 }
 
 public class MagelScheduleManager : BaseController
@@ -47,13 +49,13 @@ public class MagelScheduleManager : BaseController
 
 	private void stopSchedule(MagelSchedule magelSchedule)
 	{
-		Debug.Log("remove" + magelSchedule.HalfSize);
+		// Debug.Log("remove" + magelSchedule.HalfSize);
 	}
 
 	private void startSchedule(MagelSchedule magelSchedule)
 	{
 		Debug.Log("build  " + magelSchedule.HalfSize);
-		_spawnerManager.Build(magelSchedule.HalfSize);
+		_spawnerManager.Build(magelSchedule);
 		
 		
 	}

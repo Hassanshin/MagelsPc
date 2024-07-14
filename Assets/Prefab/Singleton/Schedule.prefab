@@ -44,17 +44,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f299089f8a1f7f4480f87f40e935770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInit: 0
+  IsInit: 1
   _schedules:
   - Name: Chrome
     StartTime: 1
     EndTime: 50
     HalfSize: {x: 3, y: 5}
+    EnemyChance:
+    - {x: 25, y: 25}
   - Name: Discord
     StartTime: 2
     EndTime: 50
     HalfSize: {x: 4, y: 12}
+    EnemyChance:
+    - {x: 1, y: 1}
   - Name: Steam
     StartTime: 4
     EndTime: 60
     HalfSize: {x: 16, y: 5}
+    EnemyChance:
+    - {x: 10, y: 25}

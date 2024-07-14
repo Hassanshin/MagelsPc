@@ -6,6 +6,8 @@ using Unity.Physics;
 using System;
 using Unity.Collections;
 using Tertle.DestroyCleanup;
+using BoxCollider = UnityEngine.BoxCollider;
+using System.Collections;
 
 public class SpawnerManager : BaseController
 {
@@ -26,8 +28,12 @@ public class SpawnerManager : BaseController
 	CollisionFilter _obstacleFilter = new CollisionFilter
 	{
 		BelongsTo = 1u << 6,
-		CollidesWith = uint.MaxValue,
+		CollidesWith = 1u << 6,
 	};
+	
+	[SerializeField]
+	private BoxCollider _monoWall;
+	
 	public override void Init()
 	{
 		_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -35,12 +41,14 @@ public class SpawnerManager : BaseController
 		_cornerStorage.transform.position = _defaultPosCornerStorage;	
 	}
 	
-	public void Build(Vector2Int size)
+	public void Build(MagelSchedule schedule)
 	{
-		
+		Vector2Int size = schedule.HalfSize;
 		Vector3Int center = new Vector3Int(
 			Mathf.CeilToInt(_cornerProcess.position.x) + size.x, 0, 
 			Mathf.CeilToInt(_cornerProcess.position.z));
+		
+		GroupSpawn(schedule, center);
 		
 		_cornerProcess.position = new Vector3( 1 + _cornerProcess.position.x + size.x * 2, 0, _cornerProcess.position.z);
 		
@@ -73,7 +81,44 @@ public class SpawnerManager : BaseController
 			SpawnWall(0, new Vector3Int(center.x - size.x, 0, center.z - i));
 		}
 		
+		StartCoroutine(DelayedActivation(schedule, 0.4f));
+	}
+	
+	public IEnumerator DelayedActivation(MagelSchedule schedule, float delay)
+	{
+		yield return new WaitForSeconds(delay);
 		GameManager.Instance.BakeGrid(_entityManager);
+		yield return new WaitForSeconds(delay);
+		
+		for (int i = 0; i < schedule.SpawnedEntity.Count; i++)
+		{
+			_entityManager.SetEnabled(schedule.SpawnedEntity[i], true);
+		}
+	}
+	
+	public void GroupSpawn(MagelSchedule schedule, Vector3Int center)
+	{
+        schedule.SpawnedEntity = new System.Collections.Generic.List<Entity>();
+		for (int i = 0; i < schedule.EnemyChance.Count; i++)
+		{
+			int randomAmount = UnityEngine.Random.Range(schedule.EnemyChance[i].x, schedule.EnemyChance[i].y + 1);
+			
+			for (int j = 0; j < randomAmount; j++)
+			{
+				float3 randomOffset = getRandomOffset(schedule);
+				
+				schedule.SpawnedEntity.Add(SpawnEnemy(i, (float3)(Vector3)center + randomOffset));
+			}
+
+			Debug.Log($"{schedule.SpawnedEntity.Count} {-schedule.HalfSize.x} <-> {schedule.HalfSize.x +1} \t {center.z} <-> {schedule.HalfSize.y}");
+		}
+	}
+
+	private static float3 getRandomOffset(MagelSchedule schedule)
+	{
+		return new float3(
+			UnityEngine.Random.Range(-schedule.HalfSize.x + 1, schedule.HalfSize.x - 2), 0,
+			UnityEngine.Random.Range(-schedule.HalfSize.y + 1, 0));
 	}
 
 	public void RemoveWall(Vector3Int vector3Int)
@@ -108,16 +153,27 @@ public class SpawnerManager : BaseController
 		{
 			return Entity.Null;
 		}
-		
+
+		Instantiate(_monoWall, pos - spawnOffsetToGrid, quaternion.identity);
+
 		Entity spawned = _entityManager.Instantiate(_spawnWallDatas[index].Entity);
 		_entityManager.SetComponentData(spawned, new LocalTransform
 		{
-			Position = pos - new Vector3(0.5f, 0, 0.5f),
+			Position = pos - spawnOffsetToGrid,
 			Rotation = quaternion.identity,
 			Scale = 1,
 		});
 		return spawned;
 	}
+
+	private static Vector3 spawnOffsetToGrid
+	{
+		get
+		{
+			return new Vector3(0.5f, 0, 0.5f);
+		}
+	}
+
 	public Entity SpawnEnemy(int index, float3 pos) 
 	{
 		if (!_entityManager.CreateEntityQuery(new ComponentType[] { typeof(EnemyDataBufferSingleton) })
@@ -131,8 +187,10 @@ public class SpawnerManager : BaseController
 		{
 			Position = pos,
 			Rotation = quaternion.identity,
-			Scale = 1,
+			Scale = 0.5f,
 		});
+		_entityManager.SetEnabled(spawned, false);
+		
 		return spawned;
 	}
 	public Entity SpawnDataBlock(int index, float3 pos) 

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 	CollisionFilter _obstacleFilter = new CollisionFilter
 	{
 		BelongsTo = 1u << 6,
-		CollidesWith = uint.MaxValue,
+		CollidesWith = 1u << 6,
 	};
 	public void OnDrawGizmos()
 	{
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
 		{
 			return;
 		}
-		
+		Debug.Log("baked");
 		var gridBuffer = entityManager.GetBuffer<GridBuffer>(gridEntity);
 		var gridSingleton = entityManager.GetComponentData<GridSingleton>(gridEntity);
 		
