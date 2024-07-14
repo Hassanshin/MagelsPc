@@ -7,11 +7,11 @@ namespace Baker
 {
 	public class StatsAuthoring : MonoBehaviour
 	{
-		public StatsData Data = new()
+		public StatsComponent Data = new()
 		{
 			Health = Stats.InitHealth(100),
 			Attack = Stats.Init(3),
-			Mana = Stats.InitHealth(50),
+			Energy = Stats.InitHealth(50),
 		};
 	}
 
@@ -21,22 +21,22 @@ namespace Baker
 		{
 			Entity entity = GetEntity(authoring, TransformUsageFlags.None);
 			
-			AddComponent(entity, new StatsComponent
-			{
-				Data = authoring.Data
-			});
+			AddComponent(entity, authoring.Data);
+			AddComponent<IFrameComponent>(entity);
 		}
 	}
 }
+	
 	[System.Serializable]
-	public struct StatsData
+	public struct StatsComponent : IComponentData
 	{
 		public Stats Health;
-		public Stats Mana;
+		public Stats Energy;
 		public Stats Attack;
 	}
 	
-	public struct StatsComponent : IComponentData
+	public struct IFrameComponent : IComponentData
 	{
-		public StatsData Data;
+		public readonly bool IsOnIFrame => CurrentDuration > 0;
+		public float CurrentDuration;
 	}

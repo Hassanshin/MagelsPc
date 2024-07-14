@@ -194,7 +194,7 @@ MonoBehaviour:
       _minMax:
         x: 0
         y: 100
-    Mana:
+    Energy:
       _value: 50
       _defaultValue: 50
       _minMax:

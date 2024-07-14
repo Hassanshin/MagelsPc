@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour
 	{
 		private EntityManager _entityManager;
+		private UiManager _uiManager;
 		private Entity _entity;
 		[SerializeField]
 		private Rigidbody _rigidbody;
@@ -34,30 +35,43 @@ public class PlayerController : MonoBehaviour
 		public void Start()
 		{
 			_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+			_uiManager = GameManager.Instance.GetController<UiManager>();
 			_cam = Camera.main;
-			
 			
 		}
 		
 		public void Update()
+	{
+		_isReady = _entityManager.CreateEntityQuery(new ComponentType[] { typeof(PlayerTag) }).TryGetSingletonEntity<PlayerTag>(out _entity);
+		if (!_isReady) { return; }
+
+		if (Input.GetButtonDown("Fire1"))
 		{
-			_isReady = _entityManager.CreateEntityQuery(new ComponentType[] { typeof(PlayerTag)}).TryGetSingletonEntity<PlayerTag>(out _entity);
-			if (!_isReady) { return; }
-			
-			if (Input.GetButtonDown("Fire1"))
-			{
-				shoot();
-			}
-			
-			if (Input.GetKeyDown(KeyCode.R))
-			{
-				reload();
-			}
+			shoot();
 		}
 
-		
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			reload();
+		}
 
-		public void FixedUpdate()
+		updateUi();
+
+	}
+
+	private void updateUi()
+	{
+		var stats = _entityManager.GetComponentData<StatsComponent>(_entity);
+		_uiManager.UpdateSliderHealth(stats.Health.PercentageValue);
+		_uiManager.UpdateSliderEnergy(stats.Energy.PercentageValue);
+		
+		if (stats.Health.Value <= 0)
+		{
+			GameManager.Instance.GameOver(false);
+		}
+	}
+
+	public void FixedUpdate()
 		{
 			if (!_isReady) {return;}
 			float hor = Input.GetAxis("Horizontal");

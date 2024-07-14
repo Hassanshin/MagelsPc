@@ -53,10 +53,17 @@ namespace Hash.HashMap
 		private SettingsSingleton _settingsSingleton;
 		public Entity InGame;
 		public NativeParallelMultiHashMap<Entity, HitData> HitDataHashMap;
+
+
 		public float DeltaTime;
 		public ComponentLookup<StatsComponent> StatsComponentLookup;
 		public ComponentLookup<BulletComponent> BulletComponentLookup;
 		public DynamicBuffer<HitBufferDataMono> HitBufferMono;
+		public Entity Player;
+		public RefRW<IFrameComponent> PlayerIFrame;
+		public RefRW<StatsComponent> PlayerStats;
+		public LocalTransform PlayerPos;
+		
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<EnemyDataBufferSingleton>();
@@ -83,21 +90,24 @@ namespace Hash.HashMap
 			SystemAPI.TryGetSingletonEntity<InGameSingleton>(out InGame);
 			SystemAPI.TryGetSingleton(out _gridSingleton);
 			SystemAPI.TryGetSingleton(out _settingsSingleton);
-			SystemAPI.TryGetSingletonEntity<GridSingleton>(value: out Entity partition);
+			// SystemAPI.TryGetSingletonEntity<GridSingleton>(value: out Entity partition);
 			SystemAPI.TryGetSingletonBuffer(out HitBufferMono);
 			
 			StatsComponentLookup.Update(ref state);
 			BulletComponentLookup.Update(ref state);
 			
+			SystemAPI.TryGetSingletonEntity<PlayerTag>(value: out Player);
+			PlayerStats = StatsComponentLookup.GetRefRW(Player);
+			PlayerIFrame = SystemAPI.GetComponentRW<IFrameComponent>(Player);
+			PlayerPos = SystemAPI.GetComponent<LocalTransform>(Player);
+			
 			DeltaTime = SystemAPI.Time.DeltaTime;
 			// Log(SpawnDatas.IsCreated);
 			
 			HitDataHashMap = DecayHitData();
-			
-			// define partition
 			var PartitionHashMap = new NativeParallelMultiHashMap<int, Partition>(INITIAL_CAPACITY, Allocator.TempJob);
 			
-			// writing
+			// writing Grid ID
 			var writerJob = 
 			new PartitionWriteIdJob()
 			{
@@ -106,14 +116,53 @@ namespace Hash.HashMap
 			}.ScheduleParallel(state.Dependency);
 			writerJob.Complete();
 			
-			// reading
-			// var readerJob = 
-			// new PartitionReaderJob()
-			// {
-			// 	HashMap = Hash.AsReadOnly(),
-			// 	GridSingleton = _gridSingleton,
-			// }.ScheduleParallel(writerJob);
-			// readerJob.Complete();
+			if (!PlayerIFrame.ValueRO.IsOnIFrame)
+			{
+				int playerGridId = _gridSingleton.GetIdFromPos(PlayerPos.Position.xz);
+				if (PartitionHashMap.TryGetFirstValue(playerGridId, out Partition neighbor, out var it))
+				{
+					do
+					{
+						if (neighbor.Entity == Player)
+						{
+							continue;
+						}
+
+						// test enemy
+						if ((neighbor.Collider.CollisionLayer & ENUM_COLLIDER_LAYER.Enemy) == 0)
+						{
+							continue;
+						}
+
+						float distancesq = math.distancesq(neighbor.Pos, PlayerPos.Position.xz);
+						bool isCollided = distancesq <= 0.5f;
+						
+						#if DEBUG_PARTITION
+						UnityEngine.Debug.DrawLine(
+							new float3(neighbor.Pos.x, 0, neighbor.Pos.y),
+							new float3(PlayerPos.Position.x, 0, PlayerPos.Position.z),
+							isCollided ? UnityEngine.Color.red : UnityEngine.Color.green);
+						#endif
+
+						if (!isCollided)
+						{
+							continue;
+						}
+						
+						// do real health and trigger iFrame
+						PlayerIFrame.ValueRW.CurrentDuration = 1f;
+				
+						int damage = (int)math.ceil(StatsComponentLookup[neighbor.Entity].Attack.Value);
+						PlayerStats.ValueRW.Health.Add(-damage);
+						break;
+					}
+					while (PartitionHashMap.TryGetNextValue(out neighbor, ref it));
+				}
+			}
+			else
+			{
+				PlayerIFrame.ValueRW.CurrentDuration -= DeltaTime;
+			}
 			
 			NativeList<HitData> newHitDataList = new(INITIAL_CAPACITY, Allocator.TempJob);
 			var bulletToEnemyHandle = 
@@ -139,7 +188,7 @@ namespace Hash.HashMap
 				{
 					var stats = StatsComponentLookup.GetRefRW(hitData.Target);
 					processBulletHit(ref state, hitData, stats, bullet);
-					hitData.IsKilling = stats.ValueRO.Data.Health.Value <= 0;
+					hitData.IsKilling = stats.ValueRO.Health.Value <= 0;
 					// UnityEngine.Debug.Log(hitData.IsKilling);
 				}
 				else if(hitData.TargetLayer == ENUM_COLLIDER_LAYER.Wall)
@@ -162,14 +211,14 @@ namespace Hash.HashMap
 
 		private void processBulletHit(ref SystemState state, HitData hitData, RefRW<StatsComponent> stats, RefRW<BulletComponent> bullet)
 		{
-			if (stats.ValueRO.Data.Health.Value <= 0 || bullet.ValueRO.Pierce <= 0)
+			if (stats.ValueRO.Health.Value <= 0 || bullet.ValueRO.Pierce <= 0)
 			{
 				return;
 			}
 			
-			stats.ValueRW.Data.Health.Add(-bullet.ValueRO.Damage);
+			stats.ValueRW.Health.Add(-bullet.ValueRO.Damage);
 			
-			if (stats.ValueRO.Data.Health.Value <= 0)
+			if (stats.ValueRO.Health.Value <= 0)
 			{
 				// target die. drop items?
 				state.EntityManager.SetComponentEnabled<DestroyTag>(hitData.Target, true);

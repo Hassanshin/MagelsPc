@@ -81,7 +81,8 @@ public class GameManager : MonoBehaviour
 	
 	#endregion
 	
-	public ENUM_GAME_STATE GameState;
+	private ENUM_GAME_STATE _gameState;
+	public ENUM_GAME_STATE GameState => _gameState;
 	
 	private bool _isReady;
 	
@@ -119,7 +120,22 @@ public class GameManager : MonoBehaviour
 		
 		hitBuffer.Clear();
 	}
-
+	
+	public void StartGame()
+	{
+		_gameState = ENUM_GAME_STATE.Playing;
+	}
+	
+	public void GameOver(bool isWinning)
+	{
+		if (_gameState != ENUM_GAME_STATE.Playing) { return; }
+		
+		_gameState = isWinning ? ENUM_GAME_STATE.Winning : ENUM_GAME_STATE.Losing;
+		
+		GetController<UiManager>().GameOver(_gameState);
+	}
+	
+	#region grid process
 	public void UpdateGridByMovement(float3 playerPos)
 	{
 		if (!_entityManager.CreateEntityQuery(new ComponentType[] { typeof(GridSingleton)})
@@ -145,7 +161,7 @@ public class GameManager : MonoBehaviour
 		{
 			return;
 		}
-		Debug.Log("baked");
+		// Debug.Log("baked");
 		var gridBuffer = entityManager.GetBuffer<GridBuffer>(gridEntity);
 		var gridSingleton = entityManager.GetComponentData<GridSingleton>(gridEntity);
 		
@@ -200,6 +216,7 @@ public class GameManager : MonoBehaviour
 		
 		return partitions;
 	}
-
+	
+	#endregion
 	
 }

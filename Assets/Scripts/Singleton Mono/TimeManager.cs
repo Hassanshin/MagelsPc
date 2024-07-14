@@ -15,20 +15,20 @@ public class TimeManager : BaseController
 	public override void Init()
 	{
 		_gameManager = GameManager.Instance;
-		StartCoroutine(updateTimer());
 	}
 	
 	public void Update()
 	{
-		if (_gameManager.GameState == ENUM_GAME_STATE.Playing)
+		if (_gameManager.GameState == ENUM_GAME_STATE.Idling)
 		{
-			updateTimer();
+			_gameManager.StartGame();
+			StartCoroutine(updateTimer());
 		}
 	}
 
 	private IEnumerator updateTimer()
 	{
-		while (_gameManager.GameState != ENUM_GAME_STATE.Playing)
+		while (_gameManager.GameState == ENUM_GAME_STATE.Playing)
 		{
 			yield return new WaitForSeconds(1);
 			_timer++;
