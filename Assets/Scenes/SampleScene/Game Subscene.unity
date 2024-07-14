@@ -12512,13 +12512,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd4fd55ee0bea646a62049450d1e790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpawnCount: 100
+  MaxSpawnCount: 0
   EnemyList:
   - {fileID: 5799047079922632947, guid: 264c66ecb246d3444876c34cf257bd21, type: 3}
   BulletList:
   - {fileID: -1899966483167304530, guid: 8ae2903838ac56548bb03876dcc93077, type: 3}
   WallList:
   - {fileID: 8327753795334896739, guid: 40b4e32b316f9eb4eacb9fe99fcc4dbc, type: 3}
+  - {fileID: 8327753795334896739, guid: 9e5fb4b19d8c8d545b5eb6d849ca87ab, type: 3}
   DataBlockList:
   - {fileID: 8327753795334896739, guid: d268f6e31957f314c8947133a9d34e14, type: 3}
   MinMaxRandomDeathDelay:
@@ -14298,7 +14299,7 @@ PrefabInstance:
     - target: {fileID: 8327753795334896739, guid: 40b4e32b316f9eb4eacb9fe99fcc4dbc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17369,7 +17370,7 @@ PrefabInstance:
     - target: {fileID: 8327753795334896739, guid: 40b4e32b316f9eb4eacb9fe99fcc4dbc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17724,7 +17725,7 @@ PrefabInstance:
     - target: {fileID: 8327753795334896739, guid: 40b4e32b316f9eb4eacb9fe99fcc4dbc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20539,7 +20540,7 @@ PrefabInstance:
     - target: {fileID: 8327753795334896739, guid: 40b4e32b316f9eb4eacb9fe99fcc4dbc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21614,7 +21615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1978052912
 Transform:
   m_ObjectHideFlags: 0

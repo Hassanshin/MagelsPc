@@ -125,7 +125,7 @@ MonoBehaviour:
     RadiusInt: 1
     Shape: 1
     CollisionLayer: 8
-    CollideWith: 6
+    CollideWith: 0
 --- !u!114 &6967373292814821691
 MonoBehaviour:
   m_ObjectHideFlags: 0

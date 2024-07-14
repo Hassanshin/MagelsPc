@@ -14,6 +14,11 @@ public class SpawnerManager : BaseController
 	DynamicBuffer<DataBlockDataBufferSingleton> _spawnDataBlockDatas;
 	DynamicBuffer<WallDataBufferSingleton> _spawnWallDatas;
 	
+	[Header("Data")]
+	[SerializeField]
+	private Vector3 _defaultPosCornerStorage;
+	[SerializeField]
+	private Vector3 _defaultPosCornerProcess;
 	[SerializeField]
 	private Transform _cornerProcess;
 	[SerializeField]
@@ -25,7 +30,9 @@ public class SpawnerManager : BaseController
 	};
 	public override void Init()
 	{
-		_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;	
+		_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+		_cornerProcess.transform.position = _defaultPosCornerProcess;	
+		_cornerStorage.transform.position = _defaultPosCornerStorage;	
 	}
 	
 	public void Build(Vector2Int size)
@@ -45,11 +52,14 @@ public class SpawnerManager : BaseController
 			SpawnWall(0, new Vector3Int(center.x + i, 0, center.z - size.y));
 		}
 		
-		// remove door
-		RemoveWall(new Vector3Int(center.x + 1, 0, center.z +1));
-		RemoveWall(new Vector3Int(center.x    , 0, center.z +1));
-		RemoveWall(new Vector3Int(center.x - 1, 0, center.z +1));
-		
+		for (int i = -length; i < length + 1; i++)
+		{
+			if (i < 2 && i > -2)
+			{
+				continue;
+			}
+			SpawnWall(1, new Vector3Int(center.x + i, 0, center.z + 1));
+		}
 		
 		
 		// right left wall
