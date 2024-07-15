@@ -51,31 +51,38 @@ using Hash.Util;
 		public void Execute(Entity owner, [ChunkIndexInQuery] int chunkIndex, ref LocalTransform localTransform,
 			DynamicBuffer<AgentPathBuffer> buffers, ref AgentMoveComponent moveComponent, in AgentPathComponent pathComponent)
 		{
-			if (moveComponent.IsStopped) { return; }
-
-            float2 destination = pathComponent.Destination;
-            
-            if (GridSingleton.GetIdFromPos(localTransform.Position.xz) == GridSingleton.GetIdFromPos(destination))
+			if (moveComponent.IsStopped)
+			{ 
+				moveComponent.CurrentDestination = PlayerPos;
+				moveComponent.DistanceSqLeft = math.distancesq(localTransform.Position, moveComponent.CurrentDestination);
+				
+				moveComponent.IsStopped = moveComponent.DistanceSqLeft <= 1E-2;
+				
+				return; 
+			}
+			
+			if (buffers.Length > 1)
 			{
-				moveComponent.DistanceSqLeft = math.distancesq(localTransform.Position, pathComponent.Destination3D);
+				var nextPath = buffers[buffers.Length - 2];
+				moveComponent.CurrentDestination = new float3(nextPath.Value.x, 0, nextPath.Value.y);
+				
+				moveComponent.DistanceSqLeft = math.distancesq(localTransform.Position, moveComponent.CurrentDestination);
+				if (moveComponent.DistanceSqLeft <= 1E-2)
+				{
+					buffers.RemoveAt(buffers.Length - 1);
+				}
+			}
+			else
+			{
+				moveComponent.CurrentDestination = PlayerPos;
+				moveComponent.DistanceSqLeft = math.distancesq(localTransform.Position, moveComponent.CurrentDestination);
 				if (moveComponent.DistanceSqLeft <= 1E-2)
 				{
 					moveComponent.IsStopped = true;
 				}
 			}
 			
-			float3 next;
-			if (buffers.Length >= 1)
-			{
-				var nextPath = buffers[buffers.Length - 2];
-				next = new float3(nextPath.Value.x, 0, nextPath.Value.y);
-			}
-			else
-			{
-				next = pathComponent.Destination3D;
-			}
-			
-			moveComponent.Direction = math.normalize(next - localTransform.Position);
+			moveComponent.Direction = math.normalize(moveComponent.CurrentDestination - localTransform.Position);
 			localTransform.Position += DeltaTime * moveComponent.Speed * moveComponent.Direction;
 			
 			localTransform.Rotation = quaternion.LookRotation(moveComponent.Direction, math.up());

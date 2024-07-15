@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
 	private void applyPowerUp(PowerUpsComponent powerUp)
 	{
-		Debug.Log(powerUp.Type);
+		_uiManager.SpawnToaster(powerUp.Type.ToString(), "updated modules", new Color(0.8f, 0.5f, 0.7f));
 		switch (powerUp.Type)
 		{
 			case ENUM_POWER_UPS_TYPE.Health:
@@ -159,11 +159,12 @@ public class PlayerController : MonoBehaviour
 	{
 		for (int i = 0; i < Weapons.Count; i++)
 		{
-			Weapons[i].Shoot();
-			
+			if (Weapons[i].Shoot())
+            {
+		        _vfxMuzzle.Play();
+            }
 		}
 		
-		_vfxMuzzle.Play();
 	}
 	
 	private void reload()

@@ -45,22 +45,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInit: 1
+  _winSeconds: 60
   _schedules:
-  - Name: Chrome
-    StartTime: 1
-    EndTime: 50
+  - Name: Anti-Virus
+    Time: {x: 1, y: 60}
+    Description: It's you, ever felt to be a program?
+    EnergyConsumed: 5
     HalfSize: {x: 3, y: 5}
     EnemyChance:
-    - {x: 25, y: 25}
-  - Name: Discord
-    StartTime: 2
-    EndTime: 50
-    HalfSize: {x: 4, y: 12}
-    EnemyChance:
+    - {x: 0, y: 0}
     - {x: 1, y: 1}
-  - Name: Steam
-    StartTime: 4
-    EndTime: 60
-    HalfSize: {x: 16, y: 5}
+  - Name: Photo App
+    Time: {x: 5, y: 24}
+    Description: 
+    EnergyConsumed: 20
+    HalfSize: {x: 8, y: 8}
     EnemyChance:
-    - {x: 10, y: 25}
+    - {x: 2, y: 15}
+  - Name: Browser
+    Time: {x: 7, y: 24}
+    Description: 
+    EnergyConsumed: 20
+    HalfSize: {x: 4, y: 10}
+    EnemyChance:
+    - {x: 3, y: 5}
+    - {x: 1, y: 1}
+  - Name: Notepad
+    Time: {x: 10, y: 25}
+    Description: 
+    EnergyConsumed: 2
+    HalfSize: {x: 3, y: 5}
+    EnemyChance:
+    - {x: 2, y: 15}
+  - Name: Tabular Program
+    Time: {x: 15, y: 30}
+    Description: 
+    EnergyConsumed: 3
+    HalfSize: {x: 5, y: 5}
+    EnemyChance:
+    - {x: 2, y: 15}
+  - Name: Meeting App
+    Time: {x: 20, y: 35}
+    Description: 
+    EnergyConsumed: 10
+    HalfSize: {x: 5, y: 10}
+    EnemyChance:
+    - {x: 2, y: 15}

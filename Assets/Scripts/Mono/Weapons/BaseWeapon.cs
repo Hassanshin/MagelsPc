@@ -33,6 +33,7 @@ using UnityEngine;
 		protected DynamicBuffer<BulletDataBufferSingleton> _buffer;
 		
 		public bool AbleToFire => _currentAmmo > 0;
+		public bool IsReloading;
 		[SerializeField]
 		protected Vector3 _playerPos => this.transform.position;
 		[SerializeField]
@@ -45,7 +46,7 @@ using UnityEngine;
 		private ParticleSystem _vfxKill;
 		
 		public abstract void Reload();
-		public abstract void Shoot();
+		public abstract bool Shoot();
 		public abstract void OnHit(HitData data);
 		
 		

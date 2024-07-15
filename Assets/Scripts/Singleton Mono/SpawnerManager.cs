@@ -118,7 +118,7 @@ public class SpawnerManager : BaseController
 				schedule.SpawnedEntity.Add(SpawnEnemy(i, (float3)(Vector3)center + randomOffset));
 			}
 
-			Debug.Log($"{schedule.SpawnedEntity.Count} {-schedule.HalfSize.x} <-> {schedule.HalfSize.x +1} \t {center.z} <-> {schedule.HalfSize.y}");
+			// Debug.Log($"{schedule.SpawnedEntity.Count} {-schedule.HalfSize.x} <-> {schedule.HalfSize.x +1} \t {center.z} <-> {schedule.HalfSize.y}");
 		}
 	}
 

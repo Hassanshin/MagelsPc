@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
 					
 					if (TotalKill % 50 == 0)
 					{
-						_spawnerManager.RandomSpawnPowerUps(hit.Pos, 25);
+						_spawnerManager.RandomSpawnPowerUps(hit.Pos, 100);
 					}
 					else
 					{

@@ -17,13 +17,36 @@ public class UiManager : BaseController
 	
 	[Header("toaster")]
 	[SerializeField]
-	private Image _toasterImage;
+	private Image _toasterPrefab;
 	[SerializeField]
-	private TextMeshProUGUI _toasterText;
+	private RectTransform _toasterParent;
+	
+	[Header("weapon")]
+	[SerializeField]
+	private Image[] _ammoArray;
+	[SerializeField]
+	private TextMeshProUGUI _ammoText;
 	
 	public override void Init()
 	{
 		
+	}
+	
+	public void ShowAmmo(int amount, bool isReloading)
+	{
+		if (isReloading)
+		{
+			_ammoText.text = "Reloading";
+		}
+		else 
+		{
+			_ammoText.text = "";
+		}
+		
+		for (int i = 0; i < _ammoArray.Length; i++)
+		{
+			_ammoArray[i].gameObject.SetActive(i < amount);
+		}
 	}
 	
 	public void GameOver(ENUM_GAME_STATE state)
@@ -39,10 +62,24 @@ public class UiManager : BaseController
 		}
 	}
 	
-	public void UpdateToaster(MagelSchedule schedule)
+	public void SpawnToaster(MagelSchedule schedule)
 	{
-		_toasterImage.gameObject.SetActive(true);
-		_toasterText.text = schedule.Name;
+		var spawnedUi = Instantiate(_toasterPrefab, _toasterParent);
+		spawnedUi.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = schedule.Name + " started";
+		spawnedUi.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = schedule.Description;
+		
+		Destroy(spawnedUi.gameObject, 3f);
+	}
+	
+	public void SpawnToaster(string text, string textDesc, Color color)
+	{
+		color.a = 0.5f;
+		var spawnedUi = Instantiate(_toasterPrefab, _toasterParent);
+		spawnedUi.color = color;
+		spawnedUi.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = text;
+		spawnedUi.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = textDesc;
+		
+		Destroy(spawnedUi.gameObject, 3f);
 	}
 	
 	public void UpdateSliderHealth(float percent)

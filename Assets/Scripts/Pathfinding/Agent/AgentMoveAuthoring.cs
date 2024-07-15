@@ -30,4 +30,5 @@ namespace Baker
 		public float DistanceSqLeft;
 		public bool IsStopped;
 		public float3 Direction;
+		public float3 CurrentDestination;
 	}

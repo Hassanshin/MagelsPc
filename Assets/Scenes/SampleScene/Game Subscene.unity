@@ -12512,9 +12512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd4fd55ee0bea646a62049450d1e790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpawnCount: 10
+  MaxSpawnCount: 0
   EnemyList:
   - {fileID: 5799047079922632947, guid: 264c66ecb246d3444876c34cf257bd21, type: 3}
+  - {fileID: 5799047079922632947, guid: 829c0a6c389e2e34699f3a039a85448e, type: 3}
   BulletList:
   - {fileID: -1899966483167304530, guid: 8ae2903838ac56548bb03876dcc93077, type: 3}
   WallList:
@@ -14642,7 +14643,7 @@ PrefabInstance:
     - target: {fileID: 9165146422413619724, guid: 264c66ecb246d3444876c34cf257bd21,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18078,7 +18079,7 @@ PrefabInstance:
     - target: {fileID: 9165146422413619724, guid: 264c66ecb246d3444876c34cf257bd21,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18347,6 +18348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PowerUps
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826355120711724539, guid: c0c78b13f87a91044971f3600668e7fd,
+        type: 3}
+      propertyPath: Comp.Amount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
