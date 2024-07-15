@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2764042809617717180}
   - component: {fileID: 1356474335398568393}
   - component: {fileID: 920141619230257012}
-  m_Layer: 0
+  - component: {fileID: 1951454312564284353}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2deb9c86d11187847a17d4b76b44c0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 0
 --- !u!114 &920141619230257012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,3 +124,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: -1
+--- !u!114 &1951454312564284353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736302894700906648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79a308db28b1544889a2947ff7858b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    Health:
+      _value: 100
+      _defaultValue: 100
+      _minMax:
+        x: 0
+        y: 100
+    Mana:
+      _value: 50
+      _defaultValue: 50
+      _minMax:
+        x: 0
+        y: 50
+    Attack:
+      _value: 3
+      _defaultValue: 3
+      _minMax:
+        x: -1000000
+        y: 1000000

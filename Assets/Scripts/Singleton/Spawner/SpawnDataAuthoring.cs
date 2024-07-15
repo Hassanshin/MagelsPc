@@ -9,6 +9,9 @@ namespace Baker
 		public int MaxSpawnCount = 10;
 		public EnemyAuthoring[] EnemyList;
 		public BulletAuthoring[] BulletList;
+		public GameObject[] WallList;
+		public GameObject[] DataBlockList;
+		public PowerUpsAuthoring[] PowerUpsList;
 		public float2 MinMaxRandomDeathDelay = new float2(1, 10);
 		public float Scale = 1;
 	}
@@ -28,6 +31,11 @@ namespace Baker
 			
 			bakeEnemyBuffer(entity, authoring.EnemyList, TransformUsageFlags.Dynamic);
 			bakeBulletBuffer(entity, authoring.BulletList, TransformUsageFlags.Dynamic);
+			
+			bakeWallBuffer(entity, authoring.WallList, TransformUsageFlags.None );
+			bakeDataBlockBuffer(entity, authoring.DataBlockList, TransformUsageFlags.None );
+			
+			bakeDataPowerUpsBuffer(entity, authoring.PowerUpsList, TransformUsageFlags.Dynamic );
 		}
 		
 		private void bakeEnemyBuffer(Entity entity, EnemyAuthoring[] prefabs, TransformUsageFlags flags)
@@ -55,6 +63,42 @@ namespace Baker
 				buffer[i] = new BulletDataBufferSingleton { Entity = convertToEntity };	
 			}
 		}
+		private void bakeWallBuffer(Entity entity, GameObject[] prefabs, TransformUsageFlags flags)
+		{
+			DynamicBuffer<WallDataBufferSingleton> buffer = AddBuffer<WallDataBufferSingleton>(entity);
+			buffer.Length = prefabs.Length;
+			
+			for (int i = 0; i < prefabs.Length; i++)
+			{
+				Entity convertToEntity = GetEntity(prefabs[i], flags);
+
+				buffer[i] = new WallDataBufferSingleton { Entity = convertToEntity };	
+			}
+		}
+		private void bakeDataBlockBuffer(Entity entity, GameObject[] prefabs, TransformUsageFlags flags)
+		{
+			DynamicBuffer<DataBlockDataBufferSingleton> buffer = AddBuffer<DataBlockDataBufferSingleton>(entity);
+			buffer.Length = prefabs.Length;
+			
+			for (int i = 0; i < prefabs.Length; i++)
+			{
+				Entity convertToEntity = GetEntity(prefabs[i], flags);
+
+				buffer[i] = new DataBlockDataBufferSingleton { Entity = convertToEntity };	
+			}
+		}
+		private void bakeDataPowerUpsBuffer(Entity entity, PowerUpsAuthoring[] prefabs, TransformUsageFlags flags)
+		{
+			DynamicBuffer<PowerUpsDataBufferSingleton> buffer = AddBuffer<PowerUpsDataBufferSingleton>(entity);
+			buffer.Length = prefabs.Length;
+			
+			for (int i = 0; i < prefabs.Length; i++)
+			{
+				Entity convertToEntity = GetEntity(prefabs[i], flags);
+
+				buffer[i] = new PowerUpsDataBufferSingleton { Entity = convertToEntity };	
+			}
+		}
 	}
 }
 	
@@ -65,6 +109,18 @@ namespace Baker
 	}
 	
 	public struct EnemyDataBufferSingleton : IBufferElementData
+	{
+		public Entity Entity;
+	}
+	public struct WallDataBufferSingleton : IBufferElementData
+	{
+		public Entity Entity;
+	}
+	public struct DataBlockDataBufferSingleton : IBufferElementData
+	{
+		public Entity Entity;
+	}
+	public struct PowerUpsDataBufferSingleton : IBufferElementData
 	{
 		public Entity Entity;
 	}

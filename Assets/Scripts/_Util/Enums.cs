@@ -1,3 +1,5 @@
+using System;
+
 public enum ENUM_PATTERN_ORIGIN
 {
 	PLAYER,
@@ -117,21 +119,37 @@ public enum ENUM_DAMAGE_TYPE
 
 public enum ENUM_GAME_STATE
 {
+	Idling,
 	Playing,
 	Losing,
 	Winning,
 }
 
-public enum ENUM_SHAPE 
+public enum ENUM_COLLIDER_SHAPE 
 {
 	Circle, 
 	Rectangle, 
 }
 
+[Flags]
 public enum ENUM_COLLIDER_LAYER
 {
-	Player,
-	PlayerBullet,
-	Enemy,
+	None = 0,
+	Player = 1,
+	PlayerBullet = 2,
+	Enemy = 4,
+	Wall = 8,
+	PowerUps = 16,
 }
+
+public enum ENUM_POWER_UPS_TYPE
+{
+	Health = 0,
+	Damage = 1,
+	Pierce = 2,
+	Spread = 3,
+	Bullet = 4,
+	Duration = 5,
+}
+
 

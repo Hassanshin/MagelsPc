@@ -14,8 +14,8 @@ using Hash.Util;
 
 namespace Hash.PathFinding
 {
+	[BurstCompile]
 	[UpdateInGroup(typeof(HashCoreSystemGroup))]
-	
 	public partial struct PathfindingSystem : ISystem
 	{
 		public float Spacing;
@@ -31,7 +31,6 @@ namespace Hash.PathFinding
 		{
 			state.RequireForUpdate<IdComponent>();
 			state.RequireForUpdate<GridSingleton>();
-			
 		}
 		
 		public void OnDestroy(ref SystemState state)
@@ -74,9 +73,9 @@ namespace Hash.PathFinding
 		[ReadOnly]
 		public float DeltaTime;
 
-        public float3 PlayerPos;
+		public float3 PlayerPos;
 
-        [BurstCompile]
+		[BurstCompile]
 		public void Execute(Entity owner, [ChunkIndexInQuery] int chunkIndex,
 			in IdComponent data, ref AgentPathComponent agent, DynamicBuffer<AgentPathBuffer> buffer, in LocalTransform localTransform)
 		{
@@ -112,6 +111,11 @@ namespace Hash.PathFinding
 			}
 			
 			int endNodeIndex = GridSingleton.GetIdFromPos(endPos);
+			
+			// if (!GridSingleton.IsOnValidGrid(data.PartitionId))
+			// {
+			// 	return;
+			// }
 			
 			GridBuffer startNode = gridArray[data.PartitionId];
 			startNode.Value.GCost = 0; 
@@ -184,6 +188,11 @@ namespace Hash.PathFinding
 				neighborList.Dispose();
 			}
 			
+			// if (!GridSingleton.IsOnValidGrid(endNodeIndex))
+			// {
+			// 	return;
+			// }
+			
 			PathNode endNode = gridArray[endNodeIndex].Value;
 			if (endNode.ComeFromIndex == -1)
 			{
@@ -240,7 +249,7 @@ namespace Hash.PathFinding
 			float yDistance = math.abs(aPos.y - bPos.y);
 			float remaining = math.abs(xDistance - yDistance);
 			
-			return 14 * math.min(xDistance, yDistance) + 10 * remaining;
+			return 15 * math.min(xDistance, yDistance) + 10 * remaining;
 		}
 		
 		private int getLowestCostFNodeIndex(NativeList<int> openList, NativeArray<GridBuffer> pathNodeArray)

@@ -11,15 +11,19 @@ namespace Baker
 	{
 		public float2 Size;
 		public float2 Division => Size / Spacing;
-		public Color FineColor = Color.white;
-		public Color BadColor = Color.red;
-		
 		public float Spacing = 10;
 		public float2 corner => new float2(transform.position.x, transform.position.z) + (Size * 0.5f);
-		public PathNode[] Partitions;
 		public LayerMask ObstacleLayerMask;
+		public float ObstacleCheckRadius = 0.5f;
+		[Header("Debug")]
+		public Color FineColor = Color.white;
+		public Color BadColor = Color.red;
 		public bool ShowGizmo;
 		public bool ShowText;
+		public float DistancePercentCheck = 0.5f;
+		
+		[Header("Result")]
+		public PathNode[] Partitions;
 		
 		public void Start()
 		{
@@ -37,6 +41,9 @@ namespace Baker
 				return;
 			}
 			
+			// Get the origin
+			float2 origin = new float2(transform.position.x, transform.position.z);
+			
 			// Draw a division
 			int counter = 0;
 			for (int i = 0; i < Division.x; i++)
@@ -46,12 +53,12 @@ namespace Baker
 					float midX = getMidX(i);
 					float midY = getMidY(j);
 					
-					float2 pos = new float2(midX, midY);
+					float2 pos = new float2(midX, midY) + origin;
 					int index = GetIdFromPos(pos);
 					Partitions[index] = new PathNode
 					{
 						Pos = pos,
-						IsWalkable = !Physics.CheckSphere(new Vector3(midX, 0, midY), Spacing * 0.5f, ObstacleLayerMask),
+						IsWalkable = !Physics.CheckSphere(new Vector3(midX + origin.x, 0, midY + origin.y), ObstacleCheckRadius, ObstacleLayerMask),
 						Index = index,
 						ComeFromIndex = -1,
 						
@@ -71,13 +78,13 @@ namespace Baker
 			{
 				Gizmos.color = Partitions[i].IsWalkable ? FineColor : BadColor;
 				
-				Gizmos.DrawWireCube(transform.position + (Vector3)Partitions[i].GetFloat3, new Vector3(Spacing-0.1f, 0, Spacing-0.1f));
+				Gizmos.DrawWireCube((Vector3)Partitions[i].GetFloat3, new Vector3(Spacing-0.1f, 0, Spacing-0.1f));
 				#if UNITY_EDITOR
 				if (ShowText)
 				{
 					int id = GetIdFromPos(Partitions[i].Pos);
 					float2 pos = GetPosFromId(id);
-					UnityEditor.Handles.Label(transform.position + (Vector3)Partitions[i].GetFloat3, $"{id}\n{pos.x},{pos.y}");
+					UnityEditor.Handles.Label((Vector3)Partitions[i].GetFloat3, $"{id}\n{pos.x},{pos.y}");
 				}
 				#endif
 			}
@@ -86,6 +93,8 @@ namespace Baker
 		public int GetIdFromPos(float2 pos)
 		{
 			// Translate pos to the grid origin
+			float2 origin = new float2(transform.position.x, transform.position.z);
+			pos -= origin;
 			pos += Size * 0.5f;
 			
 			// Convert the position to grid coordinates using integer arithmetic
@@ -140,7 +149,11 @@ namespace Baker
 				Width = (int)math.ceil(authoring.Size.x),
 				MaxIndex = (int)math.ceil(authoring.Size.x * authoring.Size.y) - 1,
 				HalfSize = authoring.Size * 0.5f,
+				DistanceUpdateCheck = math.pow(authoring.Size * authoring.DistancePercentCheck, 2),
 				Origin = new float2(authoring.transform.position.x, authoring.transform.position.z),
+				
+				ObstacleCheckRadius = authoring.ObstacleCheckRadius,
+				ObstacleLayerMask = authoring.ObstacleLayerMask,
 			});
 			
 			AddComponent<GridBuffer>(entity);
@@ -177,7 +190,10 @@ namespace Baker
 
 		public override string ToString()
 		{
-			return Pos.ToString() + "." + Index + " W:" + IsWalkable;
+			return IsWalkable ?  
+				$"<color=white>{Pos}. {Index} W: {IsWalkable}</color>":
+				$"<color=red>{Pos}. {Index} W: {IsWalkable}</color>"
+				;
 		}
 	
 	}
@@ -185,12 +201,17 @@ namespace Baker
 	public struct GridSingleton : IComponentData
 	{
 		public float Spacing;
+		public float2 Division => Size / Spacing;
+		
 		public int Count;
 		public int MaxIndex;
 		public int Width;
 		public float2 Size;
 		public float2 HalfSize;
+		public float2 DistanceUpdateCheck;
 		public float2 Origin;
+		public float ObstacleCheckRadius;
+		public LayerMask ObstacleLayerMask;
 		
 		public readonly bool IsOnValidGrid(float2 pos)
 		{
@@ -203,7 +224,7 @@ namespace Baker
 		
 		public readonly bool IsOnValidGrid(int id)
 		{
-			return id < Count;
+			return id > 0 && id < Count;
 		}
 		
 		public readonly int CalculateNeighborCount(int radius)
@@ -241,7 +262,7 @@ namespace Baker
 		public readonly int GetIdFromPos(float2 pos)
 		{
 			// Translate pos to the grid origin
-			pos += HalfSize;
+			pos += -Origin + HalfSize;
 			
 			// Convert the position to grid coordinates using integer arithmetic
 			int xIndex = (int)(pos.x / Spacing);
@@ -267,5 +288,15 @@ namespace Baker
 			float yPos = yIndex * Spacing - HalfSize.y;
 
 			return new float2(xPos, yPos);
+		}
+		
+		public float GetMidX(int i)
+		{
+			return (Spacing * i) + Spacing * 0.5f + -Spacing * (Division.x * 0.5f);
+		}
+
+		public float GetMidY(int j)
+		{
+			return (Spacing * j) + Spacing * 0.5f + -Spacing * (Division.y * 0.5f);
 		}
 	}

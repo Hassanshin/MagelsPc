@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3651698870427390252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5916066571764204212}
+  - component: {fileID: 1505311136552689473}
+  m_Layer: 0
+  m_Name: Schedule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5916066571764204212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651698870427390252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1505311136552689473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651698870427390252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f299089f8a1f7f4480f87f40e935770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsInit: 1
+  _winSeconds: 60
+  _schedules:
+  - Name: Anti-Virus
+    Time: {x: 1, y: 60}
+    Description: It's you, ever felt to be a program?
+    EnergyConsumed: 5
+    HalfSize: {x: 3, y: 5}
+    EnemyChance:
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 1}
+  - Name: Photo App
+    Time: {x: 5, y: 24}
+    Description: Aw, missclick
+    EnergyConsumed: 20
+    HalfSize: {x: 8, y: 8}
+    EnemyChance:
+    - {x: 20, y: 50}
+  - Name: Notepad
+    Time: {x: 7, y: 25}
+    Description: Take some note, noted
+    EnergyConsumed: 2
+    HalfSize: {x: 3, y: 6}
+    EnemyChance:
+    - {x: 2, y: 3}
+    - {x: 1, y: 1}
+  - Name: Tabular Program
+    Time: {x: 15, y: 30}
+    Description: OMG, lot's of data
+    EnergyConsumed: 3
+    HalfSize: {x: 5, y: 5}
+    EnemyChance:
+    - {x: 25, y: 27}
+  - Name: Browser
+    Time: {x: 16, y: 24}
+    Description: Let's see what he gonna do
+    EnergyConsumed: 20
+    HalfSize: {x: 4, y: 10}
+    EnemyChance:
+    - {x: 36, y: 40}
+    - {x: 1, y: 1}
+  - Name: Meeting App
+    Time: {x: 20, y: 35}
+    Description: He's afk, should we watch them talking?
+    EnergyConsumed: 10
+    HalfSize: {x: 5, y: 10}
+    EnemyChance:
+    - {x: 2, y: 5}
+  - Name: Kikir Impak
+    Time: {x: 45, y: 60}
+    Description: Some chores to do (again)
+    EnergyConsumed: 30
+    HalfSize: {x: 5, y: 10}
+    EnemyChance:
+    - {x: 55, y: 60}
+    - {x: 3, y: 5}
+  - Name: Browser
+    Time: {x: 50, y: 75}
+    Description: Going to download something
+    EnergyConsumed: 20
+    HalfSize: {x: 10, y: 8}
+    EnemyChance:
+    - {x: 80, y: 100}
+    - {x: 2, y: 2}
+    - {x: 0, y: 0}
+  - Name: svchost.exe
+    Time: {x: 55, y: 60}
+    Description: ...
+    EnergyConsumed: 5
+    HalfSize: {x: 4, y: 5}
+    EnemyChance:
+    - {x: 0, y: 0}
+    - {x: 2, y: 2}
+    - {x: 1, y: 1}

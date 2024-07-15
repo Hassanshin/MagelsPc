@@ -9,23 +9,26 @@ namespace Tertle.DestroyCleanup
 	{
 		public float Duration = 1f;
 		
-		public class DestroyByDurationBaker : Baker<DestroyByDurationAuthoring>
+	}
+	public class DestroyByDurationBaker : Baker<DestroyByDurationAuthoring>
+	{
+		public override void Bake(DestroyByDurationAuthoring authoring)
 		{
-			public override void Bake(DestroyByDurationAuthoring authoring)
+			Entity entity = GetEntity(authoring, TransformUsageFlags.None);
+			
+			if (authoring.Duration > 0)
 			{
-				Entity entity = GetEntity(authoring, TransformUsageFlags.None);
-				
 				AddComponent(entity, new DestroyByDurationComponent
 				{
 					Duration = authoring.Duration,
 					MaxDuration = authoring.Duration,
 				});
-				
-				AddComponent<DestroyTag>(entity);
-				SetComponentEnabled<DestroyTag>(entity, false);
 			}
-		} 
-	}
+			
+			AddComponent<DestroyTag>(entity);
+			SetComponentEnabled<DestroyTag>(entity, false);
+		}
+	} 
 	
 	/// <summary> Unified destroy component allowing entities to all pass through a singular cleanup group. </summary>
 	[ChangeFilterTracking]

@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d7ac2de4639b74b92553d055cfadaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 23
-  Pierce: 5
+  Damage: 10
+  Pierce: 15
+  DelayBetweenHits: 1
 --- !u!114 &2116602012682920823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9360ab622035967428f26e35f146363d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 0.5
-  Layer: 1
+  Comp:
+    Radius: 0.4
+    RadiusInt: 1
+    Shape: 0
+    CollisionLayer: 2
+    CollideWith: 12
 --- !u!114 &6076762522335905913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,4 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c0d73e42f4bc84eaf387282722a30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 3
+  Duration: 0.3
