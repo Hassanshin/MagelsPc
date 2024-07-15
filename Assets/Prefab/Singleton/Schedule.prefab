@@ -54,40 +54,68 @@ MonoBehaviour:
     HalfSize: {x: 3, y: 5}
     EnemyChance:
     - {x: 0, y: 0}
+    - {x: 0, y: 0}
     - {x: 1, y: 1}
   - Name: Photo App
     Time: {x: 5, y: 24}
-    Description: 
+    Description: Aw, missclick
     EnergyConsumed: 20
     HalfSize: {x: 8, y: 8}
     EnemyChance:
-    - {x: 2, y: 15}
-  - Name: Browser
-    Time: {x: 7, y: 24}
-    Description: 
-    EnergyConsumed: 20
-    HalfSize: {x: 4, y: 10}
-    EnemyChance:
-    - {x: 3, y: 5}
-    - {x: 1, y: 1}
+    - {x: 20, y: 50}
   - Name: Notepad
-    Time: {x: 10, y: 25}
-    Description: 
+    Time: {x: 7, y: 25}
+    Description: Take some note, noted
     EnergyConsumed: 2
-    HalfSize: {x: 3, y: 5}
+    HalfSize: {x: 3, y: 6}
     EnemyChance:
-    - {x: 2, y: 15}
+    - {x: 2, y: 3}
+    - {x: 1, y: 1}
   - Name: Tabular Program
     Time: {x: 15, y: 30}
-    Description: 
+    Description: OMG, lot's of data
     EnergyConsumed: 3
     HalfSize: {x: 5, y: 5}
     EnemyChance:
-    - {x: 2, y: 15}
+    - {x: 25, y: 27}
+  - Name: Browser
+    Time: {x: 16, y: 24}
+    Description: Let's see what he gonna do
+    EnergyConsumed: 20
+    HalfSize: {x: 4, y: 10}
+    EnemyChance:
+    - {x: 36, y: 40}
+    - {x: 1, y: 1}
   - Name: Meeting App
     Time: {x: 20, y: 35}
-    Description: 
+    Description: He's afk, should we watch them talking?
     EnergyConsumed: 10
     HalfSize: {x: 5, y: 10}
     EnemyChance:
-    - {x: 2, y: 15}
+    - {x: 2, y: 5}
+  - Name: Kikir Impak
+    Time: {x: 45, y: 60}
+    Description: Some chores to do (again)
+    EnergyConsumed: 30
+    HalfSize: {x: 5, y: 10}
+    EnemyChance:
+    - {x: 55, y: 60}
+    - {x: 3, y: 5}
+  - Name: Browser
+    Time: {x: 50, y: 75}
+    Description: Going to download something
+    EnergyConsumed: 20
+    HalfSize: {x: 10, y: 8}
+    EnemyChance:
+    - {x: 80, y: 100}
+    - {x: 2, y: 2}
+    - {x: 0, y: 0}
+  - Name: svchost.exe
+    Time: {x: 55, y: 60}
+    Description: ...
+    EnergyConsumed: 5
+    HalfSize: {x: 4, y: 5}
+    EnemyChance:
+    - {x: 0, y: 0}
+    - {x: 2, y: 2}
+    - {x: 1, y: 1}

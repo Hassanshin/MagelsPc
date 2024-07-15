@@ -5,6 +5,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using Unity.Physics;
 using System.Linq;
+using Hash.HashMap;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -122,20 +124,35 @@ public class GameManager : MonoBehaviour
 				bulletHitBuffer[i].Weapon.Value.OnHit(hit);
 				if (hit.IsKilling)
 				{
-					TotalKill++;
+					incrementTotalKill(hit);
 					
-					if (TotalKill % 50 == 0)
-					{
-						_spawnerManager.RandomSpawnPowerUps(hit.Pos, 100);
-					}
-					else
-					{
-						_spawnerManager.RandomSpawnPowerUps(hit.Pos, 1);
-					}
+					winCheck(hit);
 				}
 			}
 
 			bulletHitBuffer.Clear();
+		}
+	}
+
+    private void winCheck(HitData hit)
+    {
+        if (hit.EnemyId == 2)
+		{
+			GameOver(true);
+		}
+    }
+
+    private void incrementTotalKill(HitData hit)
+	{
+		TotalKill++;
+
+		if (TotalKill % 50 == 0)
+		{
+			_spawnerManager.RandomSpawnPowerUps(hit.Pos, 100);
+		}
+		else
+		{
+			_spawnerManager.RandomSpawnPowerUps(hit.Pos, 1);
 		}
 	}
 

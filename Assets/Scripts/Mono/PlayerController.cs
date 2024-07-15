@@ -28,10 +28,14 @@ public class PlayerController : MonoBehaviour
 	private bool _isReloading;
 	
 	Vector3 _cursorWorldpoint = new Vector3();
+	[Header("vfx")]
 	[SerializeField]
 	private Transform _aimingTransform;
 	[SerializeField]
 	private ParticleSystem _vfxMuzzle;
+	private float _tmpHealth;
+	[SerializeField]
+	private ParticleSystem _vfxGettingHit;
 	public void Start()
 	{
 		_entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -104,13 +108,18 @@ public class PlayerController : MonoBehaviour
 	private void updateUi()
 	{
 		var stats = _entityManager.GetComponentData<StatsComponent>(_entity);
+		if (stats.Health.PercentageValue == _tmpHealth) { return; }
+		
+		_tmpHealth = stats.Health.PercentageValue;
 		_uiManager.UpdateSliderHealth(stats.Health.PercentageValue);
-		_uiManager.UpdateSliderEnergy(stats.Energy.PercentageValue);
+		// _uiManager.UpdateSliderEnergy(stats.Energy.PercentageValue);
 		
 		if (stats.Health.Value <= 0)
 		{
 			GameManager.Instance.GameOver(false);
 		}
+		
+		_vfxGettingHit.Play();
 	}
 
 	public void FixedUpdate()
@@ -160,9 +169,9 @@ public class PlayerController : MonoBehaviour
 		for (int i = 0; i < Weapons.Count; i++)
 		{
 			if (Weapons[i].Shoot())
-            {
-		        _vfxMuzzle.Play();
-            }
+			{
+				_vfxMuzzle.Play();
+			}
 		}
 		
 	}

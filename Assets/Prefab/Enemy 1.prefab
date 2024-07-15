@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7780851499395950704}
   - component: {fileID: 4134292516150873203}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23aa5c5c97485b742b4f6f660fe045cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: -1
+  Id: 0
 --- !u!114 &-4550400568311993672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,8 +201,8 @@ MonoBehaviour:
         x: 0
         y: 50
     Attack:
-      _value: 3
-      _defaultValue: 3
+      _value: 9
+      _defaultValue: 9
       _minMax:
         x: -1000000
         y: 1000000

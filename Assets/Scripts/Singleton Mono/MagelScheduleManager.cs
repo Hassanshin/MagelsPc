@@ -56,10 +56,10 @@ public class MagelScheduleManager : BaseController
 			}
 		}
 		
-		if (timer == _winSeconds)
-		{
-			GameManager.Instance.GameOver(true);
-		}
+		// if (timer == _winSeconds)
+		// {
+		// 	GameManager.Instance.GameOver(true);
+		// }
 	}
 	
 	[ContextMenu("sort")]

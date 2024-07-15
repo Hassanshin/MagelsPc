@@ -33,6 +33,7 @@ namespace Hash.HashMap
 		public bool IsKilling;
 		public Entity Target;
 		public Entity Attacker;
+		public int EnemyId;
 		public float DistanceSq;
 		public float CurrentDuration;
 		public ENUM_COLLIDER_LAYER TargetLayer;
@@ -59,6 +60,7 @@ namespace Hash.HashMap
 		public ComponentLookup<StatsComponent> StatsComponentLookup;
 		public ComponentLookup<BulletComponent> BulletComponentLookup;
 		public ComponentLookup<PowerUpsComponent> PowerUpsComponentLookup;
+		public ComponentLookup<IdComponent> IdComponentLookup;
 		public DynamicBuffer<PlayerBulletHitBufferToMono> PlayerBulletHitBufferMono;
 		public DynamicBuffer<PlayerGettingHitBufferToMono> PlayerGettingHitBufferMono;
 		
@@ -77,6 +79,7 @@ namespace Hash.HashMap
 			StatsComponentLookup = SystemAPI.GetComponentLookup<StatsComponent>();
 			BulletComponentLookup = SystemAPI.GetComponentLookup<BulletComponent>();
 			PowerUpsComponentLookup = SystemAPI.GetComponentLookup<PowerUpsComponent>();
+			IdComponentLookup = SystemAPI.GetComponentLookup<IdComponent>();
 			
 			HitDataHashMap = new NativeParallelMultiHashMap<Entity, HitData>(INITIAL_CAPACITY, Allocator.Persistent);
 		}
@@ -103,6 +106,7 @@ namespace Hash.HashMap
 			StatsComponentLookup.Update(ref state);
 			BulletComponentLookup.Update(ref state);
 			PowerUpsComponentLookup.Update(ref state);
+			IdComponentLookup.Update(ref state);
 			
 			SystemAPI.TryGetSingletonEntity<PlayerTag>(value: out Player);
 			PlayerStats = StatsComponentLookup.GetRefRW(Player);
@@ -176,6 +180,7 @@ namespace Hash.HashMap
 					var stats = StatsComponentLookup.GetRefRW(hitData.Target);
 					processBulletHit(ref state, hitData, stats, bullet);
 					hitData.IsKilling = stats.ValueRO.Health.Value <= 0;
+					hitData.EnemyId = IdComponentLookup[hitData.Target].Id;
 					// UnityEngine.Debug.Log(hitData.IsKilling);
 				}
 				else if(hitData.TargetLayer == ENUM_COLLIDER_LAYER.Wall)

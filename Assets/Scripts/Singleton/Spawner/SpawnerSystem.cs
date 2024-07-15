@@ -21,6 +21,7 @@ using Random = Unity.Mathematics.Random;
 		public void OnCreate(ref SystemState state)
 		{
 			state.RequireForUpdate<SpawnDataSingleton>();
+			state.RequireForUpdate<BossTag>();
 			// state.RequireForUpdate<YOUR_DATA_COMPONENT>();
 			_query = new EntityQueryBuilder(Allocator.Temp)
 				.WithAll<EnemyTag>()
