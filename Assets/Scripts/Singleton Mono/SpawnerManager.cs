@@ -32,8 +32,11 @@ public class SpawnerManager : BaseController
 		CollidesWith = 1u << 6,
 	};
 	
+	[Header("Mono colliders")]
 	[SerializeField]
 	private BoxCollider _monoWall;
+	[SerializeField]
+	private BoxCollider _monoDoors;
 	
 	public override void Init()
 	{
@@ -65,8 +68,13 @@ public class SpawnerManager : BaseController
 		{
 			if (i < 2 && i > -2)
 			{
+				if (i == 0)
+				{
+				    SpawnMonoDoor(schedule, new Vector3Int(center.x + i, 0, center.z + 1));
+				}
 				continue;
 			}
+
 			SpawnWall(1, new Vector3Int(center.x + i, 0, center.z + 1));
 		}
 		
@@ -84,17 +92,16 @@ public class SpawnerManager : BaseController
 		
 		StartCoroutine(DelayedActivation(schedule, 0.4f));
 	}
+
 	
+
 	public IEnumerator DelayedActivation(MagelSchedule schedule, float delay)
 	{
 		yield return new WaitForSeconds(delay);
 		GameManager.Instance.BakeGrid(_entityManager);
 		yield return new WaitForSeconds(delay);
 		
-		for (int i = 0; i < schedule.SpawnedEntity.Count; i++)
-		{
-			_entityManager.SetEnabled(schedule.SpawnedEntity[i], true);
-		}
+		
 	}
 	
 	public void GroupSpawn(MagelSchedule schedule, Vector3Int center)
@@ -166,6 +173,23 @@ public class SpawnerManager : BaseController
 	}
 
 	#region basic spawning
+	
+	public GameObject SpawnMonoDoor(MagelSchedule schedule, Vector3Int pos)
+	{
+		GameObject door = Instantiate(_monoDoors, pos - spawnOffsetToGrid, quaternion.identity).gameObject;
+		
+		door.TryGetComponent<OnTriggerEnterEvent>(out var comp);
+		comp.TriggerEnter.AddListener((col) =>
+		{
+			for (int i = 0; i < schedule.SpawnedEntity.Count; i++)
+			{
+				_entityManager.SetEnabled(schedule.SpawnedEntity[i], true);
+			}
+		});
+		
+		return door ;
+	}
+	
 	public Entity SpawnWall(int index, Vector3Int pos)
 	{
 		if (!_entityManager.CreateEntityQuery(new ComponentType[] { typeof(WallDataBufferSingleton) })
@@ -173,9 +197,11 @@ public class SpawnerManager : BaseController
 		{
 			return Entity.Null;
 		}
-
+		
+		// mono wall invisible
 		Instantiate(_monoWall, pos - spawnOffsetToGrid, quaternion.identity);
-
+		
+		// ecs wall
 		Entity spawned = _entityManager.Instantiate(_spawnWallDatas[index].Entity);
 		_entityManager.SetComponentData(spawned, new LocalTransform
 		{

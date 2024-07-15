@@ -53,6 +53,8 @@ MonoBehaviour:
   _cornerStorage: {fileID: 3191050450971468261}
   _monoWall: {fileID: 3739563124237930498, guid: 35bd0d35542c06f49840c760f154a4fb,
     type: 3}
+  _monoDoors: {fileID: 3739563124237930498, guid: 3cbe61d727da49041a86257954c1f9de,
+    type: 3}
 --- !u!1 &3534905959144798077
 GameObject:
   m_ObjectHideFlags: 0
